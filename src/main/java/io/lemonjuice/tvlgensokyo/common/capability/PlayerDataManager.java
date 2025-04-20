@@ -28,7 +28,8 @@ public class PlayerDataManager {
     }
 
     public void setPowerRecovery(int powerRecovery) {
-        this.powerRecovery = powerRecovery;
+        if(this != DUMMY)
+            this.powerRecovery = powerRecovery;
     }
 
     public int getPower() {
@@ -36,7 +37,8 @@ public class PlayerDataManager {
     }
 
     public void setPower(int power) {
-        this.power = power >= 0 && power <= this.maxPower ? power : this.power;
+        if(this != DUMMY)
+            this.power = power >= 0 && power <= this.maxPower ? power : this.power;
     }
 
     public void addPower(int power) {
@@ -50,7 +52,8 @@ public class PlayerDataManager {
     }
 
     public void setMaxPower(int maxPower) {
-        this.maxPower = maxPower;
+        if(this != DUMMY)
+            this.maxPower = maxPower;
     }
 
     public int getMaxPower() {
@@ -62,6 +65,7 @@ public class PlayerDataManager {
     }
 
     public void setEventProgress(TGGameEvent event, int progress) {
-        this.eventProgress.put(event, progress);
+        if(this != DUMMY)
+            this.eventProgress.put(event, progress);
     }
 }
