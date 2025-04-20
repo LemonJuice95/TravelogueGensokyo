@@ -1,6 +1,7 @@
 package io.lemonjuice.tvlgensokyo.utils;
 
 import io.lemonjuice.tvlgensokyo.api.interfaces.ITGCapabilityPacket;
+import io.lemonjuice.tvlgensokyo.common.capability.IPlayerDataCapability;
 import io.lemonjuice.tvlgensokyo.common.capability.TGCapabilityList;
 import io.lemonjuice.tvlgensokyo.common.capability.PlayerDataManager;
 import io.lemonjuice.tvlgensokyo.common.misc.TGGameEvent;
@@ -8,7 +9,11 @@ import io.lemonjuice.tvlgensokyo.common.network.TGNetworkHandler;
 import io.lemonjuice.tvlgensokyo.common.network.toclient.IntCapPacketToClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fml.network.PacketDistributor;
+
+import java.util.Optional;
 
 public class TGCapabilityUtils {
 
@@ -16,7 +21,11 @@ public class TGCapabilityUtils {
     public static final int MAX_POWER = 500;
 
     public static PlayerDataManager getManager(PlayerEntity player) {
-        return player.getCapability(TGCapabilityList.PLAYER_DATA).orElse(null).getManager();
+        LazyOptional<IPlayerDataCapability> optCap = player.getCapability(TGCapabilityList.PLAYER_DATA);
+        if(optCap.isPresent()) {
+            return optCap.orElse(null).getManager();
+        }
+        return PlayerDataManager.DUMMY;
     }
 
     public static void addPower(PlayerEntity player, int power) {

@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PlayerDataManager {
+    public static final PlayerDataManager DUMMY = new PlayerDataManager();
+
     private int power;
     private int powerRecovery;
     private int maxPower;
