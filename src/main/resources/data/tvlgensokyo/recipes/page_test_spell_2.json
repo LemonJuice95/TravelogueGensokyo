@@ -1,0 +1,26 @@
+{
+  "type": "tvlgensokyo:spell_writing",
+  "ingredients": {
+    "1": {
+      "item": "minecraft:tnt"
+    },
+    "2": {
+      "item": "tvlgensokyo:power_point"
+    },
+    "3": {
+      "item": "minecraft:tnt"
+    },
+    "4": {
+      "item": "tvlgensokyo:power_point"
+    },
+    "5": {
+      "item": "minecraft:tnt"
+    },
+    "6": {
+      "item": "tvlgensokyo:power_point"
+    }
+  },
+  "result": {
+    "spell": "tvlgensokyo:test_spell_2"
+  }
+}

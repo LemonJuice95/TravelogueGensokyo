@@ -1,0 +1,25 @@
+{
+  "generator": {
+    "type": "minecraft:flat",
+    "seed": 0,
+    "settings": {
+      "biome": "tvlgensokyo:dream_world",
+      "layers": [
+        {
+          "height": 64,
+          "block": "minecraft:air"
+        },
+        {
+          "height": 1,
+          "block": "tvlgensokyo:dream_base"
+        }
+      ],
+      "structures": {
+        "structures": {}
+      },
+      "features": false,
+      "lakes": false
+    }
+  },
+  "type": "tvlgensokyo:dream_world"
+}

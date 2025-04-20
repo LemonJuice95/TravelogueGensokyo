@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "tvlgensokyo:block/maple_log_top",
+    "side": "tvlgensokyo:block/maple_log"
+  }
+}

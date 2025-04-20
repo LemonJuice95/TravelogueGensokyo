@@ -1,0 +1,18 @@
+{
+  "name": "tvlgensokyo:gensokyo",
+  "has_ceiling": false,
+  "logical_height": 255,
+  "bed_works": true,
+  "respawn_anchor_works": false,
+  "has_raids": false,
+  "has_skylight": true,
+  "ambient_light": 0,
+  "natural": true,
+  "piglin_safe": false,
+  "coordinate_scale": 1,
+  "ultrawarm": false,
+  "min_y": 0,
+  "height": 256,
+  "effects": "tvlgensokyo:gensokyo",
+  "infiniburn": "minecraft:infiniburn_overworld"
+}

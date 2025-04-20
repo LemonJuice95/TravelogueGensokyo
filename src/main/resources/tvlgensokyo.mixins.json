@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.lemonjuice.tvlgensokyo.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "tvlgensokyo.refmap.json",
+  "mixins": [
+    "MixinDimensionGeneratorSettings"
+  ],
+  "client": [
+    "MixinSplashText"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

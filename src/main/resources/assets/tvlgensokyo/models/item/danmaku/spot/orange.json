@@ -1,0 +1,6 @@
+{
+  "parent": "tvlgensokyo:item/danmaku_spot",
+  "textures": {
+    "layer0": "tvlgensokyo:danmaku/spot/orange"
+  }
+}

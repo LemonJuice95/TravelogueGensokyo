@@ -1,0 +1,17 @@
+{
+  "type": "tvlgensokyo:spell_writing",
+  "ingredients": {
+    "1": {
+      "item": "tvlgensokyo:danmaku_spot"
+    },
+    "3": {
+      "item": "tvlgensokyo:power_point"
+    },
+    "5": {
+      "item": "tvlgensokyo:power_point"
+    }
+  },
+  "result": {
+    "spell": "tvlgensokyo:test_spell"
+  }
+}

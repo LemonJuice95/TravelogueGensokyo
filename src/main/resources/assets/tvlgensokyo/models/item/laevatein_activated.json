@@ -1,0 +1,6 @@
+{
+  "parent": "tvlgensokyo:item/laevatein",
+  "textures": {
+    "layer0": "tvlgensokyo:item/laevatein_activated"
+  }
+}

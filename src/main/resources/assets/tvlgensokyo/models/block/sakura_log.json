@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "tvlgensokyo:block/sakura_log_top",
+    "side": "tvlgensokyo:block/sakura_log"
+  }
+}

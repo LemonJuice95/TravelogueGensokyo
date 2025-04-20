@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tvlgensokyo:block/spell_writing_table",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "tvlgensokyo:block/spell_writing_table"
+    },
+    "facing=east": {
+      "model": "tvlgensokyo:block/spell_writing_table",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "tvlgensokyo:block/spell_writing_table",
+      "y": 90
+    }
+  }
+}

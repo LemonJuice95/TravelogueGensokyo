@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "tvlgensokyo:hagfish"
+  },
+  "result": "tvlgensokyo:roasted_hagfish",
+  "experience": 0.35,
+  "cookingtime": 100
+}

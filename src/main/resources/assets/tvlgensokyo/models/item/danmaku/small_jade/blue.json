@@ -1,0 +1,6 @@
+{
+  "parent": "tvlgensokyo:item/danmaku_small_jade",
+  "textures": {
+    "layer0": "tvlgensokyo:danmaku/small_jade/blue"
+  }
+}

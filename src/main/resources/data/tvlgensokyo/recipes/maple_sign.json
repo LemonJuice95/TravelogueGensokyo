@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "sign",
+  "pattern": [
+    "###",
+    "###",
+    " I "
+  ],
+  "key": {
+    "#": {
+      "item": "tvlgensokyo:maple_planks"
+    },
+    "I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "tvlgensokyo:maple_sign",
+    "count": 3
+  }
+}

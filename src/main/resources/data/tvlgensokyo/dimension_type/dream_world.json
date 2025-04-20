@@ -1,0 +1,19 @@
+{
+  "name": "tvlgensokyo:dream_world",
+  "has_ceiling": false,
+  "logical_height": 75,
+  "bed_works": false,
+  "respawn_anchor_works": false,
+  "has_raids": false,
+  "has_skylight": false,
+  "ambient_light": 1,
+  "natural": false,
+  "piglin_safe": false,
+  "coordinate_scale": 0.01,
+  "ultrawarm": false,
+  "fixed_time": 18000,
+  "min_y": 0,
+  "height": 256,
+  "effects": "tvlgensokyo:dream_world",
+  "infiniburn": "minecraft:infiniburn_overworld"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "tvlgensokyo:maple_leaves"
+    }
+  },
+  "result": {
+    "item": "tvlgensokyo:fallen_maple_leaves",
+    "count": 3
+  }
+}

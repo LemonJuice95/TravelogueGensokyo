@@ -1,0 +1,12 @@
+{
+  "type": "tvlgensokyo:gensokyo",
+  "generator": {
+    "biome_source": {
+      "seed": 0,
+      "type": "tvlgensokyo:gensokyo_biome_provider"
+    },
+    "seed": 0,
+    "settings": "tvlgensokyo:gensokyo_noise_settings",
+    "type": "tvlgensokyo:gensokyo_chunk_generator"
+  }
+}

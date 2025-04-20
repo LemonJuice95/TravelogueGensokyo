@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:light_blue_bed"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "tvlgensokyo:sweet_bed_light_blue",
+          "properties": {
+            "part": "head"
+          }
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:survives_explosion"
+            },
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "tvlgensokyo:sweet_bed_light_blue",
+              "properties": {
+                "part": "head"
+              }
+            }
+          ],
+          "name": "tvlgensokyo:sweet_pillow"
+        }
+      ]
+    }
+  ]
+}

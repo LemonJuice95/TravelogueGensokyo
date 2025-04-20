@@ -1,0 +1,118 @@
+{
+  "c1": "==================================Items=================================",
+  "item.tvlgensokyo.debugger": "调试器",
+
+  "item.tvlgensokyo.spell_book_page": "魔导书页",
+  "item.tvlgensokyo.ayas_fan": "文文的团扇",
+  "item.tvlgensokyo.power_point": "灵力点",
+  "item.tvlgensokyo.amulet": "灵符",
+  "item.tvlgensokyo.sweet_pillow": "苏伊特安眠枕",
+
+
+  "item.tvlgensokyo.copper_coin": "铜钱",
+  "item.tvlgensokyo.silver_piece": "碎银",
+  "item.tvlgensokyo.silver_ingot": "银两",
+
+  "item.tvlgensokyo.roasted_hagfish": "烤八目鳗",
+  "item.tvlgensokyo.hagfish": "八目鳗",
+  "item.tvlgensokyo.cucumber": "黄瓜",
+  "item.tvlgensokyo.cucumber_seeds": "黄瓜种子",
+
+  "item.tvlgensokyo.laevatein": "莱瓦汀",
+  "item.tvlgensokyo.gungnir": "冈格尼尔",
+
+  "item.tvlgensokyo.test_spell_book": "测试用魔导书",
+  "item.tvlgensokyo.test_thick_spell_book": "加厚的测试用魔导书",
+
+  "item.tvlgensokyo.danmaku_spot": "点弹",
+  "item.tvlgensokyo.danmaku_small_jade": "小玉",
+
+  "item.tvlgensokyo.kappa_spawn_egg": "河童刷怪蛋",
+  "item.tvlgensokyo.gensokyo_villager_spawn_egg": "人里村民刷怪蛋",
+
+  "c2": "=================================Gui====================================",
+  "gui.tvlgensokyo.inject_power": "注入",
+
+  "container.tvlgensokyo.spell_writing": "魔导书页刻录台",
+
+  "c3": "===============================Tooltip==================================",
+  "tooltip.tvlgensokyo.power_provider.storage": "灵力储量: %s/%s",
+  "tooltip.tvlgensokyo.power_provider.speed": "灵力供给: %s/tick",
+  "tooltip.tvlgensokyo.power_provider.using": "置于副手时提供灵力回复",
+
+  "tooltip.tvlgensokyo.spell_power_cost": "灵力消耗: %s",
+  "tooltip.tvlgensokyo.spell_chant_time": "咏唱时间: %s ticks",
+
+  "tooltip.tvlgensokyo.book_speed_multiply": "咏唱速度: %sx",
+  "tooltip.tvlgensokyo.book_power_multiply": "灵力消耗倍率: %sx",
+  "tooltip.tvlgensokyo.book_pages": "书页:",
+
+
+  "tooltip.tvlgensokyo.currency": "幻想乡通用货币",
+  "tooltip.tvlgensokyo.currency_value": "价值: %s",
+
+  "tooltip.tvlgensokyo.magic_damage": " %s 魔法伤害",
+
+  "tooltip.tvlgensokyo.activated": "已激活",
+
+  "tooltip.tvlgensokyo.sweet_pillow": "似乎经过了某些特殊改造",
+
+  "c4": "================================Entity==================================",
+  "entity.tvlgensokyo.amulet": "灵符",
+  "entity.tvlgensokyo.gungnir": "冈格尼尔",
+
+  "entity.tvlgensokyo.danmaku_spot": "点弹",
+  "entity.tvlgensokyo.danmaku_small_jade": "小玉",
+
+  "entity.tvlgensokyo.kappa": "河童",
+
+  "c5": "===============================Spells===================================",
+  "spell.tvlgensokyo.empty": "空白",
+  "spell.tvlgensokyo.test_spell": "测试用魔法",
+  "spell.tvlgensokyo.test_spell_2": "测试用魔法2",
+
+  "c6": "============================ItemGroups==================================",
+  "itemGroup.tvlgensokyo.food_and_agriculture": "东方幻想游记 | 食物与农业",
+  "itemGroup.tvlgensokyo.misc": "东方幻想游记 | 杂项",
+  "itemGroup.tvlgensokyo.combat": "东方幻想游记 | 战斗用品",
+  "itemGroup.tvlgensokyo.block": "东方幻想游记 | 方块",
+  "itemGroup.tvlgensokyo.book_page": "东方幻想游记 | 魔导书页",
+
+  "c7": "============================Blocks======================================",
+  "block.tvlgensokyo.maple_sapling": "枫树树苗",
+  "block.tvlgensokyo.maple_log": "枫木原木",
+  "block.tvlgensokyo.maple_leaves": "枫树树叶",
+  "block.tvlgensokyo.fallen_maple_leaves": "枫树落叶",
+  "block.tvlgensokyo.stripped_maple_log": "去皮枫木原木",
+  "block.tvlgensokyo.maple_wood": "枫木",
+  "block.tvlgensokyo.stripped_maple_wood": "去皮枫木",
+  "block.tvlgensokyo.maple_planks": "枫木木板",
+  "block.tvlgensokyo.maple_slab": "枫木台阶",
+  "block.tvlgensokyo.maple_stairs": "枫木楼梯",
+  "block.tvlgensokyo.maple_sign": "枫木告示牌",
+  "block.tvlgensokyo.maple_wall_sign": "枫木告示牌",
+  "block.tvlgensokyo.maple_fence": "枫木栅栏",
+  "block.tvlgensokyo.maple_fence_gate": "枫木栅栏门",
+  "block.tvlgensokyo.maple_button": "枫木按钮",
+  "block.tvlgensokyo.maple_pressure_plate": "枫木压力板",
+
+  "block.tvlgensokyo.sakura_log": "樱花原木",
+  "block.tvlgensokyo.stripped_sakura_log": "去皮樱花原木",
+  "block.tvlgensokyo.sakura_wood": "樱花木",
+  "block.tvlgensokyo.stripped_sakura_wood": "去皮樱花木",
+
+
+  "block.tvlgensokyo.spell_book_binding_table": "魔导书装订台",
+  "block.tvlgensokyo.spell_writing_table": "魔导书页刻录台",
+
+  "c7": "=============================Dialogue===========================",
+  "dialogue.button.tvlgensokyo.to_the_gensokyo": "前往幻想乡",
+  "dialogue.button.tvlgensokyo.to_the_overworld": "前往主世界",
+  "dialogue.button.tvlgensokyo.to_the_dream_world": "前往梦境世界",
+
+  "dialogue.tvlgensokyo.debugger": "调试器",
+  "dialogue.tvlgensokyo.debugger.dimensions": "维度相关",
+
+  "c99": "============================Others=====================================",
+  "key.category.tvlgensokyo": "东方幻想游记"
+}

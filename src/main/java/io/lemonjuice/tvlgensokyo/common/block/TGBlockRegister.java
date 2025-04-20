@@ -1,0 +1,112 @@
+package io.lemonjuice.tvlgensokyo.common.block;
+
+import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
+import io.lemonjuice.tvlgensokyo.client.particle.TGParticleRegister;
+import io.lemonjuice.tvlgensokyo.common.block.workbench.BlockSpellBookBindingTable;
+import io.lemonjuice.tvlgensokyo.common.block.workbench.BlockSpellWritingTable;
+import io.lemonjuice.tvlgensokyo.common.world.feature.tree.MapleTree;
+import io.lemonjuice.tvlgensokyo.common.misc.TGWoodType;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
+import net.minecraft.entity.EntityType;
+import net.minecraft.particles.BasicParticleType;
+import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+
+public class TGBlockRegister {
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TravelogueGensokyo.MODID);
+
+    public static final RegistryObject<CropsBlock> CUCUMBER = BLOCKS.register("cucumber", () -> new CropsBlock(AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.CROP)));
+
+    //Workbench
+    public static final RegistryObject<Block> SPELL_BOOK_BINDING_TABLE = BLOCKS.register("spell_book_binding_table", () -> new BlockSpellBookBindingTable(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD).notSolid()));
+    public static final RegistryObject<Block> SPELL_WRITING_TABLE = BLOCKS.register("spell_writing_table", () -> new BlockSpellWritingTable(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD).notSolid()));
+
+    //Maple
+    public static final RegistryObject<Block> MAPLE_SAPLING = BLOCKS.register("maple_sapling", () -> new SaplingBlock(new MapleTree(), AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)));
+    public static final RegistryObject<Block> MAPLE_LOG = BLOCKS.register("maple_log", () -> createLogBlock(MaterialColor.SAND, MaterialColor.OBSIDIAN));
+    public static final RegistryObject<Block> FALLEN_MAPLE_LEAVES = BLOCKS.register("fallen_maple_leaves", TGBlockRegister::createFallenLeaves);
+    public static final RegistryObject<Block> MAPLE_LEAVES = BLOCKS.register("maple_leaves", () -> createFallableLeaves(FALLEN_MAPLE_LEAVES.get().getDefaultState(), TGParticleRegister.FALLING_MAPLE_LEAF));
+    public static final RegistryObject<Block> STRIPPED_MAPLE_LOG = BLOCKS.register("stripped_maple_log", () -> createLogBlock(MaterialColor.SAND, MaterialColor.SAND));
+    public static final RegistryObject<Block> MAPLE_WOOD = BLOCKS.register("maple_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.SAND).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> STRIPPED_MAPLE_WOOD = BLOCKS.register("stripped_maple_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.SAND).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> MAPLE_PLANKS = BLOCKS.register("maple_planks", () -> new Block(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.SAND).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> MAPLE_SLAB = BLOCKS.register("maple_slab", () -> new SlabBlock(AbstractBlock.Properties.from(MAPLE_PLANKS.get())));
+    public static final RegistryObject<Block> MAPLE_STAIRS = BLOCKS.register("maple_stairs", () -> new StairsBlock(() -> MAPLE_PLANKS.get().getDefaultState(), AbstractBlock.Properties.from(MAPLE_PLANKS.get())));
+    public static final RegistryObject<StandingSignBlock> MAPLE_SIGN = BLOCKS.register("maple_sign", () -> new BlockTGSign(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), TGWoodType.MAPLE));
+    public static final RegistryObject<WallSignBlock> MAPLE_WALL_SIGN = BLOCKS.register("maple_wall_sign", () -> new BlockTGWallSign(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), TGWoodType.MAPLE));
+    public static final RegistryObject<Block> MAPLE_FENCE = BLOCKS.register("maple_fence", () -> new FenceBlock(AbstractBlock.Properties.from(MAPLE_PLANKS.get())));
+    public static final RegistryObject<Block> MAPLE_FENCE_GATE = BLOCKS.register("maple_fence_gate", () -> new FenceGateBlock(AbstractBlock.Properties.from(MAPLE_PLANKS.get())));
+    public static final RegistryObject<Block> MAPLE_BUTTON = BLOCKS.register("maple_button", () -> new WoodButtonBlock(AbstractBlock.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> MAPLE_PRESSURE_PLATE = BLOCKS.register("maple_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.create(Material.WOOD, MaterialColor.SAND).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
+
+    //Sakura
+    public static final RegistryObject<Block> SAKURA_LOG = BLOCKS.register("sakura_log", () -> createLogBlock(MaterialColor.WHITE_TERRACOTTA, MaterialColor.GRAY_TERRACOTTA));
+    public static final RegistryObject<Block> STRIPPED_SAKURA_LOG = BLOCKS.register("stripped_sakura_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> SAKURA_WOOD = BLOCKS.register("sakura_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.GRAY_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> STRIPPED_SAKURA_WOOD = BLOCKS.register("stripped_sakura_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+
+    //Sweet Bed
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_WHITE = BLOCKS.register("sweet_bed_white", () -> new BlockSweetBed((BedBlock)Blocks.WHITE_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_ORANGE = BLOCKS.register("sweet_bed_orange", () -> new BlockSweetBed((BedBlock)Blocks.ORANGE_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_MAGENTA = BLOCKS.register("sweet_bed_magenta", () -> new BlockSweetBed((BedBlock)Blocks.MAGENTA_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_LIGHT_BLUE = BLOCKS.register("sweet_bed_light_blue", () -> new BlockSweetBed((BedBlock)Blocks.LIGHT_BLUE_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_YELLOW = BLOCKS.register("sweet_bed_yellow", () -> new BlockSweetBed((BedBlock)Blocks.YELLOW_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_LIME = BLOCKS.register("sweet_bed_lime", () -> new BlockSweetBed((BedBlock)Blocks.LIME_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_PINK = BLOCKS.register("sweet_bed_pink", () -> new BlockSweetBed((BedBlock)Blocks.PINK_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_GRAY = BLOCKS.register("sweet_bed_gray", () -> new BlockSweetBed((BedBlock)Blocks.GRAY_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_LIGHT_GRAY = BLOCKS.register("sweet_bed_light_gray", () -> new BlockSweetBed((BedBlock)Blocks.LIGHT_GRAY_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_CYAN = BLOCKS.register("sweet_bed_cyan", () -> new BlockSweetBed((BedBlock)Blocks.CYAN_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_PURPLE = BLOCKS.register("sweet_bed_purple", () -> new BlockSweetBed((BedBlock)Blocks.PURPLE_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_BLUE = BLOCKS.register("sweet_bed_blue", () -> new BlockSweetBed((BedBlock)Blocks.BLUE_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_BROWN = BLOCKS.register("sweet_bed_brown", () -> new BlockSweetBed((BedBlock)Blocks.BROWN_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_GREEN = BLOCKS.register("sweet_bed_green", () -> new BlockSweetBed((BedBlock)Blocks.GREEN_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_RED = BLOCKS.register("sweet_bed_red", () -> new BlockSweetBed((BedBlock)Blocks.RED_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_BLACK = BLOCKS.register("sweet_bed_black", () -> new BlockSweetBed((BedBlock)Blocks.BLACK_BED));
+
+    //Structure
+    public static final RegistryObject<Block> DREAM_BASE = BLOCKS.register("dream_base", () -> new GlassBlock(AbstractBlock.Properties.create(Material.BARRIER).hardnessAndResistance(-1.0F, 3600000.0F).noDrops().setAllowsSpawn(TGBlockRegister::neverAllowSpawn).notSolid().setOpaque(TGBlockRegister::isntSolid).setBlocksVision(TGBlockRegister::isntSolid).setSuffocates(TGBlockRegister::isntSolid)));
+
+    public static Boolean neverAllowSpawn(BlockState state, IBlockReader reader, BlockPos pos, EntityType<?> entity) {
+        return false;
+    }
+
+    public static Boolean alwaysAllowSpawn(BlockState state, IBlockReader reader, BlockPos pos, EntityType<?> entity) {
+        return true;
+    }
+
+    public static Boolean allowsSpawnOnLeaves(BlockState state, IBlockReader reader, BlockPos pos, EntityType<?> entity) {
+        return entity == EntityType.OCELOT || entity == EntityType.PARROT;
+    }
+
+    public static boolean isntSolid(BlockState state, IBlockReader reader, BlockPos pos) {
+        return false;
+    }
+
+    private static RotatedPillarBlock createLogBlock(MaterialColor topColor, MaterialColor barkColor) {
+        return new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, (state) -> {
+            return state.get(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? topColor : barkColor;
+        }).hardnessAndResistance(2.0F).sound(SoundType.WOOD));
+    }
+
+    private static BlockFallableLeaves createFallableLeaves(BlockState fallenLeaves) {
+        return new BlockFallableLeaves(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setAllowsSpawn(TGBlockRegister::allowsSpawnOnLeaves).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false), fallenLeaves);
+    }
+
+    private static BlockFallableLeaves createFallableLeaves(BlockState fallenLeaves, BasicParticleType fallingLeafParticle) {
+        return new BlockFallableLeaves(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setAllowsSpawn(TGBlockRegister::allowsSpawnOnLeaves).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false), fallenLeaves, fallingLeafParticle);
+    }
+
+    private static LeavesBlock createLeavesBlock() {
+        return new LeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setAllowsSpawn(TGBlockRegister::allowsSpawnOnLeaves).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false));
+    }
+
+    private static BlockFallenLeaves createFallenLeaves() {
+        return new BlockFallenLeaves(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).sound(SoundType.PLANT).notSolid().doesNotBlockMovement().setAllowsSpawn(TGBlockRegister::neverAllowSpawn).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false));
+    }
+}

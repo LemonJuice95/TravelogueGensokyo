@@ -1,0 +1,42 @@
+{
+  "effects": {
+    "sky_color": 991575,
+    "fog_color": 991575,
+    "water_color": 17663,
+    "water_fog_color": 38865
+  },
+  "surface_builder": {
+    "config": {
+      "top_material": {
+        "Name": "tvlgensokyo:dream_base"
+      },
+      "under_material": {
+        "Name": "tvlgensokyo:dream_base"
+      },
+      "underwater_material": {
+        "Name": "tvlgensokyo:dream_base"
+      }
+    },
+    "type": "minecraft:default"
+  },
+  "carvers": {},
+  "features": [],
+  "starts": [],
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "player_spawn_friendly": false,
+  "forge:registry_name": "tvlgensokyo:dream_world",
+  "precipitation": "none",
+  "temperature": 0.6,
+  "downfall": 1.0,
+  "category": "none",
+  "depth": 0.0,
+  "scale": 0.0
+}

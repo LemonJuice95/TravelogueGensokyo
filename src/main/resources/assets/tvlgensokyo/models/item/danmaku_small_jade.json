@@ -1,0 +1,59 @@
+{
+  "parent": "item/generated",
+  "overrides": [
+    {
+      "predicate": {
+        "tvlgensokyo:color": 0
+      },
+      "model": "tvlgensokyo:item/danmaku/small_jade/white"
+    },
+    {
+      "predicate": {
+        "tvlgensokyo:color": 1
+      },
+      "model": "tvlgensokyo:item/danmaku/small_jade/red"
+    },
+    {
+      "predicate": {
+        "tvlgensokyo:color": 2
+      },
+      "model": "tvlgensokyo:item/danmaku/small_jade/orange"
+    },
+    {
+      "predicate": {
+        "tvlgensokyo:color": 3
+      },
+      "model": "tvlgensokyo:item/danmaku/small_jade/yellow"
+    },
+    {
+      "predicate": {
+        "tvlgensokyo:color": 4
+      },
+      "model": "tvlgensokyo:item/danmaku/small_jade/green"
+    },
+    {
+      "predicate": {
+        "tvlgensokyo:color": 5
+      },
+      "model": "tvlgensokyo:item/danmaku/small_jade/cyan"
+    },
+    {
+      "predicate": {
+        "tvlgensokyo:color": 6
+      },
+      "model": "tvlgensokyo:item/danmaku/small_jade/blue"
+    },
+    {
+      "predicate": {
+        "tvlgensokyo:color": 7
+      },
+      "model": "tvlgensokyo:item/danmaku/small_jade/purple"
+    },
+    {
+      "predicate": {
+        "tvlgensokyo:color": 8
+      },
+      "model": "tvlgensokyo:item/danmaku/small_jade/black"
+    }
+  ]
+}

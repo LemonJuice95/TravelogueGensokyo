@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tvlgensokyo:block/maple_slab"
+    },
+    "type=double": {
+      "model": "tvlgensokyo:block/maple_planks"
+    },
+    "type=top": {
+      "model": "tvlgensokyo:block/maple_slab_top"
+    }
+  }
+}
