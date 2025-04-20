@@ -16,16 +16,12 @@ import net.minecraftforge.fml.network.PacketDistributor;
 import java.util.Optional;
 
 public class TGCapabilityUtils {
-
     public static final int BASE_POWER_RECOVERY = 5;
     public static final int MAX_POWER = 500;
 
     public static PlayerDataManager getManager(PlayerEntity player) {
         LazyOptional<IPlayerDataCapability> optCap = player.getCapability(TGCapabilityList.PLAYER_DATA);
-        if(optCap.isPresent()) {
-            return optCap.orElse(null).getManager();
-        }
-        return PlayerDataManager.DUMMY;
+        return optCap.isPresent() ? optCap.orElse(null).getManager() : PlayerDataManager.DUMMY;
     }
 
     public static void addPower(PlayerEntity player, int power) {
