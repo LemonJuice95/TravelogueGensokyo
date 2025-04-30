@@ -3,10 +3,12 @@ package io.lemonjuice.tvlgensokyo.common.container;
 import io.lemonjuice.tvlgensokyo.common.item.weapon.ItemSpellBook;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.IInventoryChangedListener;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 
-public class ContainerSpellBookBindingTable extends TGContainerBase{
+public class ContainerSpellBookBindingTable extends TGContainerBase {
 
     private PlayerEntity player;
     private IInventory spellBook;
@@ -46,9 +48,10 @@ public class ContainerSpellBookBindingTable extends TGContainerBase{
         ItemStack stack = this.spellBook.getStackInSlot(0);
         if(!stack.isEmpty() && stack.getItem() instanceof ItemSpellBook) {
             int slotCount = ((ItemSpellBook) stack.getItem()).slotCount;
+            ItemSpellBook.SpellBookInventory pageInventory = ((ItemSpellBook) stack.getItem()).getInventory(stack);
             if(slotCount <= 4) {
                 for(int i = 0; i < slotCount; i++) {
-                    this.addSlot(new Slot(((ItemSpellBook) stack.getItem()).getInventory(stack), i, 87 + i / 2 * 27, i % 2 == 0 ? 27 : 45) {
+                    this.addSlot(new Slot(pageInventory, i, 87 + i / 2 * 27, i % 2 == 0 ? 27 : 45) {
                         @Override
                         public int getItemStackLimit(ItemStack p_178170_1_) {
                             return 1;
@@ -58,7 +61,7 @@ public class ContainerSpellBookBindingTable extends TGContainerBase{
                 }
             } else {
                 for(int i = 0; i < 4; i++) {
-                    this.addSlot(new Slot(((ItemSpellBook) stack.getItem()).getInventory(stack), i, 69 + i / 2 * 18, i % 2 == 0 ? 27 : 45) {
+                    this.addSlot(new Slot(pageInventory, i, 69 + i / 2 * 18, i % 2 == 0 ? 27 : 45) {
                         @Override
                         public int getItemStackLimit(ItemStack p_178170_1_) {
                             return 1;
@@ -68,7 +71,7 @@ public class ContainerSpellBookBindingTable extends TGContainerBase{
                 }
 
                 for(int i = 4; i < slotCount; i++) {
-                    this.addSlot(new Slot(((ItemSpellBook) stack.getItem()).getInventory(stack), i, 114 + (i - 4) / 2 * 18, i % 2 == 0 ? 27 : 45) {
+                    this.addSlot(new Slot(pageInventory, i, 114 + (i - 4) / 2 * 18, i % 2 == 0 ? 27 : 45) {
                         @Override
                         public int getItemStackLimit(ItemStack p_178170_1_) {
                             return 1;

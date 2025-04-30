@@ -47,9 +47,9 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
     public final int slotCount;
     public final float speedMultiply;
     public final float powerMultiply;
-    public final Class<? extends SpellBookModelBase> model;
+    public final SpellBookModelBase model;
 
-    public ItemSpellBook(int slotCount, float speedMultiply, float powerMultiply, Class<? extends SpellBookModelBase> model) {
+    public ItemSpellBook(int slotCount, float speedMultiply, float powerMultiply, SpellBookModelBase model) {
         super(new Item.Properties().group(TGItemGroups.COMBAT).maxStackSize(1).setISTER(() -> SpellBookISTER::new));
         this.slotCount = slotCount;
         this.speedMultiply = speedMultiply;
@@ -62,7 +62,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
         this.slotCount = slotCount;
         this.speedMultiply = speedMultiply;
         this.powerMultiply = powerMultiply;
-        this.model = BasicSpellBookModel.class;
+        this.model = new BasicSpellBookModel();
     }
 
     public static void setOpened(ItemStack stack, boolean isOpened) {
@@ -429,13 +429,13 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
 
         @Override
         public void markDirty() {
-            super.markDirty();
             ListNBT nbt = new ListNBT();
             for(int i = 0; i < this.getSizeInventory(); i++) {
                 nbt.add(this.getStackInSlot(i).write(new CompoundNBT()));
             }
             this.spellBook.getOrCreateTag().put(NAME, nbt);
             this.spellBook.getOrCreateTag().putInt("CurrentPage", this.currentPage);
+            super.markDirty();
         }
     }
 }
