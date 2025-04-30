@@ -1,6 +1,7 @@
 package io.lemonjuice.tvlgensokyo.common.item;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
+import io.lemonjuice.tvlgensokyo.client.models.itemstack.BasicSpellBookModel;
 import io.lemonjuice.tvlgensokyo.common.block.TGBlockRegister;
 import io.lemonjuice.tvlgensokyo.common.danmaku.Danmaku;
 import io.lemonjuice.tvlgensokyo.common.entity.TGEntityRegister;
@@ -54,8 +55,8 @@ public class TGItemRegister {
     //Combat
     public static final RegistryObject<Item> LAEVATEIN = ITEMS.register("laevatein", ItemLaevatein::new);
     public static final RegistryObject<Item> GUNGNIR = ITEMS.register("gungnir", ItemGungnir::new);
-    public static final RegistryObject<Item> TEST_SPELL_BOOK = ITEMS.register("test_spell_book", () -> new ItemSpellBook(4, 1.0F, 1.0F));
-    public static final RegistryObject<Item> TEST_THICK_SPELL_BOOK = ITEMS.register("test_thick_spell_book", () -> new ItemSpellBook(8, 1.0F, 1.0F));
+    public static final RegistryObject<Item> TEST_SPELL_BOOK = ITEMS.register("test_spell_book", () -> new ItemSpellBook(4, 1.0F, 1.0F, BasicSpellBookModel.class));
+    public static final RegistryObject<Item> TEST_THICK_SPELL_BOOK = ITEMS.register("test_thick_spell_book", () -> new ItemSpellBook(8, 1.0F, 1.0F, BasicSpellBookModel.class));
     public static final RegistryObject<Item> SPELL_BOOK_PAGE = ITEMS.register("spell_book_page", ItemSpellBookPage::new);
 
     //Danmaku

@@ -1,8 +1,8 @@
 package io.lemonjuice.tvlgensokyo;
 
 import io.lemonjuice.tvlgensokyo.client.ClientProxy;
+import io.lemonjuice.tvlgensokyo.client.TGClientRegister;
 import io.lemonjuice.tvlgensokyo.client.TGItemModelsProperties;
-import io.lemonjuice.tvlgensokyo.client.input.TGInputRegister;
 import io.lemonjuice.tvlgensokyo.client.renderer.block.TGBlockRenderHandler;
 import io.lemonjuice.tvlgensokyo.client.renderer.entity.TGEntityRendererRegister;
 import io.lemonjuice.tvlgensokyo.client.renderer.environment.DreamWorldRenderInfo;
@@ -85,7 +85,7 @@ public class TravelogueGensokyo {
         TGEntityRendererRegister.entityRenderersRegistry();
         TGBlockRenderHandler.registerBlockRenderType();
         TGBlockRenderHandler.registerTileEntityRenderer();
-        TGInputRegister.registerInputs();
+        TGClientRegister.registerInputs();
 
         DimensionRenderInfo.field_239208_a_.put(new ResourceLocation(MODID, "dream_world"), new DreamWorldRenderInfo());
         DimensionRenderInfo.field_239208_a_.put(new ResourceLocation(MODID, "gensokyo"), new GensokyoRenderInfo());

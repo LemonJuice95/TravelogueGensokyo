@@ -25,7 +25,7 @@ public class SpellChantHUD extends AbstractGui {
         this.windowWidth = this.MC.getMainWindow().getScaledWidth();
         this.windowHeight = this.MC.getMainWindow().getScaledHeight();
         this.filledPart = (int) (chantProgress * 111) + 2;
-        this.yOffset = isCreative ? -15 : 0;
+        this.yOffset = isCreative ? -17 : 0;
         this.spellName = spellName;
     }
 

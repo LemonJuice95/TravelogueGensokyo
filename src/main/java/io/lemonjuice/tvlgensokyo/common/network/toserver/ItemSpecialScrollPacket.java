@@ -28,6 +28,8 @@ public class ItemSpecialScrollPacket {
             final ServerPlayerEntity player = ctx.get().getSender();
             if(player != null) {
                 ItemStack stack = player.getHeldItemMainhand();
+                if(!(stack.getItem() instanceof IScrollable))
+                    stack = player.getHeldItemOffhand();
                 if(stack.getItem() instanceof IScrollable) {
                     ((IScrollable) stack.getItem()).specialScroll(stack, packet.direction);
                 }

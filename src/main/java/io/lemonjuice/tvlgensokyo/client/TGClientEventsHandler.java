@@ -1,18 +1,17 @@
-package io.lemonjuice.tvlgensokyo.client.events;
+package io.lemonjuice.tvlgensokyo.client;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.api.interfaces.IRenderPowerHUD;
-import io.lemonjuice.tvlgensokyo.common.item.interfaces.IScrollable;
-import io.lemonjuice.tvlgensokyo.common.item.interfaces.ISpellInstrument;
 import io.lemonjuice.tvlgensokyo.client.gui.overlay.PowerHUD;
 import io.lemonjuice.tvlgensokyo.client.gui.overlay.SpellChantHUD;
 import io.lemonjuice.tvlgensokyo.client.input.TGInputs;
 import io.lemonjuice.tvlgensokyo.client.renderer.environment.GensokyoRenderInfo;
 import io.lemonjuice.tvlgensokyo.client.renderer.environment.GensokyoWeatherRenderer;
+import io.lemonjuice.tvlgensokyo.common.item.interfaces.ISpellInstrument;
 import io.lemonjuice.tvlgensokyo.common.item.misc.ItemSpellBookPage;
 import io.lemonjuice.tvlgensokyo.common.item.weapon.ItemSpellBook;
 import io.lemonjuice.tvlgensokyo.common.network.TGNetworkHandler;
-import io.lemonjuice.tvlgensokyo.common.network.toserver.ItemSpecialScrollPacket;
+import io.lemonjuice.tvlgensokyo.common.network.toserver.SetBookOpenStatePacket;
 import io.lemonjuice.tvlgensokyo.common.spell.Spell;
 import io.lemonjuice.tvlgensokyo.utils.TGMathUtils;
 import net.minecraft.client.Minecraft;
@@ -20,40 +19,56 @@ import net.minecraft.client.world.DimensionRenderInfo;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.IWeatherRenderHandler;
-import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = TravelogueGensokyo.MODID,value = Dist.CLIENT)
 public class TGClientEventsHandler {
-    private static final Minecraft MC = TravelogueGensokyo.MC;
+    private static Minecraft MC = Minecraft.getInstance();
 
-    @SubscribeEvent
-    @OnlyIn(Dist.CLIENT)
-    public static void onOverlayRender(RenderGameOverlayEvent.Pre event) {
-        if (event.getType() != RenderGameOverlayEvent.ElementType.ALL || MC.player == null || MC.player.isSpectator() || MC.gameSettings.hideGUI) {
-            return;
+    public static void handleDimensionRenderInfo() {
+        DimensionRenderInfo info = DimensionRenderInfo.field_239208_a_.get(new ResourceLocation(TravelogueGensokyo.MODID, "gensokyo"));
+        if(!MC.isGamePaused() && MC.world != null && info instanceof GensokyoRenderInfo) {
+            IWeatherRenderHandler weatherRenderHandler = info.getWeatherRenderHandler();
+            if(weatherRenderHandler instanceof GensokyoWeatherRenderer) {
+                ((GensokyoWeatherRenderer) weatherRenderHandler).tick();
+            }
         }
+    }
 
+    public static void handleSpellBookOpenState() {
+        if(MC.player != null) {
+            ItemStack stack = MC.player.getHeldItemMainhand();
+            if(!(stack.getItem() instanceof ItemSpellBook)) {
+                stack = MC.player.getHeldItemOffhand();
+            }
+            if(stack.getItem() instanceof ItemSpellBook) {
+                if(TGInputs.SPECIAL_SCROLL_SWITCH.isKeyDown()) {
+                    if(!ItemSpellBook.isOpened(stack))
+                        TGNetworkHandler.CHANNEL.sendToServer(new SetBookOpenStatePacket(true));
+                } else if(ItemSpellBook.isOpened(stack) && TravelogueGensokyo.PROXY.getChantingProgress() == 0) {
+                    TGNetworkHandler.CHANNEL.sendToServer(new SetBookOpenStatePacket(false));
+                }
+            }
+        }
+    }
+
+    public static void renderSpellChantingHud(RenderGameOverlayEvent event) {
         PlayerEntity player = MC.player;
-        ItemStack item1 = null;
+        ItemStack item1 = player.getActiveItemStack();
 
-        if (player.getHeldItemMainhand().getItem() instanceof ISpellInstrument) {
-            item1 = player.getHeldItemMainhand();
-        } else if (player.getHeldItemOffhand().getItem() instanceof ISpellInstrument) {
-            item1 = player.getHeldItemOffhand();
+        if(item1.isEmpty()) {
+            if (player.getHeldItemMainhand().getItem() instanceof ISpellInstrument) {
+                item1 = player.getHeldItemMainhand();
+            } else if (player.getHeldItemOffhand().getItem() instanceof ISpellInstrument) {
+                item1 = player.getHeldItemOffhand();
+            }
         }
 
         if(item1 != null && item1.getItem() instanceof ISpellInstrument) {
             float chantingProgress = TravelogueGensokyo.PROXY.getChantingProgress();
-            if(!player.getActiveItemStack().equals(item1)) {
+            if(!player.getActiveItemStack().getItem().equals(item1.getItem()) && chantingProgress > 0.0F) {
+                TravelogueGensokyo.PROXY.setChantingProgress(0.0F);
                 chantingProgress = 0.0F;
             }
             if(item1.getItem() instanceof ItemSpellBook) {
@@ -62,10 +77,10 @@ public class TGClientEventsHandler {
                 spellChantHUD.render(event.getMatrixStack());
             }
         }
+    }
 
-        if(MC.player.isCreative()) {
-            return;
-        }
+    public static void renderPowerHud(RenderGameOverlayEvent event) {
+        PlayerEntity player = MC.player;
 
         ItemStack item2;
 
@@ -85,25 +100,4 @@ public class TGClientEventsHandler {
         powerHUD.render(event.getMatrixStack());
     }
 
-    @SubscribeEvent
-    public static void onMouseScroll(InputEvent.MouseScrollEvent event) {
-        PlayerEntity player = MC.player;
-        if (TGInputs.SPECIAL_SCROLL_SWITCH.isKeyDown()) {
-            if(player.getHeldItemMainhand().getItem() instanceof IScrollable) {
-                TGNetworkHandler.CHANNEL.sendToServer(new ItemSpecialScrollPacket(-event.getScrollDelta()));
-                event.setCanceled(true);
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public static void onClientTick(TickEvent.ClientTickEvent event) {
-        DimensionRenderInfo info = DimensionRenderInfo.field_239208_a_.get(new ResourceLocation(TravelogueGensokyo.MODID, "gensokyo"));
-        if(!MC.isGamePaused() && MC.world != null && info instanceof GensokyoRenderInfo) {
-            IWeatherRenderHandler weatherRenderHandler = info.getWeatherRenderHandler();
-            if(weatherRenderHandler instanceof GensokyoWeatherRenderer) {
-                ((GensokyoWeatherRenderer) weatherRenderHandler).tick();
-            }
-        }
-    }
 }
