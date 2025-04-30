@@ -83,9 +83,9 @@ public class BasicSpellBookModel extends SpellBookModelBase {
 			this.flippingPageLeft.rotateAngleY = animLeftPageFlipAmount < 0.5F ?
 					(float)(Math.PI / 3.5F * (1.0F - animLeftPageFlipAmount * 4.0F)) :
 					(float)(Math.PI / 3.5F + (Math.PI / 3.0F - Math.PI / 3.5F) * (1.0F - (animLeftPageFlipAmount - 0.5F) * 2.0F));
-				this.flippingPageRight.rotateAngleY = animRightPageFlipAmount < 0.5F ?
-						-(float) (Math.PI / 3.5F * (1.0F - animRightPageFlipAmount * 4.0F)) :
-						-(float) (Math.PI / 3.5F + (Math.PI / 3.0F - Math.PI / 3.5F) * (1.0F - (animRightPageFlipAmount - 0.5F) * 2.0F));
+			this.flippingPageRight.rotateAngleY = animRightPageFlipAmount < 0.5F ?
+					-(float) (Math.PI / 3.5F * (1.0F - animRightPageFlipAmount * 4.0F)) :
+					-(float) (Math.PI / 3.5F + (Math.PI / 3.0F - Math.PI / 3.5F) * (1.0F - (animRightPageFlipAmount - 0.5F) * 2.0F));
 		}
 	}
 
