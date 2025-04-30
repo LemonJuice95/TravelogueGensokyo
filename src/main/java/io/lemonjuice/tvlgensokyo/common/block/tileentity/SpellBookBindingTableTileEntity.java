@@ -8,7 +8,6 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.LockableTileEntity;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
@@ -29,7 +28,7 @@ public class SpellBookBindingTableTileEntity extends LockableTileEntity {
 
     @Override
     protected Container createMenu(int id, PlayerInventory playerInventory) {
-        return new ContainerSpellBookBindingTable(id, playerInventory.player, this);
+        return new ContainerSpellBookBindingTable(id, playerInventory.player, this.getPos());
     }
 
     @Override
@@ -99,7 +98,7 @@ public class SpellBookBindingTableTileEntity extends LockableTileEntity {
     @Nullable
     @Override
     public Container createMenu(int id, PlayerInventory inventory, PlayerEntity player) {
-        return new ContainerSpellBookBindingTable(id, player, this);
+        return new ContainerSpellBookBindingTable(id, player, this.getPos());
     }
 
     @Override

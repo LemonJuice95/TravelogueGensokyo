@@ -34,6 +34,7 @@ public class ItemSpecialScrollPacket {
                     ((IScrollable) stack.getItem()).specialScroll(stack, packet.direction);
                 }
             }
+            ctx.get().setPacketHandled(true);
         }
     }
 }

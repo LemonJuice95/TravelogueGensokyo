@@ -4,6 +4,7 @@ import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.api.interfaces.ITGCapabilityPacket;
 import io.lemonjuice.tvlgensokyo.common.capability.PlayerDataManager;
 import io.lemonjuice.tvlgensokyo.utils.TGCapabilityUtils;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.network.NetworkEvent;
 
@@ -30,7 +31,7 @@ public class IntCapPacketToClient implements ITGCapabilityPacket {
 
     public static class Handler {
         public static void onMessage(IntCapPacketToClient packetToClient, Supplier<NetworkEvent.Context> ctx) {
-            PlayerDataManager manager = TGCapabilityUtils.getManager(TravelogueGensokyo.MC.player);
+            PlayerDataManager manager = TGCapabilityUtils.getManager(TravelogueGensokyo.PROXY.getPlayer());
             ctx.get().enqueueWork(() -> {
                 if(packetToClient.cap == Capability.POWER)
                     manager.setPower(packetToClient.num);

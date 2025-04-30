@@ -1,8 +1,14 @@
 package io.lemonjuice.tvlgensokyo.common;
 
 import io.lemonjuice.tvlgensokyo.client.ClientProxy;
+import net.minecraft.entity.player.PlayerEntity;
 
 public class CommonProxy {
+
+    public PlayerEntity getPlayer() {
+        return null;
+    }
+
     /**Animate power bar at client side
      * {@link ClientProxy#animPowerBar()}
      */

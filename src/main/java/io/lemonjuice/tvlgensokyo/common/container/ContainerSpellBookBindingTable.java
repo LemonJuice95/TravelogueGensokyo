@@ -1,23 +1,22 @@
 package io.lemonjuice.tvlgensokyo.common.container;
 
+import io.lemonjuice.tvlgensokyo.common.block.tileentity.SpellBookBindingTableTileEntity;
 import io.lemonjuice.tvlgensokyo.common.item.weapon.ItemSpellBook;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.IInventoryChangedListener;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
 
 public class ContainerSpellBookBindingTable extends TGContainerBase {
 
     private PlayerEntity player;
-    private IInventory spellBook;
+    private SpellBookBindingTableTileEntity tileEntity;
     private int playerInvStartIndex;
 
-    public ContainerSpellBookBindingTable(int id, PlayerEntity player, IInventory inventory) {
+    public ContainerSpellBookBindingTable(int id, PlayerEntity player, BlockPos pos) {
         super(TGContainerRegister.SPELL_BOOK_BINDING_TABLE.get(), id);
         this.player = player;
-        this.spellBook = inventory;
+        this.tileEntity = (SpellBookBindingTableTileEntity) player.world.getTileEntity(pos);
         this.refreshSlots();
     }
 
@@ -25,7 +24,7 @@ public class ContainerSpellBookBindingTable extends TGContainerBase {
         this.inventorySlots.clear();
         this.inventoryItemStacks.clear();
 
-        this.addSlot(new Slot(this.spellBook, 0, 26, 36) {
+        this.addSlot(new Slot(this.tileEntity, 0, 26, 36) {
             @Override
             public boolean isItemValid(ItemStack stack) {
                 return stack.getItem() instanceof ItemSpellBook;
@@ -45,7 +44,7 @@ public class ContainerSpellBookBindingTable extends TGContainerBase {
 
         this.playerInvStartIndex = 1;
 
-        ItemStack stack = this.spellBook.getStackInSlot(0);
+        ItemStack stack = this.tileEntity.getStackInSlot(0);
         if(!stack.isEmpty() && stack.getItem() instanceof ItemSpellBook) {
             int slotCount = ((ItemSpellBook) stack.getItem()).slotCount;
             ItemSpellBook.SpellBookInventory pageInventory = ((ItemSpellBook) stack.getItem()).getInventory(stack);
@@ -146,6 +145,6 @@ public class ContainerSpellBookBindingTable extends TGContainerBase {
 
     @Override
     public boolean canInteractWith(PlayerEntity playerIn) {
-        return this.spellBook.isUsableByPlayer(playerIn);
+        return this.tileEntity.isUsableByPlayer(playerIn);
     }
 }

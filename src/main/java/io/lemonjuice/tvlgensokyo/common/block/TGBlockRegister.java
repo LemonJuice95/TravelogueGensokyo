@@ -10,6 +10,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.EntityType;
+import net.minecraft.item.DyeColor;
 import net.minecraft.particles.BasicParticleType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -52,22 +53,22 @@ public class TGBlockRegister {
     public static final RegistryObject<Block> STRIPPED_SAKURA_WOOD = BLOCKS.register("stripped_sakura_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
 
     //Sweet Bed
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_WHITE = BLOCKS.register("sweet_bed_white", () -> new BlockSweetBed((BedBlock)Blocks.WHITE_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_ORANGE = BLOCKS.register("sweet_bed_orange", () -> new BlockSweetBed((BedBlock)Blocks.ORANGE_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_MAGENTA = BLOCKS.register("sweet_bed_magenta", () -> new BlockSweetBed((BedBlock)Blocks.MAGENTA_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_LIGHT_BLUE = BLOCKS.register("sweet_bed_light_blue", () -> new BlockSweetBed((BedBlock)Blocks.LIGHT_BLUE_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_YELLOW = BLOCKS.register("sweet_bed_yellow", () -> new BlockSweetBed((BedBlock)Blocks.YELLOW_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_LIME = BLOCKS.register("sweet_bed_lime", () -> new BlockSweetBed((BedBlock)Blocks.LIME_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_PINK = BLOCKS.register("sweet_bed_pink", () -> new BlockSweetBed((BedBlock)Blocks.PINK_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_GRAY = BLOCKS.register("sweet_bed_gray", () -> new BlockSweetBed((BedBlock)Blocks.GRAY_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_LIGHT_GRAY = BLOCKS.register("sweet_bed_light_gray", () -> new BlockSweetBed((BedBlock)Blocks.LIGHT_GRAY_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_CYAN = BLOCKS.register("sweet_bed_cyan", () -> new BlockSweetBed((BedBlock)Blocks.CYAN_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_PURPLE = BLOCKS.register("sweet_bed_purple", () -> new BlockSweetBed((BedBlock)Blocks.PURPLE_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_BLUE = BLOCKS.register("sweet_bed_blue", () -> new BlockSweetBed((BedBlock)Blocks.BLUE_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_BROWN = BLOCKS.register("sweet_bed_brown", () -> new BlockSweetBed((BedBlock)Blocks.BROWN_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_GREEN = BLOCKS.register("sweet_bed_green", () -> new BlockSweetBed((BedBlock)Blocks.GREEN_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_RED = BLOCKS.register("sweet_bed_red", () -> new BlockSweetBed((BedBlock)Blocks.RED_BED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_BLACK = BLOCKS.register("sweet_bed_black", () -> new BlockSweetBed((BedBlock)Blocks.BLACK_BED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_WHITE = BLOCKS.register("sweet_bed_white", () -> new BlockSweetBed((BedBlock)Blocks.WHITE_BED, DyeColor.WHITE));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_ORANGE = BLOCKS.register("sweet_bed_orange", () -> new BlockSweetBed((BedBlock)Blocks.ORANGE_BED, DyeColor.ORANGE));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_MAGENTA = BLOCKS.register("sweet_bed_magenta", () -> new BlockSweetBed((BedBlock)Blocks.MAGENTA_BED, DyeColor.MAGENTA));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_LIGHT_BLUE = BLOCKS.register("sweet_bed_light_blue", () -> new BlockSweetBed((BedBlock)Blocks.LIGHT_BLUE_BED, DyeColor.LIGHT_BLUE));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_YELLOW = BLOCKS.register("sweet_bed_yellow", () -> new BlockSweetBed((BedBlock)Blocks.YELLOW_BED, DyeColor.YELLOW));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_LIME = BLOCKS.register("sweet_bed_lime", () -> new BlockSweetBed((BedBlock)Blocks.LIME_BED, DyeColor.LIME));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_PINK = BLOCKS.register("sweet_bed_pink", () -> new BlockSweetBed((BedBlock)Blocks.PINK_BED, DyeColor.PINK));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_GRAY = BLOCKS.register("sweet_bed_gray", () -> new BlockSweetBed((BedBlock)Blocks.GRAY_BED, DyeColor.GRAY));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_LIGHT_GRAY = BLOCKS.register("sweet_bed_light_gray", () -> new BlockSweetBed((BedBlock)Blocks.LIGHT_GRAY_BED, DyeColor.LIGHT_GRAY));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_CYAN = BLOCKS.register("sweet_bed_cyan", () -> new BlockSweetBed((BedBlock)Blocks.CYAN_BED, DyeColor.CYAN));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_PURPLE = BLOCKS.register("sweet_bed_purple", () -> new BlockSweetBed((BedBlock)Blocks.PURPLE_BED, DyeColor.PURPLE));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_BLUE = BLOCKS.register("sweet_bed_blue", () -> new BlockSweetBed((BedBlock)Blocks.BLUE_BED, DyeColor.BLUE));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_BROWN = BLOCKS.register("sweet_bed_brown", () -> new BlockSweetBed((BedBlock)Blocks.BROWN_BED, DyeColor.BROWN));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_GREEN = BLOCKS.register("sweet_bed_green", () -> new BlockSweetBed((BedBlock)Blocks.GREEN_BED, DyeColor.GREEN));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_RED = BLOCKS.register("sweet_bed_red", () -> new BlockSweetBed((BedBlock)Blocks.RED_BED, DyeColor.RED));
+    public static final RegistryObject<BlockSweetBed> SWEET_BED_BLACK = BLOCKS.register("sweet_bed_black", () -> new BlockSweetBed((BedBlock)Blocks.BLACK_BED, DyeColor.BLACK));
 
     //Structure
     public static final RegistryObject<Block> DREAM_BASE = BLOCKS.register("dream_base", () -> new GlassBlock(AbstractBlock.Properties.create(Material.BARRIER).hardnessAndResistance(-1.0F, 3600000.0F).noDrops().setAllowsSpawn(TGBlockRegister::neverAllowSpawn).notSolid().setOpaque(TGBlockRegister::isntSolid).setBlocksVision(TGBlockRegister::isntSolid).setSuffocates(TGBlockRegister::isntSolid)));

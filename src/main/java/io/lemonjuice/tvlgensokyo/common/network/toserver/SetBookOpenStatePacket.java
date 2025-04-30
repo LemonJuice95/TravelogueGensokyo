@@ -34,6 +34,7 @@ public class SetBookOpenStatePacket {
                     ItemSpellBook.setOpened(stack, packet.isOpened);
                 }
             }
+            ctx.get().setPacketHandled(true);
         }
     }
 }

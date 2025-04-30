@@ -13,6 +13,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.DyeColor;
 import net.minecraft.state.properties.BedPart;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
@@ -36,9 +37,9 @@ import java.util.function.Function;
 public class BlockSweetBed extends BedBlock {
     BedBlock bed;
 
-    public BlockSweetBed(BedBlock bed) {
-        super(bed.getColor(), AbstractBlock.Properties.create(Material.WOOL, (state) ->
-                        state.get(PART) == BedPart.FOOT ? bed.getColor().getMapColor() : MaterialColor.WOOL)
+    public BlockSweetBed(BedBlock bed, DyeColor color) {
+        super(color, AbstractBlock.Properties.create(Material.WOOL, (state) ->
+                        state.get(PART) == BedPart.FOOT ? color.getMapColor() : MaterialColor.WOOL)
                 .sound(SoundType.WOOD).hardnessAndResistance(0.2F).notSolid());
         this.bed = bed;
     }

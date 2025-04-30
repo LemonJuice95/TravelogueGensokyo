@@ -7,7 +7,6 @@ import io.lemonjuice.tvlgensokyo.client.gui.screen.container.SpellWritingTableCo
 import io.lemonjuice.tvlgensokyo.common.block.tileentity.SpellBookBindingTableTileEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScreenManager;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IWorldPosCallable;
@@ -27,16 +26,12 @@ public class TGContainerRegister {
 
     public static final RegistryObject<ContainerType<ContainerSpellBookBindingTable>> SPELL_BOOK_BINDING_TABLE = CONTAINERS.register("spell_book_binding_table", () -> {
        return IForgeContainerType.create(((windowId, inv, data) -> {
-           World world = Minecraft.getInstance().world;
-           BlockPos pos = data.readBlockPos();
-           TileEntity tileEntity = world.getTileEntity(pos);
-           return new ContainerSpellBookBindingTable(windowId, inv.player, (SpellBookBindingTableTileEntity) tileEntity);
+           return new ContainerSpellBookBindingTable(windowId, inv.player, data.readBlockPos());
        }));
     });
 
     public static final RegistryObject<ContainerType<ContainerSpellWritingTable>> SPELL_WRITING_TABLE = CONTAINERS.register("spell_writing_table", () -> {
         return IForgeContainerType.create((windowId, inv, data) -> {
-            World world = Minecraft.getInstance().world;
             return new ContainerSpellWritingTable(windowId, inv.player, IWorldPosCallable.DUMMY);
         });
     });

@@ -26,6 +26,8 @@ import net.minecraft.client.world.DimensionRenderInfo;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -45,20 +47,14 @@ import org.apache.logging.log4j.Logger;
 public class TravelogueGensokyo {
     public static final String MODID = "tvlgensokyo";
     public static final Logger LOGGER = LogManager.getLogger();
-    public static final Minecraft MC = Minecraft.getInstance();
 
     public static final CommonProxy PROXY = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 
     public TravelogueGensokyo() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        // Register the setup method for modloading
         bus.addListener(this::setup);
-        // Register the enqueueIMC method for modloading
         bus.addListener(this::enqueueIMC);
-        // Register the processIMC method for modloading
         bus.addListener(this::processIMC);
-        // Register the doClientStuff method for modloading
-        bus.addListener(this::doClientStuff);
 
         TGItemRegister.ITEMS.register(bus);
         TGEntityRegister.ENTITIES.register(bus);
@@ -68,36 +64,23 @@ public class TravelogueGensokyo {
         TGBiomeRegister.BIOMES.register(bus);
         TGTileEntityRegister.TILE_ENTITIES.register(bus);
         TGRecipeRegister.RECIPE_SERIALIZERS.register(bus);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(final FMLCommonSetupEvent event) {
+    public void setup(FMLCommonSetupEvent event) {
         TGCapabilityRegister.capabilitiesRegistry();
         TGNetworkHandler.packetsRegistry();
-        TGDimensionRegister.register(event);
         TGItemRegister.registerCompostable();
+        TGDimensionRegister.register(event);
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
-        TGContainerRegister.registerContainerScreens();
-        TGItemModelsProperties.registerProperties();
-        TGEntityRendererRegister.entityRenderersRegistry();
-        TGBlockRenderHandler.registerBlockRenderType();
-        TGBlockRenderHandler.registerTileEntityRenderer();
-        TGClientRegister.registerInputs();
-
-        DimensionRenderInfo.field_239208_a_.put(new ResourceLocation(MODID, "dream_world"), new DreamWorldRenderInfo());
-        DimensionRenderInfo.field_239208_a_.put(new ResourceLocation(MODID, "gensokyo"), new GensokyoRenderInfo());
-    }
-
-
-
-    private void enqueueIMC(final InterModEnqueueEvent event) {
+    public void enqueueIMC(InterModEnqueueEvent event) {
         // some example code to dispatch IMC to another mod
     }
 
-    private void processIMC(final InterModProcessEvent event) {
+    public void processIMC(InterModProcessEvent event) {
         // some example code to receive and process InterModComms from other mods
     }
 

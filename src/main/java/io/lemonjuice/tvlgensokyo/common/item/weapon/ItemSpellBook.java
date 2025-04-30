@@ -13,8 +13,6 @@ import io.lemonjuice.tvlgensokyo.common.spell.Spell;
 import io.lemonjuice.tvlgensokyo.common.spell.TGSpellInit;
 import io.lemonjuice.tvlgensokyo.utils.TGCapabilityUtils;
 import io.lemonjuice.tvlgensokyo.utils.TGMathUtils;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.tileentity.ItemStackTileEntityRenderer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -25,8 +23,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.IntNBT;
 import net.minecraft.nbt.ListNBT;
-import net.minecraft.nbt.NBTTypes;
-import net.minecraft.network.play.server.SPlaySoundPacket;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -41,28 +37,17 @@ import net.minecraftforge.common.util.Constants;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.Callable;
 
 public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable, ISpellInstrument {
     public final int slotCount;
     public final float speedMultiply;
     public final float powerMultiply;
-    public final SpellBookModelBase model;
 
-    public ItemSpellBook(int slotCount, float speedMultiply, float powerMultiply, SpellBookModelBase model) {
-        super(new Item.Properties().group(TGItemGroups.COMBAT).maxStackSize(1).setISTER(() -> SpellBookISTER::new));
+    public ItemSpellBook(int slotCount, float speedMultiply, float powerMultiply, boolean hasISTER) {
+        super(new Item.Properties().group(TGItemGroups.COMBAT).maxStackSize(1).setISTER(hasISTER ? () -> SpellBookISTER::new : null));
         this.slotCount = slotCount;
         this.speedMultiply = speedMultiply;
         this.powerMultiply = powerMultiply;
-        this.model = model;
-    }
-
-    public ItemSpellBook(int slotCount, float speedMultiply, float powerMultiply) {
-        super(new Item.Properties().group(TGItemGroups.COMBAT).maxStackSize(1));
-        this.slotCount = slotCount;
-        this.speedMultiply = speedMultiply;
-        this.powerMultiply = powerMultiply;
-        this.model = new BasicSpellBookModel();
     }
 
     public static void setOpened(ItemStack stack, boolean isOpened) {
