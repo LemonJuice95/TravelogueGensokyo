@@ -68,24 +68,25 @@ public class BasicSpellBookModel extends SpellBookModelBase {
 	@Override
 	public void setBookState(float openAmount, float leftPageFlipAmount, float rightPageFlipAmount, float partialTicks, boolean isOpened) {
 		float f1 = isOpened ? 1.0F : -1.0F;
-		boolean isStatic = openAmount == 0.0F || openAmount == 1.0F;
-		double animOpenAmount = MathHelper.clamp(!isStatic ? Math.sin(Math.PI / 2.0F * (openAmount + partialTicks / 5.0F * f1)) : openAmount, 0.0F, 1.0F);
+		double animOpenAmount = MathHelper.clamp(!(openAmount == 0.0F || openAmount == 1.0F) ? Math.sin(Math.PI / 2.0F * (openAmount + partialTicks / 5.0F * f1)) : openAmount, 0.0F, 1.0F);
 		this.coverLeft.rotateAngleY = (float)(Math.PI / 3.0F * animOpenAmount);
 		this.coverRight.rotateAngleY = -(float)(Math.PI / 3.0F * animOpenAmount);
 		this.pagesLeft.rotateAngleY = (float)(Math.PI / 3.0F * animOpenAmount);
 		this.pagesRight.rotateAngleY = -(float)(Math.PI / 3.0F * animOpenAmount);
 		this.flippingPageLeft.rotateAngleY = (float)(Math.PI / 3.5F * animOpenAmount);
 		this.flippingPageRight.rotateAngleY = -(float)(Math.PI / 3.5F * animOpenAmount);
+		if(!(openAmount == 0.0F || openAmount == 1.0F))
+			TravelogueGensokyo.LOGGER.debug(String.format("o = %.2f, t = %.2f", openAmount, partialTicks));
 
 		if(openAmount == 1.0F) {
-			double animLeftPageFlipAmount = MathHelper.clamp(!isStatic ? Math.sin(Math.PI / 2.0F * (leftPageFlipAmount + partialTicks * 0.2F)) : leftPageFlipAmount, 0.0F, 1.0F);
-			double animRightPageFlipAmount = MathHelper.clamp(!isStatic ? Math.sin(Math.PI / 2.0F * (rightPageFlipAmount + partialTicks * 0.2F)) : rightPageFlipAmount, 0.0F, 1.0F);
-			this.flippingPageLeft.rotateAngleY = animLeftPageFlipAmount < 0.5F ?
-					(float)(Math.PI / 3.5F * (1.0F - animLeftPageFlipAmount * 4.0F)) :
-					(float)(Math.PI / 3.5F + (Math.PI / 3.0F - Math.PI / 3.5F) * (1.0F - (animLeftPageFlipAmount - 0.5F) * 2.0F));
-			this.flippingPageRight.rotateAngleY = animRightPageFlipAmount < 0.5F ?
-					-(float) (Math.PI / 3.5F * (1.0F - animRightPageFlipAmount * 4.0F)) :
-					-(float) (Math.PI / 3.5F + (Math.PI / 3.0F - Math.PI / 3.5F) * (1.0F - (animRightPageFlipAmount - 0.5F) * 2.0F));
+			double animLeftPageFlipAmount = MathHelper.clamp(!(leftPageFlipAmount == 0.0F) ? Math.sin(Math.PI / 2.0F * (leftPageFlipAmount + partialTicks * 0.2F)) : leftPageFlipAmount, 0.0F, 1.0F);
+			double animRightPageFlipAmount = MathHelper.clamp(!(rightPageFlipAmount == 0.0F) ? Math.sin(Math.PI / 2.0F * (rightPageFlipAmount + partialTicks * 0.2F)) : rightPageFlipAmount, 0.0F, 1.0F);
+			this.flippingPageLeft.rotateAngleY = animLeftPageFlipAmount < 0.7F ?
+					(float)(Math.PI / 3.5F * (1.0F - animLeftPageFlipAmount / 7.0F * 20.0F)) :
+					(float)(Math.PI / 3.5F + (Math.PI / 3.0F - Math.PI / 3.5F) * (1.0F - (animLeftPageFlipAmount - 0.7F) / 3.0F * 10.0F));
+			this.flippingPageRight.rotateAngleY = animRightPageFlipAmount < 0.7F ?
+					-(float) (Math.PI / 3.5F * (1.0F - animRightPageFlipAmount / 7.0F * 20.0F)) :
+					-(float) (Math.PI / 3.5F + (Math.PI / 3.0F - Math.PI / 3.5F) * (1.0F - (animRightPageFlipAmount - 0.7F) / 3.0F * 10.0F));
 		}
 	}
 
