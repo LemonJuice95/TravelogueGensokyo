@@ -1,12 +1,6 @@
 package io.lemonjuice.tvlgensokyo;
 
 import io.lemonjuice.tvlgensokyo.client.ClientProxy;
-import io.lemonjuice.tvlgensokyo.client.TGClientRegister;
-import io.lemonjuice.tvlgensokyo.client.TGItemModelsProperties;
-import io.lemonjuice.tvlgensokyo.client.renderer.block.TGBlockRenderHandler;
-import io.lemonjuice.tvlgensokyo.client.renderer.entity.TGEntityRendererRegister;
-import io.lemonjuice.tvlgensokyo.client.renderer.environment.DreamWorldRenderInfo;
-import io.lemonjuice.tvlgensokyo.client.renderer.environment.GensokyoRenderInfo;
 import io.lemonjuice.tvlgensokyo.common.CommonProxy;
 import io.lemonjuice.tvlgensokyo.common.block.TGBlockRegister;
 import io.lemonjuice.tvlgensokyo.common.block.tileentity.TGTileEntityRegister;
@@ -21,20 +15,14 @@ import io.lemonjuice.tvlgensokyo.common.world.biome.TGBiomeRegister;
 import io.lemonjuice.tvlgensokyo.common.world.dimension.TGDimensionRegister;
 import io.lemonjuice.tvlgensokyo.common.world.feature.TGFeatureRegister;
 import io.lemonjuice.tvlgensokyo.common.world.feature.tree.TGTreeDecoratorTypes;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.world.DimensionRenderInfo;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
@@ -56,11 +44,11 @@ public class TravelogueGensokyo {
         bus.addListener(this::enqueueIMC);
         bus.addListener(this::processIMC);
 
+        TGBlockRegister.BLOCKS.register(bus);
         TGItemRegister.ITEMS.register(bus);
         TGEntityRegister.ENTITIES.register(bus);
         TGEnchantmentRegister.ENCHANTMENTS.register(bus);
         TGContainerRegister.CONTAINERS.register(bus);
-        TGBlockRegister.BLOCKS.register(bus);
         TGBiomeRegister.BIOMES.register(bus);
         TGTileEntityRegister.TILE_ENTITIES.register(bus);
         TGRecipeRegister.RECIPE_SERIALIZERS.register(bus);
@@ -90,7 +78,7 @@ public class TravelogueGensokyo {
         // do something when the server starts
     }
 
-    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
         @SubscribeEvent
         public static void onFeatureRegistry(final RegistryEvent.Register<Feature<?>> event) {

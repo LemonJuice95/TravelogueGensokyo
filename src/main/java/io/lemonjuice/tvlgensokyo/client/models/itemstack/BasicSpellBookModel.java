@@ -75,8 +75,6 @@ public class BasicSpellBookModel extends SpellBookModelBase {
 		this.pagesRight.rotateAngleY = -(float)(Math.PI / 3.0F * animOpenAmount);
 		this.flippingPageLeft.rotateAngleY = (float)(Math.PI / 3.5F * animOpenAmount);
 		this.flippingPageRight.rotateAngleY = -(float)(Math.PI / 3.5F * animOpenAmount);
-		if(!(openAmount == 0.0F || openAmount == 1.0F))
-			TravelogueGensokyo.LOGGER.debug(String.format("o = %.2f, t = %.2f", openAmount, partialTicks));
 
 		if(openAmount == 1.0F) {
 			double animLeftPageFlipAmount = MathHelper.clamp(!(leftPageFlipAmount == 0.0F) ? Math.sin(Math.PI / 2.0F * (leftPageFlipAmount + partialTicks * 0.2F)) : leftPageFlipAmount, 0.0F, 1.0F);

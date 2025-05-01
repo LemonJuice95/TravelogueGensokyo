@@ -1,7 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.item;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
-import io.lemonjuice.tvlgensokyo.client.models.itemstack.BasicSpellBookModel;
 import io.lemonjuice.tvlgensokyo.common.block.TGBlockRegister;
 import io.lemonjuice.tvlgensokyo.common.danmaku.Danmaku;
 import io.lemonjuice.tvlgensokyo.common.entity.TGEntityRegister;
