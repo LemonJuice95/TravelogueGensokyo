@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class Spell{
+public class Spell {
     private final int powerCost;
     private final int chantTime;
     private final TextFormatting[] textFormattings;
