@@ -31,8 +31,8 @@ public class IntCapPacketToClient implements ITGCapabilityPacket {
 
     public static class Handler {
         public static void onMessage(IntCapPacketToClient packetToClient, Supplier<NetworkEvent.Context> ctx) {
-            PlayerDataManager manager = TGCapabilityUtils.getManager(TravelogueGensokyo.PROXY.getPlayer());
             ctx.get().enqueueWork(() -> {
+                PlayerDataManager manager = TGCapabilityUtils.getManager(TravelogueGensokyo.PROXY.getPlayer());
                 if(packetToClient.cap == Capability.POWER)
                     manager.setPower(packetToClient.num);
                 if(packetToClient.cap == Capability.MAX_POWER)

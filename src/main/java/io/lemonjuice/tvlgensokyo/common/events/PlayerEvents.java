@@ -72,14 +72,14 @@ public class PlayerEvents {
         TravelogueGensokyo.PROXY.resetPowerBarCache();
     }
 
-    /*@SubscribeEvent
+    @SubscribeEvent
     public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         PlayerEntity player = event.getPlayer();
         if(player instanceof ServerPlayerEntity) {
             TGCapabilityUtils.syncCapabilities((ServerPlayerEntity) event.getPlayer());
             TGCapabilityUtils.refreshPowerRecovery(event.getPlayer());
         }
-    }*/
+    }
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {

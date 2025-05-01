@@ -20,9 +20,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class TGContainerRegister {
     public static final DeferredRegister<ContainerType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, TravelogueGensokyo.MODID);
 
-//    public static final RegistryObject<ContainerType<ContainerPowerProvider>> POWER_PROVIDER = CONTAINERS.register("power_provider", () -> {
-//        return IForgeContainerType.create((windowId, inv, data) -> new ContainerPowerProvider(windowId, inv.player, data.readBoolean()));
-//    });
+    public static final RegistryObject<ContainerType<ContainerPowerProvider>> POWER_PROVIDER = CONTAINERS.register("power_provider", () -> {
+        return IForgeContainerType.create((windowId, inv, data) -> new ContainerPowerProvider(windowId, inv.player, data.readBoolean()));
+    });
 
     public static final RegistryObject<ContainerType<ContainerSpellBookBindingTable>> SPELL_BOOK_BINDING_TABLE = CONTAINERS.register("spell_book_binding_table", () -> {
        return IForgeContainerType.create(((windowId, inv, data) -> {
