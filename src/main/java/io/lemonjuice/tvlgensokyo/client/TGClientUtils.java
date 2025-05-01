@@ -12,7 +12,7 @@ public class TGClientUtils {
     public static final Map<Item, SpellBookModelBase> MODEL_MAP = new HashMap<>();
 
     static {
-        MODEL_MAP.put(TGItemRegister.TEST_SPELL_BOOK.get(), new BasicSpellBookModel());
-        MODEL_MAP.put(TGItemRegister.TEST_THICK_SPELL_BOOK.get(), new BasicSpellBookModel());
+        MODEL_MAP.put(TGItemRegister.BASIC_SPELL_BOOK.get(), new BasicSpellBookModel());
+        MODEL_MAP.put(TGItemRegister.BASIC_THICK_SPELL_BOOK.get(), new BasicSpellBookModel());
     }
 }

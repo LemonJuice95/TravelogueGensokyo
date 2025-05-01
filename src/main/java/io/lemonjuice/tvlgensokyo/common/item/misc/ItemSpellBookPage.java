@@ -13,6 +13,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Util;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
@@ -41,6 +42,14 @@ public class ItemSpellBookPage extends Item {
         tooltip.add(spellTooltip);
         tooltip.add(new TranslationTextComponent("tooltip.tvlgensokyo.spell_power_cost", spell.getPowerCost()));
         tooltip.add(new TranslationTextComponent("tooltip.tvlgensokyo.spell_chant_time", spell.getChantTime()));
+        tooltip.add(new StringTextComponent(""));
+        spell.addInformation(world, tooltip, flag);
+        tooltip.add(new StringTextComponent(""));
+    }
+
+    @Override
+    public boolean hasEffect(ItemStack stack) {
+        return getSpell(stack) != TGSpellInit.EMPTY || super.hasEffect(stack);
     }
 
     public static Spell getSpell(ItemStack stack) {
@@ -55,9 +64,9 @@ public class ItemSpellBookPage extends Item {
 
     @Override
     public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
-        if(group == ItemGroup.SEARCH || group == TGItemGroups.BOOK_PAGE) {
-            for(Spell spell : TGSpellInit.SPELL_MAP.values()) {
-                if(!spell.equals(TGSpellInit.EMPTY))
+        if (group == ItemGroup.SEARCH || group == TGItemGroups.BOOK_PAGE) {
+            for (Spell spell : TGSpellInit.SPELL_MAP.values()) {
+                if (!spell.equals(TGSpellInit.EMPTY))
                     items.add(setSpell(new ItemStack(this), spell));
             }
         }

@@ -21,8 +21,8 @@
   "item.tvlgensokyo.laevatein": "莱瓦汀",
   "item.tvlgensokyo.gungnir": "冈格尼尔",
 
-  "item.tvlgensokyo.test_spell_book": "测试用魔导书",
-  "item.tvlgensokyo.test_thick_spell_book": "加厚的测试用魔导书",
+  "item.tvlgensokyo.basic_spell_book": "初学者魔导书",
+  "item.tvlgensokyo.basic_thick_spell_book": "加厚的初学者魔导书",
 
   "item.tvlgensokyo.danmaku_spot": "点弹",
   "item.tvlgensokyo.danmaku_small_jade": "小玉",
@@ -70,6 +70,8 @@
   "spell.tvlgensokyo.empty": "空白",
   "spell.tvlgensokyo.test_spell": "测试用魔法",
   "spell.tvlgensokyo.test_spell_2": "测试用魔法2",
+
+  "spell.info.none": "暂无说明",
 
   "c6": "============================ItemGroups==================================",
   "itemGroup.tvlgensokyo.food_and_agriculture": "东方幻想游记 | 食物与农业",

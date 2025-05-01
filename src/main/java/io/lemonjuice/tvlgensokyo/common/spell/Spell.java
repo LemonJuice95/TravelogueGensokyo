@@ -1,11 +1,19 @@
 package io.lemonjuice.tvlgensokyo.common.spell;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Util;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.LanguageMap;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class Spell{
     private final int powerCost;
@@ -21,6 +29,10 @@ public class Spell{
         this.powerCost = powerCost;
         this.chantTime = chantTime;
         this.textFormattings = textFormattings;
+    }
+
+    public void addInformation(@Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+        tooltip.add(new TranslationTextComponent("spell.info.none").mergeStyle(TextFormatting.DARK_GRAY));
     }
 
     public static Spell getSpellFromName(ResourceLocation name) {

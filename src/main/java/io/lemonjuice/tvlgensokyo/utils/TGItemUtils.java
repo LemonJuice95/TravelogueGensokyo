@@ -11,7 +11,7 @@ public class TGItemUtils {
     public static final ArrayList<Item> SPELL_BOOKS = new ArrayList<>();
 
     static {
-        SPELL_BOOKS_OBJECT.add(TGItemRegister.TEST_SPELL_BOOK);
-        SPELL_BOOKS_OBJECT.add(TGItemRegister.TEST_THICK_SPELL_BOOK);
+        SPELL_BOOKS_OBJECT.add(TGItemRegister.BASIC_SPELL_BOOK);
+        SPELL_BOOKS_OBJECT.add(TGItemRegister.BASIC_THICK_SPELL_BOOK);
     }
 }

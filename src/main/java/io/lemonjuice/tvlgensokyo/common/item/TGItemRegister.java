@@ -54,8 +54,8 @@ public class TGItemRegister {
     //Combat
     public static final RegistryObject<Item> LAEVATEIN = ITEMS.register("laevatein", ItemLaevatein::new);
     public static final RegistryObject<Item> GUNGNIR = ITEMS.register("gungnir", ItemGungnir::new);
-    public static final RegistryObject<Item> TEST_SPELL_BOOK = ITEMS.register("test_spell_book", () -> new ItemSpellBook(4, 1.0F, 1.0F, true));
-    public static final RegistryObject<Item> TEST_THICK_SPELL_BOOK = ITEMS.register("test_thick_spell_book", () -> new ItemSpellBook(8, 1.0F, 1.0F, true));
+    public static final RegistryObject<Item> BASIC_SPELL_BOOK = ITEMS.register("basic_spell_book", () -> new ItemSpellBook(4, 1.0F, 1.0F, true));
+    public static final RegistryObject<Item> BASIC_THICK_SPELL_BOOK = ITEMS.register("basic_thick_spell_book", () -> new ItemSpellBook(8, 1.0F, 1.0F, true));
     public static final RegistryObject<Item> SPELL_BOOK_PAGE = ITEMS.register("spell_book_page", ItemSpellBookPage::new);
 
     //Danmaku
