@@ -8,7 +8,7 @@ import net.minecraftforge.fml.network.NetworkEvent;
 import java.util.function.Supplier;
 
 public class ClickButtonPacket {
-    private final int operation;
+    private int operation;
 
     public ClickButtonPacket(Operations operation) {
         this.operation = operation.ordinal();

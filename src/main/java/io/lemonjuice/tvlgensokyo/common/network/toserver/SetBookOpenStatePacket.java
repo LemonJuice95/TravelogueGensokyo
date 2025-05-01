@@ -9,7 +9,7 @@ import net.minecraftforge.fml.network.NetworkEvent;
 import java.util.function.Supplier;
 
 public class SetBookOpenStatePacket {
-    private final boolean isOpened;
+    private boolean isOpened;
 
     public SetBookOpenStatePacket(boolean isOpened) {
         this.isOpened = isOpened;

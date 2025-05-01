@@ -57,18 +57,18 @@ public class TravelogueGensokyo {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    public void setup(FMLCommonSetupEvent event) {
+    public void setup(final FMLCommonSetupEvent event) {
         TGCapabilityRegister.capabilitiesRegistry();
         TGNetworkHandler.packetsRegistry();
         TGItemRegister.registerCompostable();
         TGDimensionRegister.register(event);
     }
 
-    public void enqueueIMC(InterModEnqueueEvent event) {
+    public void enqueueIMC(final InterModEnqueueEvent event) {
         // some example code to dispatch IMC to another mod
     }
 
-    public void processIMC(InterModProcessEvent event) {
+    public void processIMC(final InterModProcessEvent event) {
         // some example code to receive and process InterModComms from other mods
     }
 

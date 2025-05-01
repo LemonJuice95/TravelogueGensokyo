@@ -9,7 +9,7 @@ import net.minecraftforge.fml.network.NetworkEvent;
 import java.util.function.Supplier;
 
 public class ItemSpecialScrollPacket {
-    private final double direction;
+    private double direction;
 
     public ItemSpecialScrollPacket(double direction) {
         this.direction = direction;
