@@ -1,10 +1,9 @@
 package io.lemonjuice.tvlgensokyo.common.item;
 
-import io.lemonjuice.tvlgensokyo.client.gui.screen.dialogue.DialogueScreen;
+import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.client.gui.screen.dialogue.DialogueScript;
 import io.lemonjuice.tvlgensokyo.client.gui.screen.dialogue.script.DebuggerDialogueScripts;
 import io.lemonjuice.tvlgensokyo.common.item.group.TGItemGroups;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,9 +21,9 @@ public class ItemDebugger extends Item {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         ItemStack stack = playerIn.getHeldItem(handIn);
-        if(!worldIn.isRemote) {
+        if(worldIn.isRemote) {
             DialogueScript script = DebuggerDialogueScripts.getScript(playerIn);
-            DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> () -> Minecraft.getInstance().displayGuiScreen(new DialogueScreen(script)));
+            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> TravelogueGensokyo.PROXY.openDialogueGui(script));
         }
         return ActionResult.func_233538_a_(stack, worldIn.isRemote);
     }

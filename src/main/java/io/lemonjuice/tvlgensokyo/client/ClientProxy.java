@@ -1,5 +1,7 @@
 package io.lemonjuice.tvlgensokyo.client;
 
+import io.lemonjuice.tvlgensokyo.client.gui.screen.dialogue.DialogueScreen;
+import io.lemonjuice.tvlgensokyo.client.gui.screen.dialogue.DialogueScript;
 import io.lemonjuice.tvlgensokyo.common.CommonProxy;
 import io.lemonjuice.tvlgensokyo.utils.TGCapabilityUtils;
 import net.minecraft.client.Minecraft;
@@ -50,5 +52,10 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void resetPowerBarCache() {
         this.powerBarCache = TGCapabilityUtils.getPower(this.MC.player);
+    }
+
+    @Override
+    public void openDialogueGui(DialogueScript script) {
+        this.MC.displayGuiScreen(new DialogueScreen(script));
     }
 }

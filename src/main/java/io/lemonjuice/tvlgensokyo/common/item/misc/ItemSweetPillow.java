@@ -1,23 +1,16 @@
 package io.lemonjuice.tvlgensokyo.common.item.misc;
 
-import io.lemonjuice.tvlgensokyo.common.block.BlockSweetBed;
 import io.lemonjuice.tvlgensokyo.common.item.group.TGItemGroups;
 import io.lemonjuice.tvlgensokyo.utils.TGBlockUtils;
 import net.minecraft.block.BedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.command.impl.FillCommand;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.item.Items;
 import net.minecraft.state.properties.BedPart;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -27,7 +20,6 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.BlockSnapshot;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -50,7 +42,7 @@ public class ItemSweetPillow extends Item {
                 BlockState state = world.getBlockState(rayTraceResult.getPos());
                 Block block = state.getBlock();
 
-                BlockState newState = TGBlockUtils.SWEET_BED_MAP.get(((BedBlock) block).getColor()).getDefaultState();
+                BlockState newState = TGBlockUtils.SWEET_BED_MAP.get(block).getDefaultState();
                 newState = newState.with(BedBlock.HORIZONTAL_FACING, state.get(BedBlock.HORIZONTAL_FACING));
                 newState = newState.with(BedBlock.PART, state.get(BedBlock.PART));
                 newState = newState.with(BedBlock.OCCUPIED, state.get(BedBlock.OCCUPIED));
@@ -67,7 +59,7 @@ public class ItemSweetPillow extends Item {
 
                 if(world.getBlockState(pos1).matchesBlock(block)) {
                     BlockState state1 = world.getBlockState(pos1);
-                    BlockState newState1 = TGBlockUtils.SWEET_BED_MAP.get(((BedBlock) block).getColor()).getDefaultState();
+                    BlockState newState1 = TGBlockUtils.SWEET_BED_MAP.get(block).getDefaultState();
                     newState1 = newState1.with(BedBlock.HORIZONTAL_FACING, state1.get(BedBlock.HORIZONTAL_FACING));
                     newState1 = newState1.with(BedBlock.PART, state1.get(BedBlock.PART));
                     newState1 = newState1.with(BedBlock.OCCUPIED, state1.get(BedBlock.OCCUPIED));

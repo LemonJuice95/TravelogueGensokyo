@@ -16,10 +16,10 @@ public class SweetBedTileEntity extends TileEntity {
         super(TGTileEntityRegister.SWEET_BED.get());
     }
 
-    public SweetBedTileEntity(BedBlock bed) {
+    public SweetBedTileEntity(BedBlock bed, DyeColor color) {
         this();
         this.bed = bed;
-        this.setColor(bed.getColor());
+        this.setColor(color);
     }
 
     public SUpdateTileEntityPacket getUpdatePacket() {

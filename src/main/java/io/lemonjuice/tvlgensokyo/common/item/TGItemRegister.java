@@ -28,7 +28,7 @@ public class TGItemRegister {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TravelogueGensokyo.MODID);
 
     //Misc
-//    public static final RegistryObject<Item> DEBUGGER = ITEMS.register("debugger", ItemDebugger::new);
+    public static final RegistryObject<Item> DEBUGGER = ITEMS.register("debugger", ItemDebugger::new);
     public static final RegistryObject<Item> AYAS_FAN = ITEMS.register("ayas_fan", ItemAyasFan::new);
     public static final RegistryObject<Item> POWER_POINT = ITEMS.register("power_point", () -> new Item(new Item.Properties().group(TGItemGroups.MISC)));
     public static final RegistryObject<Item> AMULET = ITEMS.register("amulet", ItemAmulet::new);

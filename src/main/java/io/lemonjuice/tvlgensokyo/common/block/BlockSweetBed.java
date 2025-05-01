@@ -36,11 +36,13 @@ import java.util.function.Function;
 
 public class BlockSweetBed extends BedBlock {
     BedBlock bed;
+    DyeColor color;
 
     public BlockSweetBed(BedBlock bed, DyeColor color) {
         super(color, AbstractBlock.Properties.create(Material.WOOL, (state) ->
                         state.get(PART) == BedPart.FOOT ? color.getMapColor() : MaterialColor.WOOL)
                 .sound(SoundType.WOOD).hardnessAndResistance(0.2F).notSolid());
+        this.color = color;
         this.bed = bed;
     }
 
@@ -106,6 +108,10 @@ public class BlockSweetBed extends BedBlock {
         }
     }
 
+    public DyeColor getColor() {
+        return this.color;
+    }
+
     @Override
     public TileEntity createNewTileEntity(IBlockReader worldIn) {
         return null;
@@ -118,6 +124,6 @@ public class BlockSweetBed extends BedBlock {
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new SweetBedTileEntity(bed);
+        return new SweetBedTileEntity(this.bed, this.color);
     }
 }

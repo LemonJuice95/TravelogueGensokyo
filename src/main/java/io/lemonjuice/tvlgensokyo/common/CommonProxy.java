@@ -1,6 +1,7 @@
 package io.lemonjuice.tvlgensokyo.common;
 
 import io.lemonjuice.tvlgensokyo.client.ClientProxy;
+import io.lemonjuice.tvlgensokyo.client.gui.screen.dialogue.DialogueScript;
 import net.minecraft.entity.player.PlayerEntity;
 
 public class CommonProxy {
@@ -35,6 +36,10 @@ public class CommonProxy {
     }
 
     public void resetPowerBarCache() {
+
+    }
+
+    public void openDialogueGui(DialogueScript script) {
 
     }
 }
