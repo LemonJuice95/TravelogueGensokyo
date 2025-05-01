@@ -125,7 +125,7 @@ public class SpellWritingRecipe implements IRecipe<SpellWritingInventory>{
         @Nullable
         @Override
         public SpellWritingRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
-            NonNullList<Ingredient> ingredients = NonNullList.withSize(6, Ingredient.EMPTY);
+            NonNullList<Ingredient> ingredients = NonNullList.withSize(7, Ingredient.EMPTY);
             for(int i = 0; i < 7; i++) {
                 ingredients.set(i, Ingredient.read(buffer));
             }
