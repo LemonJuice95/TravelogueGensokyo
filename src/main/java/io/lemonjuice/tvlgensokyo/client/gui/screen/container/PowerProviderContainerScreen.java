@@ -2,7 +2,7 @@ package io.lemonjuice.tvlgensokyo.client.gui.screen.container;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
-import io.lemonjuice.tvlgensokyo.common.container.ContainerPowerProvider;
+import io.lemonjuice.tvlgensokyo.common.container.PowerProviderContainer;
 import io.lemonjuice.tvlgensokyo.common.network.TGNetworkHandler;
 import io.lemonjuice.tvlgensokyo.common.network.toserver.ClickButtonPacket;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
@@ -12,10 +12,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
-public class PowerProviderContainerScreen extends ContainerScreen<ContainerPowerProvider> {
+public class PowerProviderContainerScreen extends ContainerScreen<PowerProviderContainer> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(TravelogueGensokyo.MODID, "textures/gui/container/power_provider.png");
 
-    public PowerProviderContainerScreen(ContainerPowerProvider container, PlayerInventory inventory, ITextComponent title) {
+    public PowerProviderContainerScreen(PowerProviderContainer container, PlayerInventory inventory, ITextComponent title) {
         super(container, inventory, title);
         this.xSize = 176;
         this.ySize = 159;

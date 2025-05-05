@@ -9,12 +9,12 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 
-public class ItemRoastedHagfish extends Item {
+public class RoastedHagfishItem extends Item {
     private static final Food ROASTED_HAGFISH = new Food.Builder().setAlwaysEdible().hunger(5).saturation(1.6F).effect(() -> {
         return new EffectInstance(Effects.NIGHT_VISION, 1800, 0);
     }, 1.0F).build();
 
-    public ItemRoastedHagfish() {
+    public RoastedHagfishItem() {
         super(new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE).food(ROASTED_HAGFISH));
     }
 

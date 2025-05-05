@@ -6,9 +6,9 @@ import net.minecraft.particles.BasicParticleType;
 
 import javax.annotation.Nullable;
 
-public class ParticleFallingLeaf extends SpriteTexturedParticle {
+public class FallingLeafParticle extends SpriteTexturedParticle {
 
-    public ParticleFallingLeaf(ClientWorld world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+    public FallingLeafParticle(ClientWorld world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
         super(world, x, y, z, xSpeed, ySpeed, zSpeed);
         this.particleGravity = 0.5F;
         this.particleScale = 0.075F;
@@ -56,7 +56,7 @@ public class ParticleFallingLeaf extends SpriteTexturedParticle {
         @Nullable
         @Override
         public Particle makeParticle(BasicParticleType type, ClientWorld world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            ParticleFallingLeaf particle = new ParticleFallingLeaf(world, x, y, z, xSpeed, ySpeed, zSpeed);
+            FallingLeafParticle particle = new FallingLeafParticle(world, x, y, z, xSpeed, ySpeed, zSpeed);
             particle.selectSpriteRandomly(this.sprite);
             return particle;
         }

@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.plugins.jei.interpreter;
 
-import io.lemonjuice.tvlgensokyo.common.item.misc.ItemSpellBookPage;
+import io.lemonjuice.tvlgensokyo.common.item.misc.SpellBookPageItem;
 import io.lemonjuice.tvlgensokyo.common.spell.Spell;
 import mezz.jei.api.ingredients.subtypes.IIngredientSubtypeInterpreter;
 import mezz.jei.api.ingredients.subtypes.UidContext;
@@ -15,7 +15,7 @@ public class SpellBookPageSubtypeInterpreter implements IIngredientSubtypeInterp
         if(!stack.hasTag()) {
             return "";
         } else {
-            Spell spell = ItemSpellBookPage.getSpell(stack);
+            Spell spell = SpellBookPageItem.getSpell(stack);
             return spell.getName().toString();
         }
     }

@@ -3,7 +3,7 @@ package io.lemonjuice.tvlgensokyo.common.plugins.jei;
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.client.gui.screen.container.SpellWritingTableContainerScreen;
 import io.lemonjuice.tvlgensokyo.common.block.TGBlockRegister;
-import io.lemonjuice.tvlgensokyo.common.container.ContainerSpellWritingTable;
+import io.lemonjuice.tvlgensokyo.common.container.SpellWritingTableContainer;
 import io.lemonjuice.tvlgensokyo.common.item.TGItemRegister;
 import io.lemonjuice.tvlgensokyo.common.item.crafting.SpellWritingRecipe;
 import io.lemonjuice.tvlgensokyo.common.item.crafting.TGRecipeRegister;
@@ -40,7 +40,7 @@ public class TGJEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
-        registration.addRecipeTransferHandler(ContainerSpellWritingTable.class, SpellWritingRecipe.UID, 1, 7, 8, 36);
+        registration.addRecipeTransferHandler(SpellWritingTableContainer.class, SpellWritingRecipe.UID, 1, 7, 8, 36);
     }
 
     @Override

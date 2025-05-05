@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.block.tileentity;
 
-import io.lemonjuice.tvlgensokyo.common.block.BlockSweetBed;
+import io.lemonjuice.tvlgensokyo.common.block.SweetBedBlock;
 import net.minecraft.block.BedBlock;
 import net.minecraft.item.DyeColor;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
@@ -33,7 +33,7 @@ public class SweetBedTileEntity extends TileEntity {
     @OnlyIn(Dist.CLIENT)
     public DyeColor getColor() {
         if (this.color == null) {
-            this.color = ((BlockSweetBed)this.getBlockState().getBlock()).getColor();
+            this.color = ((SweetBedBlock)this.getBlockState().getBlock()).getColor();
         }
 
         return this.color;

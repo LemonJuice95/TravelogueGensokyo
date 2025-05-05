@@ -1,7 +1,7 @@
 package io.lemonjuice.tvlgensokyo.common.container;
 
-import io.lemonjuice.tvlgensokyo.common.item.misc.ItemPowerPoint;
-import io.lemonjuice.tvlgensokyo.common.item.misc.ItemPowerProvider;
+import io.lemonjuice.tvlgensokyo.common.item.misc.PowerPointItem;
+import io.lemonjuice.tvlgensokyo.common.item.misc.PowerProviderItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -10,13 +10,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 
 @Deprecated
-public class ContainerPowerProvider extends TGContainerBase {
+public class PowerProviderContainer extends TGContainerBase {
     private PlayerEntity player;
     private ItemStack stack;
     private Hand hand;
     private Inventory input = new Inventory(1);
 
-    public ContainerPowerProvider(int id, PlayerEntity player, boolean hand) { //True:MainHand False:OffHand
+    public PowerProviderContainer(int id, PlayerEntity player, boolean hand) { //True:MainHand False:OffHand
         super(TGContainerRegister.POWER_PROVIDER.get(), id);
         this.player = player;
         this.hand = hand ? Hand.MAIN_HAND : Hand.OFF_HAND;
@@ -27,7 +27,7 @@ public class ContainerPowerProvider extends TGContainerBase {
         this.addSlot(new Slot(input, 0, 80, 20) {
             @Override
             public boolean isItemValid(ItemStack stack) {
-                return stack.getItem() instanceof ItemPowerPoint;
+                return stack.getItem() instanceof PowerPointItem;
             }
         });
         this.addPlayersInventory(player, 8, 77);
@@ -44,7 +44,7 @@ public class ContainerPowerProvider extends TGContainerBase {
     public void onPowerInject() {
         Slot slot = this.getSlot(0);
         ItemStack stack = slot.getStack();
-        while(!stack.isEmpty() && ItemPowerProvider.injectPower(this.stack, 50) && stack.getItem() instanceof ItemPowerPoint) {
+        while(!stack.isEmpty() && PowerProviderItem.injectPower(this.stack, 50) && stack.getItem() instanceof PowerPointItem) {
             stack.shrink(1);
         }
         this.putStackInSlot(0, stack);
@@ -52,7 +52,7 @@ public class ContainerPowerProvider extends TGContainerBase {
 
     @Override
     public boolean canInteractWith(PlayerEntity player) {
-        return player.getHeldItem(hand).getItem() instanceof ItemPowerProvider;
+        return player.getHeldItem(hand).getItem() instanceof PowerProviderItem;
     }
 
     @Override

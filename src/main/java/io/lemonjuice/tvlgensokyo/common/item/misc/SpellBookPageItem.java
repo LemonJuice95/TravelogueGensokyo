@@ -4,14 +4,12 @@ import io.lemonjuice.tvlgensokyo.common.item.group.TGItemGroups;
 import io.lemonjuice.tvlgensokyo.common.spell.Spell;
 import io.lemonjuice.tvlgensokyo.common.spell.TGSpellInit;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Util;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -21,9 +19,9 @@ import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 
-public class ItemSpellBookPage extends Item {
+public class SpellBookPageItem extends Item {
 
-    public ItemSpellBookPage() {
+    public SpellBookPageItem() {
         super(new Item.Properties().group(TGItemGroups.BOOK_PAGE));
     }
 
@@ -53,7 +51,7 @@ public class ItemSpellBookPage extends Item {
     }
 
     public static Spell getSpell(ItemStack stack) {
-        if(stack.getItem() instanceof ItemSpellBookPage) {
+        if(stack.getItem() instanceof SpellBookPageItem) {
             CompoundNBT tag = stack.getTag();
             if(tag.contains("Spell")) {
                 return Spell.getSpellFromName(ResourceLocation.tryCreate(tag.getString("Spell")));

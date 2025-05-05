@@ -14,10 +14,10 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class RendererGensokyoVillager extends MobRenderer<EntityGensokyoVillager, VillagerModel<EntityGensokyoVillager>> {
+public class GensokyoVillagerRenderer extends MobRenderer<EntityGensokyoVillager, VillagerModel<EntityGensokyoVillager>> {
     private static final ResourceLocation VILLAGER_TEXTURES = new ResourceLocation("textures/entity/villager/villager.png");
 
-    public RendererGensokyoVillager(EntityRendererManager renderManagerIn, IReloadableResourceManager resourceManagerIn) {
+    public GensokyoVillagerRenderer(EntityRendererManager renderManagerIn, IReloadableResourceManager resourceManagerIn) {
         super(renderManagerIn, new VillagerModel<>(0.0F), 0.5F);
         this.addLayer(new HeadLayer<>(this));
         this.addLayer(new GensokyoVillagerLevelPendantLayer<>(this, resourceManagerIn, "villager"));

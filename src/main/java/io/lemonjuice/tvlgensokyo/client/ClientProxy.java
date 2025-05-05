@@ -24,7 +24,7 @@ public class ClientProxy extends CommonProxy {
         if(this.powerBarCache != targetPower) {
             int frame = MathHelper.ceil(TGCapabilityUtils.getMaxPower(MC.player) / 20.0F);
             if(this.powerBarCache >= targetPower)
-                this.powerBarCache = MathHelper.clamp(this.powerBarCache - frame, targetPower, Integer.MAX_VALUE);
+                this.powerBarCache = Math.max(this.powerBarCache - frame, targetPower);
             else if (this.powerBarCache <= targetPower - frame)
                 this.powerBarCache = MathHelper.clamp(this.powerBarCache + frame, 0, targetPower);
             else

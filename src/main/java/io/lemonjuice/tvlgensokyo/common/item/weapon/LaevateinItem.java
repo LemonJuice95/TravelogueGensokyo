@@ -27,9 +27,9 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemLaevatein extends TGCombatWeaponBase implements IRenderPowerHUD {
+public class LaevateinItem extends TGCombatWeaponBase implements IRenderPowerHUD {
 
-    public ItemLaevatein() {
+    public LaevateinItem() {
         super(11, -3.2F);
     }
 

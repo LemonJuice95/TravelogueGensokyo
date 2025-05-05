@@ -6,7 +6,7 @@ import com.google.gson.JsonSyntaxException;
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.common.inventory.SpellWritingInventory;
 import io.lemonjuice.tvlgensokyo.common.item.TGItemRegister;
-import io.lemonjuice.tvlgensokyo.common.item.misc.ItemSpellBookPage;
+import io.lemonjuice.tvlgensokyo.common.item.misc.SpellBookPageItem;
 import io.lemonjuice.tvlgensokyo.common.spell.Spell;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -35,7 +35,7 @@ public class SpellWritingRecipe implements IRecipe<SpellWritingInventory>{
     public SpellWritingRecipe(ResourceLocation id, NonNullList<Ingredient> recipeItems, Spell recipeOutput) {
         this.id = id;
         this.recipeItems = recipeItems;
-        this.recipeOutput = ItemSpellBookPage.setSpell(new ItemStack(TGItemRegister.SPELL_BOOK_PAGE.get()), recipeOutput);
+        this.recipeOutput = SpellBookPageItem.setSpell(new ItemStack(TGItemRegister.SPELL_BOOK_PAGE.get()), recipeOutput);
     }
 
     @Override
@@ -141,7 +141,7 @@ public class SpellWritingRecipe implements IRecipe<SpellWritingInventory>{
                 ingredient.write(buffer);
             }
 
-            buffer.writeResourceLocation(ItemSpellBookPage.getSpell(recipe.recipeOutput).getName());
+            buffer.writeResourceLocation(SpellBookPageItem.getSpell(recipe.recipeOutput).getName());
         }
     }
 }

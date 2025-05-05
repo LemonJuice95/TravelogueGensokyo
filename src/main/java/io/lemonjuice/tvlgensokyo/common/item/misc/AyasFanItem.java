@@ -17,8 +17,8 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class ItemAyasFan extends Item implements IRenderPowerHUD {
-    public ItemAyasFan() {
+public class AyasFanItem extends Item implements IRenderPowerHUD {
+    public AyasFanItem() {
         super(new Item.Properties().group(TGItemGroups.MISC).maxStackSize(1));
     }
 

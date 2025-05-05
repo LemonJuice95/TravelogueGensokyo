@@ -1,16 +1,15 @@
 package io.lemonjuice.tvlgensokyo.utils;
 
-import io.lemonjuice.tvlgensokyo.common.block.BlockSweetBed;
+import io.lemonjuice.tvlgensokyo.common.block.SweetBedBlock;
 import io.lemonjuice.tvlgensokyo.common.block.TGBlockRegister;
 import net.minecraft.block.*;
-import net.minecraft.item.DyeColor;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TGBlockUtils {
-    public static final Map<Block, BlockSweetBed> SWEET_BED_MAP = new HashMap<>();
+    public static final Map<Block, SweetBedBlock> SWEET_BED_MAP = new HashMap<>();
     private static final Map<Block, Block> STRIPPED_BLOCK_MAP = new HashMap<>();
 
     static {

@@ -31,9 +31,7 @@ public class TGItemTagGenerator extends ItemTagsProvider {
 
         //mc tags
         this.getOrCreateBuilder(ItemTags.LOGS).add(TGItemRegister.MAPLE_LOG.get(), TGItemRegister.STRIPPED_MAPLE_LOG.get(), TGItemRegister.MAPLE_WOOD.get(), TGItemRegister.STRIPPED_MAPLE_WOOD.get());
-        this.getOrCreateBuilder(ItemTags.LOGS).add(TGItemRegister.SAKURA_LOG.get(), TGItemRegister.STRIPPED_SAKURA_LOG.get(), TGItemRegister.SAKURA_WOOD.get(), TGItemRegister.STRIPPED_SAKURA_WOOD.get());
         this.getOrCreateBuilder(ItemTags.LOGS_THAT_BURN).add(TGItemRegister.MAPLE_LOG.get(), TGItemRegister.STRIPPED_MAPLE_LOG.get(), TGItemRegister.MAPLE_WOOD.get(), TGItemRegister.STRIPPED_MAPLE_WOOD.get());
-        this.getOrCreateBuilder(ItemTags.LOGS_THAT_BURN).add(TGItemRegister.SAKURA_LOG.get(), TGItemRegister.STRIPPED_SAKURA_LOG.get(), TGItemRegister.SAKURA_WOOD.get(), TGItemRegister.STRIPPED_SAKURA_WOOD.get());
         this.getOrCreateBuilder(ItemTags.PLANKS).add(TGItemRegister.MAPLE_PLANKS.get());
         this.getOrCreateBuilder(ItemTags.LEAVES).add(TGItemRegister.MAPLE_LEAVES.get());
         this.getOrCreateBuilder(ItemTags.SLABS).add(TGItemRegister.MAPLE_SLAB.get());
@@ -47,6 +45,10 @@ public class TGItemTagGenerator extends ItemTagsProvider {
         this.getOrCreateBuilder(ItemTags.WOODEN_BUTTONS).add(TGItemRegister.MAPLE_BUTTON.get());
         this.getOrCreateBuilder(ItemTags.WOODEN_PRESSURE_PLATES).add(TGItemRegister.MAPLE_PRESSURE_PLATE.get());
         this.getOrCreateBuilder(ItemTags.SAPLINGS).add(TGItemRegister.MAPLE_SAPLING.get());
+
+        this.getOrCreateBuilder(ItemTags.LOGS).add(TGItemRegister.SAKURA_LOG.get(), TGItemRegister.STRIPPED_SAKURA_LOG.get(), TGItemRegister.SAKURA_WOOD.get(), TGItemRegister.STRIPPED_SAKURA_WOOD.get());
+        this.getOrCreateBuilder(ItemTags.LOGS_THAT_BURN).add(TGItemRegister.SAKURA_LOG.get(), TGItemRegister.STRIPPED_SAKURA_LOG.get(), TGItemRegister.SAKURA_WOOD.get(), TGItemRegister.STRIPPED_SAKURA_WOOD.get());
+        this.getOrCreateBuilder(ItemTags.PLANKS).add(TGItemRegister.SAKURA_PLANKS.get());
     }
 
     @Override

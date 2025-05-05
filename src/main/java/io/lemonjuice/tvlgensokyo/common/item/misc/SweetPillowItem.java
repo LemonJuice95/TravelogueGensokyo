@@ -24,8 +24,8 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemSweetPillow extends Item {
-    public ItemSweetPillow() {
+public class SweetPillowItem extends Item {
+    public SweetPillowItem() {
         super(new Item.Properties().group(TGItemGroups.MISC));
     }
 

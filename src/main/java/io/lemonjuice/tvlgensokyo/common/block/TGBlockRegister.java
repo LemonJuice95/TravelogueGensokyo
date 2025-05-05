@@ -2,8 +2,8 @@ package io.lemonjuice.tvlgensokyo.common.block;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.client.particle.TGParticleRegister;
-import io.lemonjuice.tvlgensokyo.common.block.workbench.BlockSpellBookBindingTable;
-import io.lemonjuice.tvlgensokyo.common.block.workbench.BlockSpellWritingTable;
+import io.lemonjuice.tvlgensokyo.common.block.workbench.SpellBookBindingTableBlock;
+import io.lemonjuice.tvlgensokyo.common.block.workbench.SpellWritingTableBlock;
 import io.lemonjuice.tvlgensokyo.common.world.feature.tree.MapleTree;
 import io.lemonjuice.tvlgensokyo.common.misc.TGWoodType;
 import net.minecraft.block.*;
@@ -25,8 +25,8 @@ public class TGBlockRegister {
     public static final RegistryObject<CropsBlock> CUCUMBER = BLOCKS.register("cucumber", () -> new CropsBlock(AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.CROP)));
 
     //Workbench
-    public static final RegistryObject<Block> SPELL_BOOK_BINDING_TABLE = BLOCKS.register("spell_book_binding_table", () -> new BlockSpellBookBindingTable(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD).notSolid()));
-    public static final RegistryObject<Block> SPELL_WRITING_TABLE = BLOCKS.register("spell_writing_table", () -> new BlockSpellWritingTable(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD).notSolid()));
+    public static final RegistryObject<Block> SPELL_BOOK_BINDING_TABLE = BLOCKS.register("spell_book_binding_table", () -> new SpellBookBindingTableBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD).notSolid()));
+    public static final RegistryObject<Block> SPELL_WRITING_TABLE = BLOCKS.register("spell_writing_table", () -> new SpellWritingTableBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD).notSolid()));
 
     //Maple
     public static final RegistryObject<Block> MAPLE_SAPLING = BLOCKS.register("maple_sapling", () -> new SaplingBlock(new MapleTree(), AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)));
@@ -39,8 +39,8 @@ public class TGBlockRegister {
     public static final RegistryObject<Block> MAPLE_PLANKS = BLOCKS.register("maple_planks", () -> new Block(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.SAND).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> MAPLE_SLAB = BLOCKS.register("maple_slab", () -> new SlabBlock(AbstractBlock.Properties.from(MAPLE_PLANKS.get())));
     public static final RegistryObject<Block> MAPLE_STAIRS = BLOCKS.register("maple_stairs", () -> new StairsBlock(() -> MAPLE_PLANKS.get().getDefaultState(), AbstractBlock.Properties.from(MAPLE_PLANKS.get())));
-    public static final RegistryObject<StandingSignBlock> MAPLE_SIGN = BLOCKS.register("maple_sign", () -> new BlockTGSign(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), TGWoodType.MAPLE));
-    public static final RegistryObject<WallSignBlock> MAPLE_WALL_SIGN = BLOCKS.register("maple_wall_sign", () -> new BlockTGWallSign(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), TGWoodType.MAPLE));
+    public static final RegistryObject<StandingSignBlock> MAPLE_SIGN = BLOCKS.register("maple_sign", () -> new TGSignBlock(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), TGWoodType.MAPLE));
+    public static final RegistryObject<WallSignBlock> MAPLE_WALL_SIGN = BLOCKS.register("maple_wall_sign", () -> new TGWallSignBlock(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), TGWoodType.MAPLE));
     public static final RegistryObject<Block> MAPLE_FENCE = BLOCKS.register("maple_fence", () -> new FenceBlock(AbstractBlock.Properties.from(MAPLE_PLANKS.get())));
     public static final RegistryObject<Block> MAPLE_FENCE_GATE = BLOCKS.register("maple_fence_gate", () -> new FenceGateBlock(AbstractBlock.Properties.from(MAPLE_PLANKS.get())));
     public static final RegistryObject<Block> MAPLE_BUTTON = BLOCKS.register("maple_button", () -> new WoodButtonBlock(AbstractBlock.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
@@ -49,26 +49,28 @@ public class TGBlockRegister {
     //Sakura
     public static final RegistryObject<Block> SAKURA_LOG = BLOCKS.register("sakura_log", () -> createLogBlock(MaterialColor.WHITE_TERRACOTTA, MaterialColor.GRAY_TERRACOTTA));
     public static final RegistryObject<Block> STRIPPED_SAKURA_LOG = BLOCKS.register("stripped_sakura_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> PINK_PETALS = BLOCKS.register("pink_petals", PinkPetalsBlock::new);
     public static final RegistryObject<Block> SAKURA_WOOD = BLOCKS.register("sakura_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.GRAY_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> STRIPPED_SAKURA_WOOD = BLOCKS.register("stripped_sakura_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> SAKURA_PLANKS = BLOCKS.register("sakura_planks", () -> new Block(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
 
     //Sweet Bed
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_WHITE = BLOCKS.register("sweet_bed_white", () -> new BlockSweetBed((BedBlock)Blocks.WHITE_BED, DyeColor.WHITE));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_ORANGE = BLOCKS.register("sweet_bed_orange", () -> new BlockSweetBed((BedBlock)Blocks.ORANGE_BED, DyeColor.ORANGE));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_MAGENTA = BLOCKS.register("sweet_bed_magenta", () -> new BlockSweetBed((BedBlock)Blocks.MAGENTA_BED, DyeColor.MAGENTA));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_LIGHT_BLUE = BLOCKS.register("sweet_bed_light_blue", () -> new BlockSweetBed((BedBlock)Blocks.LIGHT_BLUE_BED, DyeColor.LIGHT_BLUE));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_YELLOW = BLOCKS.register("sweet_bed_yellow", () -> new BlockSweetBed((BedBlock)Blocks.YELLOW_BED, DyeColor.YELLOW));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_LIME = BLOCKS.register("sweet_bed_lime", () -> new BlockSweetBed((BedBlock)Blocks.LIME_BED, DyeColor.LIME));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_PINK = BLOCKS.register("sweet_bed_pink", () -> new BlockSweetBed((BedBlock)Blocks.PINK_BED, DyeColor.PINK));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_GRAY = BLOCKS.register("sweet_bed_gray", () -> new BlockSweetBed((BedBlock)Blocks.GRAY_BED, DyeColor.GRAY));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_LIGHT_GRAY = BLOCKS.register("sweet_bed_light_gray", () -> new BlockSweetBed((BedBlock)Blocks.LIGHT_GRAY_BED, DyeColor.LIGHT_GRAY));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_CYAN = BLOCKS.register("sweet_bed_cyan", () -> new BlockSweetBed((BedBlock)Blocks.CYAN_BED, DyeColor.CYAN));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_PURPLE = BLOCKS.register("sweet_bed_purple", () -> new BlockSweetBed((BedBlock)Blocks.PURPLE_BED, DyeColor.PURPLE));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_BLUE = BLOCKS.register("sweet_bed_blue", () -> new BlockSweetBed((BedBlock)Blocks.BLUE_BED, DyeColor.BLUE));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_BROWN = BLOCKS.register("sweet_bed_brown", () -> new BlockSweetBed((BedBlock)Blocks.BROWN_BED, DyeColor.BROWN));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_GREEN = BLOCKS.register("sweet_bed_green", () -> new BlockSweetBed((BedBlock)Blocks.GREEN_BED, DyeColor.GREEN));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_RED = BLOCKS.register("sweet_bed_red", () -> new BlockSweetBed((BedBlock)Blocks.RED_BED, DyeColor.RED));
-    public static final RegistryObject<BlockSweetBed> SWEET_BED_BLACK = BLOCKS.register("sweet_bed_black", () -> new BlockSweetBed((BedBlock)Blocks.BLACK_BED, DyeColor.BLACK));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_WHITE = BLOCKS.register("sweet_bed_white", () -> new SweetBedBlock((BedBlock)Blocks.WHITE_BED, DyeColor.WHITE));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_ORANGE = BLOCKS.register("sweet_bed_orange", () -> new SweetBedBlock((BedBlock)Blocks.ORANGE_BED, DyeColor.ORANGE));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_MAGENTA = BLOCKS.register("sweet_bed_magenta", () -> new SweetBedBlock((BedBlock)Blocks.MAGENTA_BED, DyeColor.MAGENTA));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_LIGHT_BLUE = BLOCKS.register("sweet_bed_light_blue", () -> new SweetBedBlock((BedBlock)Blocks.LIGHT_BLUE_BED, DyeColor.LIGHT_BLUE));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_YELLOW = BLOCKS.register("sweet_bed_yellow", () -> new SweetBedBlock((BedBlock)Blocks.YELLOW_BED, DyeColor.YELLOW));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_LIME = BLOCKS.register("sweet_bed_lime", () -> new SweetBedBlock((BedBlock)Blocks.LIME_BED, DyeColor.LIME));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_PINK = BLOCKS.register("sweet_bed_pink", () -> new SweetBedBlock((BedBlock)Blocks.PINK_BED, DyeColor.PINK));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_GRAY = BLOCKS.register("sweet_bed_gray", () -> new SweetBedBlock((BedBlock)Blocks.GRAY_BED, DyeColor.GRAY));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_LIGHT_GRAY = BLOCKS.register("sweet_bed_light_gray", () -> new SweetBedBlock((BedBlock)Blocks.LIGHT_GRAY_BED, DyeColor.LIGHT_GRAY));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_CYAN = BLOCKS.register("sweet_bed_cyan", () -> new SweetBedBlock((BedBlock)Blocks.CYAN_BED, DyeColor.CYAN));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_PURPLE = BLOCKS.register("sweet_bed_purple", () -> new SweetBedBlock((BedBlock)Blocks.PURPLE_BED, DyeColor.PURPLE));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_BLUE = BLOCKS.register("sweet_bed_blue", () -> new SweetBedBlock((BedBlock)Blocks.BLUE_BED, DyeColor.BLUE));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_BROWN = BLOCKS.register("sweet_bed_brown", () -> new SweetBedBlock((BedBlock)Blocks.BROWN_BED, DyeColor.BROWN));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_GREEN = BLOCKS.register("sweet_bed_green", () -> new SweetBedBlock((BedBlock)Blocks.GREEN_BED, DyeColor.GREEN));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_RED = BLOCKS.register("sweet_bed_red", () -> new SweetBedBlock((BedBlock)Blocks.RED_BED, DyeColor.RED));
+    public static final RegistryObject<SweetBedBlock> SWEET_BED_BLACK = BLOCKS.register("sweet_bed_black", () -> new SweetBedBlock((BedBlock)Blocks.BLACK_BED, DyeColor.BLACK));
 
     //Structure
     public static final RegistryObject<Block> DREAM_BASE = BLOCKS.register("dream_base", () -> new GlassBlock(AbstractBlock.Properties.create(Material.BARRIER).hardnessAndResistance(-1.0F, 3600000.0F).noDrops().setAllowsSpawn(TGBlockRegister::neverAllowSpawn).notSolid().setOpaque(TGBlockRegister::isntSolid).setBlocksVision(TGBlockRegister::isntSolid).setSuffocates(TGBlockRegister::isntSolid)));
@@ -95,19 +97,19 @@ public class TGBlockRegister {
         }).hardnessAndResistance(2.0F).sound(SoundType.WOOD));
     }
 
-    private static BlockFallableLeaves createFallableLeaves(BlockState fallenLeaves) {
-        return new BlockFallableLeaves(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setAllowsSpawn(TGBlockRegister::allowsSpawnOnLeaves).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false), fallenLeaves);
+    private static FallableLeavesBlock createFallableLeaves(BlockState fallenLeaves) {
+        return new FallableLeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setAllowsSpawn(TGBlockRegister::allowsSpawnOnLeaves).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false), fallenLeaves);
     }
 
-    private static BlockFallableLeaves createFallableLeaves(BlockState fallenLeaves, BasicParticleType fallingLeafParticle) {
-        return new BlockFallableLeaves(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setAllowsSpawn(TGBlockRegister::allowsSpawnOnLeaves).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false), fallenLeaves, fallingLeafParticle);
+    private static FallableLeavesBlock createFallableLeaves(BlockState fallenLeaves, BasicParticleType fallingLeafParticle) {
+        return new FallableLeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setAllowsSpawn(TGBlockRegister::allowsSpawnOnLeaves).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false), fallenLeaves, fallingLeafParticle);
     }
 
     private static LeavesBlock createLeavesBlock() {
         return new LeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setAllowsSpawn(TGBlockRegister::allowsSpawnOnLeaves).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false));
     }
 
-    private static BlockFallenLeaves createFallenLeaves() {
-        return new BlockFallenLeaves(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).sound(SoundType.PLANT).notSolid().doesNotBlockMovement().setAllowsSpawn(TGBlockRegister::neverAllowSpawn).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false));
+    private static FallenLeavesBlock createFallenLeaves() {
+        return new FallenLeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).sound(SoundType.PLANT).notSolid().doesNotBlockMovement().setAllowsSpawn(TGBlockRegister::neverAllowSpawn).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false));
     }
 }

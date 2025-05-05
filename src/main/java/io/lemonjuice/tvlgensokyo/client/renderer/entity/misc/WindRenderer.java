@@ -8,8 +8,8 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.util.ResourceLocation;
 
-public class RendererWind extends EntityRenderer<EntityWind> {
-    public RendererWind(EntityRendererManager manager) {
+public class WindRenderer extends EntityRenderer<EntityWind> {
+    public WindRenderer(EntityRendererManager manager) {
         super(manager);
     }
 

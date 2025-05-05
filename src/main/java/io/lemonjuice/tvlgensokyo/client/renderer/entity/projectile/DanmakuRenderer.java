@@ -18,8 +18,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3f;
 
-public class RendererDanmaku extends EntityRenderer<EntityDanmaku> {
-    public RendererDanmaku(EntityRendererManager manager) {
+public class DanmakuRenderer extends EntityRenderer<EntityDanmaku> {
+    public DanmakuRenderer(EntityRendererManager manager) {
         super(manager);
     }
 

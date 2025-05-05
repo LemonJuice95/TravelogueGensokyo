@@ -14,12 +14,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3f;
 
-public class RendererGungnir extends EntityRenderer<EntityGungnir> {
+public class GungnirRenderer extends EntityRenderer<EntityGungnir> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(TravelogueGensokyo.MODID, "textures/entity/projectile/gungnir.png");
 
     private EntityModel<EntityGungnir> model;
 
-    public RendererGungnir(EntityRendererManager manager) {
+    public GungnirRenderer(EntityRendererManager manager) {
         super(manager);
         this.model = new GungnirModel();
     }

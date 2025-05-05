@@ -34,11 +34,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Function;
 
-public class BlockSweetBed extends BedBlock {
+public class SweetBedBlock extends BedBlock {
     BedBlock bed;
     DyeColor color;
 
-    public BlockSweetBed(BedBlock bed, DyeColor color) {
+    public SweetBedBlock(BedBlock bed, DyeColor color) {
         super(color, AbstractBlock.Properties.create(Material.WOOL, (state) ->
                         state.get(PART) == BedPart.FOOT ? color.getMapColor() : MaterialColor.WOOL)
                 .sound(SoundType.WOOD).hardnessAndResistance(0.2F).notSolid());

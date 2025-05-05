@@ -23,6 +23,6 @@ public class TGParticleRegister {
     @SubscribeEvent
     public static void onParticleFactoryRegistry(ParticleFactoryRegisterEvent event) {
         ParticleManager manager = Minecraft.getInstance().particles;
-        manager.registerFactory(FALLING_MAPLE_LEAF, ParticleFallingLeaf.Factory::new);
+        manager.registerFactory(FALLING_MAPLE_LEAF, FallingLeafParticle.Factory::new);
     }
 }

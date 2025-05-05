@@ -13,10 +13,10 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemCurrency extends Item {
+public class CurrencyItem extends Item {
     public final int value;
 
-    public ItemCurrency(int value) {
+    public CurrencyItem(int value) {
         super(new Item.Properties().group(TGItemGroups.MISC));
         this.value = value;
     }

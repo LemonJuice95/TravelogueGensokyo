@@ -1,7 +1,7 @@
 package io.lemonjuice.tvlgensokyo.common.item.misc;
 
 import io.lemonjuice.tvlgensokyo.api.interfaces.IRenderPowerHUD;
-import io.lemonjuice.tvlgensokyo.common.container.ContainerPowerProvider;
+import io.lemonjuice.tvlgensokyo.common.container.PowerProviderContainer;
 import io.lemonjuice.tvlgensokyo.common.item.group.TGItemGroups;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
@@ -26,11 +26,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 @Deprecated
-public class ItemPowerProvider extends Item implements IRenderPowerHUD {
+public class PowerProviderItem extends Item implements IRenderPowerHUD {
     private final int maxPower;
     private final int powerPerTick;
 
-    public ItemPowerProvider(int maxPower, int powerPerTick) {
+    public PowerProviderItem(int maxPower, int powerPerTick) {
         super(new Item.Properties().group(TGItemGroups.MISC).maxStackSize(1));
         this.maxPower = maxPower;
         this.powerPerTick = powerPerTick;
@@ -87,7 +87,7 @@ public class ItemPowerProvider extends Item implements IRenderPowerHUD {
                 @Nullable
                 @Override
                 public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
-                    return new ContainerPowerProvider(p_createMenu_1_, p_createMenu_3_, hand == Hand.MAIN_HAND);
+                    return new PowerProviderContainer(p_createMenu_1_, p_createMenu_3_, hand == Hand.MAIN_HAND);
                 }
             }, buffer -> {
                 buffer.writeBoolean(hand == Hand.MAIN_HAND);
@@ -97,8 +97,8 @@ public class ItemPowerProvider extends Item implements IRenderPowerHUD {
     }
 
     public static boolean injectPower(ItemStack stack, int power) {
-        if(stack.getItem() instanceof ItemPowerProvider) {
-            ItemPowerProvider item = (ItemPowerProvider) stack.getItem();
+        if(stack.getItem() instanceof PowerProviderItem) {
+            PowerProviderItem item = (PowerProviderItem) stack.getItem();
             int storage = getPowerStorage(stack);
             if(storage + power <= item.maxPower && storage + power >= 0) {
                 CompoundNBT nbt = stack.getOrCreateTag();

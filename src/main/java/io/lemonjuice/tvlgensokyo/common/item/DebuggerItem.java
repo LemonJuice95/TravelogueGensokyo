@@ -13,8 +13,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
 
-public class ItemDebugger extends Item {
-    public ItemDebugger() {
+public class DebuggerItem extends Item {
+    public DebuggerItem() {
         super(new Item.Properties().group(TGItemGroups.MISC));
     }
 

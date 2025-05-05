@@ -1,8 +1,7 @@
 package io.lemonjuice.tvlgensokyo.common.block.workbench;
 
-import io.lemonjuice.tvlgensokyo.common.container.ContainerSpellWritingTable;
+import io.lemonjuice.tvlgensokyo.common.container.SpellWritingTableContainer;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.container.INamedContainerProvider;
@@ -22,13 +21,13 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
-public class BlockSpellWritingTable extends Block {
+public class SpellWritingTableBlock extends Block {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     protected static final VoxelShape SHAPE = VoxelShapes.or(makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 12.0D, 15.0D), makeCuboidShape(0.0D, 12.0D, 0.0D, 16.0D, 14.0D, 16.0D));
 
     private static final ITextComponent CONTAINER_NAME = new TranslationTextComponent("container.tvlgensokyo.spell_writing");
 
-    public BlockSpellWritingTable(Properties properties) {
+    public SpellWritingTableBlock(Properties properties) {
         super(properties);
     }
 
@@ -50,7 +49,7 @@ public class BlockSpellWritingTable extends Block {
 
     public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos) {
         return new SimpleNamedContainerProvider((id, inventory, player) -> {
-            return new ContainerSpellWritingTable(id, player, IWorldPosCallable.of(worldIn, pos));
+            return new SpellWritingTableContainer(id, player, IWorldPosCallable.of(worldIn, pos));
         }, CONTAINER_NAME);
     }
 

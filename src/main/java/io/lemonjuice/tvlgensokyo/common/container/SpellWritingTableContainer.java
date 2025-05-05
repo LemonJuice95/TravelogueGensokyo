@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 
 import java.util.Optional;
 
-public class ContainerSpellWritingTable extends TGContainerBase {
+public class SpellWritingTableContainer extends TGContainerBase {
 
     private final SpellWritingInventory craftMatrix = new SpellWritingInventory(this);
     private final CraftResultInventory craftResult = new CraftResultInventory();
@@ -26,7 +26,7 @@ public class ContainerSpellWritingTable extends TGContainerBase {
     private final PlayerEntity player;
 
 
-    public ContainerSpellWritingTable(int id, PlayerEntity player, IWorldPosCallable worldPosCallable) {
+    public SpellWritingTableContainer(int id, PlayerEntity player, IWorldPosCallable worldPosCallable) {
         super(TGContainerRegister.SPELL_WRITING_TABLE.get(), id);
         this.worldPosCallable = worldPosCallable;
         this.player = player;

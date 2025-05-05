@@ -2,16 +2,16 @@ package io.lemonjuice.tvlgensokyo.client.gui.screen.container;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
-import io.lemonjuice.tvlgensokyo.common.container.ContainerSpellBookBindingTable;
+import io.lemonjuice.tvlgensokyo.common.container.SpellBookBindingTableContainer;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
-public class SpellBookBindingTableContainerScreen extends ContainerScreen<ContainerSpellBookBindingTable> {
+public class SpellBookBindingTableContainerScreen extends ContainerScreen<SpellBookBindingTableContainer> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(TravelogueGensokyo.MODID, "textures/gui/container/spell_book_binding_table.png");
 
-    public SpellBookBindingTableContainerScreen(ContainerSpellBookBindingTable container, PlayerInventory inventory, ITextComponent title) {
+    public SpellBookBindingTableContainerScreen(SpellBookBindingTableContainer container, PlayerInventory inventory, ITextComponent title) {
         super(container, inventory, title);
         this.xSize = 176;
         this.ySize = 170;

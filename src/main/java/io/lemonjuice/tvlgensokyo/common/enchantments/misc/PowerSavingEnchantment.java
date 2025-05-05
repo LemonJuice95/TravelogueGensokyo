@@ -4,8 +4,8 @@ import io.lemonjuice.tvlgensokyo.common.enchantments.TGEnchantmentTypes;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.inventory.EquipmentSlotType;
 
-public class EnchantmentPowerSaving extends Enchantment {
-    public EnchantmentPowerSaving() {
+public class PowerSavingEnchantment extends Enchantment {
+    public PowerSavingEnchantment() {
         super(Rarity.COMMON, TGEnchantmentTypes.POWER, new EquipmentSlotType[] { EquipmentSlotType.OFFHAND, EquipmentSlotType.MAINHAND });
     }
 

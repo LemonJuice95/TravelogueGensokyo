@@ -7,13 +7,13 @@ import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 
-public class ContainerSpellBookBindingTable extends TGContainerBase {
+public class SpellBookBindingTableContainer extends TGContainerBase {
 
     private PlayerEntity player;
     private SpellBookBindingTableTileEntity tileEntity;
     private int playerInvStartIndex;
 
-    public ContainerSpellBookBindingTable(int id, PlayerEntity player, BlockPos pos) {
+    public SpellBookBindingTableContainer(int id, PlayerEntity player, BlockPos pos) {
         super(TGContainerRegister.SPELL_BOOK_BINDING_TABLE.get(), id);
         this.player = player;
         this.tileEntity = (SpellBookBindingTableTileEntity) player.world.getTileEntity(pos);

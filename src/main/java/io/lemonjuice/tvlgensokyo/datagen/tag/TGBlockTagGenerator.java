@@ -18,6 +18,7 @@ public class TGBlockTagGenerator extends BlockTagsProvider {
     protected void registerTags() {
         //tvlgensokyo tags
         this.getOrCreateBuilder(TGBlockTags.MAPLE_LOGS).add(TGBlockRegister.MAPLE_LOG.get(), TGBlockRegister.STRIPPED_MAPLE_LOG.get(), TGBlockRegister.MAPLE_WOOD.get(), TGBlockRegister.STRIPPED_MAPLE_WOOD.get());
+        this.getOrCreateBuilder(TGBlockTags.SAKURA_LOGS).add(TGBlockRegister.SAKURA_LOG.get(), TGBlockRegister.STRIPPED_SAKURA_LOG.get(), TGBlockRegister.SAKURA_WOOD.get(), TGBlockRegister.STRIPPED_SAKURA_WOOD.get());
 
         //forge tags
         this.getOrCreateBuilder(Tags.Blocks.FENCES).add(TGBlockRegister.MAPLE_FENCE.get());
@@ -45,6 +46,10 @@ public class TGBlockTagGenerator extends BlockTagsProvider {
         this.getOrCreateBuilder(BlockTags.WOODEN_PRESSURE_PLATES).add(TGBlockRegister.MAPLE_PRESSURE_PLATE.get());
         this.getOrCreateBuilder(BlockTags.FENCE_GATES).add(TGBlockRegister.MAPLE_FENCE_GATE.get());
         this.getOrCreateBuilder(BlockTags.SAPLINGS).add(TGBlockRegister.MAPLE_SAPLING.get());
+
+        this.getOrCreateBuilder(BlockTags.LOGS).add(TGBlockRegister.SAKURA_LOG.get(), TGBlockRegister.STRIPPED_SAKURA_LOG.get(), TGBlockRegister.SAKURA_WOOD.get(), TGBlockRegister.STRIPPED_SAKURA_WOOD.get());
+        this.getOrCreateBuilder(BlockTags.LOGS_THAT_BURN).add(TGBlockRegister.SAKURA_LOG.get(), TGBlockRegister.STRIPPED_SAKURA_LOG.get(), TGBlockRegister.SAKURA_WOOD.get(), TGBlockRegister.STRIPPED_SAKURA_WOOD.get());
+        this.getOrCreateBuilder(BlockTags.PLANKS).add(TGBlockRegister.SAKURA_PLANKS.get());
     }
 
 

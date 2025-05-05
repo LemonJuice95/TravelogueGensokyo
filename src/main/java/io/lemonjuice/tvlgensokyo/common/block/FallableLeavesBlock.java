@@ -12,16 +12,16 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
-public class BlockFallableLeaves extends LeavesBlock {
+public class FallableLeavesBlock extends LeavesBlock {
     private final BlockState fallenLeaves;
     private BasicParticleType fallingLeafParticle = null;
 
-    public BlockFallableLeaves(AbstractBlock.Properties properties, BlockState fallenLeaves) {
+    public FallableLeavesBlock(AbstractBlock.Properties properties, BlockState fallenLeaves) {
         super(properties);
         this.fallenLeaves = fallenLeaves;
     }
 
-    public BlockFallableLeaves(AbstractBlock.Properties properties, BlockState fallenLeaves, BasicParticleType fallingLeafParticle) {
+    public FallableLeavesBlock(AbstractBlock.Properties properties, BlockState fallenLeaves, BasicParticleType fallingLeafParticle) {
         super(properties);
         this.fallenLeaves = fallenLeaves;
         this.fallingLeafParticle = fallingLeafParticle;
@@ -35,18 +35,21 @@ public class BlockFallableLeaves extends LeavesBlock {
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if(random.nextInt(10) == 0) {
-            int x = pos.getX() + random.nextInt(3) - 1;
-            int z = pos.getZ() + random.nextInt(3) - 1;
-            int y = pos.getY();
-            while(world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == Blocks.AIR && y > 0)
-                y--;
-            BlockPos fallAt = new BlockPos(x, y, z);
-            if(world.getBlockState(fallAt).getBlock() == Blocks.AIR && this.fallenLeaves.isValidPosition(world, fallAt)) {
-                world.setBlockState(fallAt, this.fallenLeaves);
-            }
+            this.fall(state, world, pos, random);
         }
-
         super.randomTick(state, world, pos, random);
+    }
+
+    protected void fall(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        int x = pos.getX() + random.nextInt(3) - 1;
+        int z = pos.getZ() + random.nextInt(3) - 1;
+        int y = pos.getY();
+        while (world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == Blocks.AIR && y > 0)
+            y--;
+        BlockPos fallAt = new BlockPos(x, y, z);
+        if (world.getBlockState(fallAt).getBlock() == Blocks.AIR && this.fallenLeaves.isValidPosition(world, fallAt)) {
+            world.setBlockState(fallAt, this.fallenLeaves);
+        }
     }
 
     @Override

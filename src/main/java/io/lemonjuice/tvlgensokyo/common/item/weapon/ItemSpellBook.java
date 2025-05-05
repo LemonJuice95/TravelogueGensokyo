@@ -2,13 +2,11 @@ package io.lemonjuice.tvlgensokyo.common.item.weapon;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.api.interfaces.IRenderPowerHUD;
-import io.lemonjuice.tvlgensokyo.client.models.itemstack.BasicSpellBookModel;
-import io.lemonjuice.tvlgensokyo.client.models.itemstack.SpellBookModelBase;
 import io.lemonjuice.tvlgensokyo.client.renderer.itemstack.SpellBookISTER;
 import io.lemonjuice.tvlgensokyo.common.item.interfaces.IScrollable;
 import io.lemonjuice.tvlgensokyo.common.item.interfaces.ISpellInstrument;
 import io.lemonjuice.tvlgensokyo.common.item.group.TGItemGroups;
-import io.lemonjuice.tvlgensokyo.common.item.misc.ItemSpellBookPage;
+import io.lemonjuice.tvlgensokyo.common.item.misc.SpellBookPageItem;
 import io.lemonjuice.tvlgensokyo.common.spell.Spell;
 import io.lemonjuice.tvlgensokyo.common.spell.TGSpellInit;
 import io.lemonjuice.tvlgensokyo.utils.TGCapabilityUtils;
@@ -248,7 +246,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
 
     @Override
     public int getPowerCost(ItemStack stack) {
-        return ItemSpellBookPage.getSpell(this.getCurrentPage(stack)).getPowerCost();
+        return SpellBookPageItem.getSpell(this.getCurrentPage(stack)).getPowerCost();
     }
 
     @Override
@@ -260,7 +258,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
         SpellBookInventory inventory = this.getInventory(stack);
         for(int i = 0; i < inventory.getSizeInventory(); i++) {
             if(!inventory.getStackInSlot(i).isEmpty()) {
-                Spell spell = ItemSpellBookPage.getSpell(inventory.getStackInSlot(i));
+                Spell spell = SpellBookPageItem.getSpell(inventory.getStackInSlot(i));
                 tooltip.add(new TranslationTextComponent(spell.getTranslationKey()).mergeStyle(spell.getTextFormattings()));
             } else {
                 tooltip.add(new TranslationTextComponent(TGSpellInit.EMPTY.getTranslationKey()).mergeStyle(TextFormatting.GRAY));
@@ -273,7 +271,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World world, LivingEntity entity) {
         if(entity instanceof PlayerEntity) {
-            Spell spell = ItemSpellBookPage.getSpell(this.getInventory(stack).getCurrentPage());
+            Spell spell = SpellBookPageItem.getSpell(this.getInventory(stack).getCurrentPage());
             int powerCost = ((PlayerEntity) entity).isCreative() ? 0 : TGMathUtils.calculatePowerCost((int)(spell.getPowerCost() * this.powerMultiply), (PlayerEntity) entity, stack);
             if(TGCapabilityUtils.getPower((PlayerEntity) entity) >= powerCost) {
                 TravelogueGensokyo.PROXY.setChantingProgress(0.0F);
@@ -289,7 +287,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getHeldItem(hand);
         ItemStack page = this.getCurrentPage(stack);
-        if(player.isCreative() || TGCapabilityUtils.getPower(player) >= TGMathUtils.calculatePowerCost((int)(ItemSpellBookPage.getSpell(page).getPowerCost() * this.powerMultiply), player, stack)) {
+        if(player.isCreative() || TGCapabilityUtils.getPower(player) >= TGMathUtils.calculatePowerCost((int)(SpellBookPageItem.getSpell(page).getPowerCost() * this.powerMultiply), player, stack)) {
             player.setActiveHand(hand);
         }
         return ActionResult.resultFail(stack);
@@ -324,7 +322,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
 
     @Override
     public int getUseDuration(ItemStack stack) {
-        return (int)(ItemSpellBookPage.getSpell(this.getCurrentPage(stack)).getChantTime() * 1.0 / this.speedMultiply);
+        return (int)(SpellBookPageItem.getSpell(this.getCurrentPage(stack)).getChantTime() * 1.0 / this.speedMultiply);
     }
 
     @Override
@@ -404,7 +402,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
 
         @Override
         public boolean isItemValidForSlot(int index, ItemStack stack) {
-            return stack.getItem() instanceof ItemSpellBookPage;
+            return stack.getItem() instanceof SpellBookPageItem;
         }
 
         @Override

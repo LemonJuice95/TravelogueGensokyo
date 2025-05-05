@@ -14,12 +14,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3f;
 
-public class RendererAmulet extends EntityRenderer<EntityAmulet> {
+public class AmuletRenderer extends EntityRenderer<EntityAmulet> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(TravelogueGensokyo.MODID, "textures/entity/projectile/amulet.png");
 
     private EntityModel<EntityAmulet> model;
 
-    public RendererAmulet(EntityRendererManager manager) {
+    public AmuletRenderer(EntityRendererManager manager) {
         super(manager);
         this.model = new AmuletModel();
     }

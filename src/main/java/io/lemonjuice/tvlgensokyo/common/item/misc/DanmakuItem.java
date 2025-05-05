@@ -22,10 +22,10 @@ import net.minecraft.world.World;
 
 import static net.minecraft.entity.Entity.horizontalMag;
 
-public class ItemDanmaku extends Item implements IRenderPowerHUD, IScrollable {
+public class DanmakuItem extends Item implements IRenderPowerHUD, IScrollable {
     private final Danmaku.Type type;
 
-    public ItemDanmaku(Danmaku.Type type) {
+    public DanmakuItem(Danmaku.Type type) {
         super(new Item.Properties().group(TGItemGroups.COMBAT).maxStackSize(9));
         this.type = type;
     }

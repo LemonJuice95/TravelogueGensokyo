@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.network.toserver;
 
-import io.lemonjuice.tvlgensokyo.common.container.ContainerPowerProvider;
+import io.lemonjuice.tvlgensokyo.common.container.PowerProviderContainer;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.network.NetworkEvent;
@@ -27,8 +27,8 @@ public class ClickButtonPacket {
             final ServerPlayerEntity player = ctx.get().getSender();
             Operations operation = Operations.values()[packet.operation];
             if(operation == Operations.INJECT_POWER) {
-                if (player != null && player.openContainer instanceof ContainerPowerProvider) {
-                    ((ContainerPowerProvider) player.openContainer).onPowerInject();
+                if (player != null && player.openContainer instanceof PowerProviderContainer) {
+                    ((PowerProviderContainer) player.openContainer).onPowerInject();
                 }
             }
             ctx.get().setPacketHandled(true);

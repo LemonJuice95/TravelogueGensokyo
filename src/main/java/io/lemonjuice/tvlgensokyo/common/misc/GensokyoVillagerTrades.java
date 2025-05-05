@@ -2,7 +2,7 @@ package io.lemonjuice.tvlgensokyo.common.misc;
 
 import com.google.common.collect.ImmutableMap;
 import io.lemonjuice.tvlgensokyo.common.item.TGItemRegister;
-import io.lemonjuice.tvlgensokyo.common.item.misc.ItemCurrency;
+import io.lemonjuice.tvlgensokyo.common.item.misc.CurrencyItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.merchant.villager.VillagerTrades;
 import net.minecraft.item.Item;
@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class GensokyoVillagerTrades {
-    public static final Map<CurrencyType, ItemCurrency> CURRENCY_MAP = ImmutableMap.of(CurrencyType.COPPER_COIN, TGItemRegister.COPPER_COIN.get(), CurrencyType.SILVER_PIECE, TGItemRegister.SILVER_PIECE.get(), CurrencyType.SILVER_INGOT, TGItemRegister.SILVER_INGOT.get());
+    public static final Map<CurrencyType, CurrencyItem> CURRENCY_MAP = ImmutableMap.of(CurrencyType.COPPER_COIN, TGItemRegister.COPPER_COIN.get(), CurrencyType.SILVER_PIECE, TGItemRegister.SILVER_PIECE.get(), CurrencyType.SILVER_INGOT, TGItemRegister.SILVER_INGOT.get());
 
     static class CurrencyForItemTrade implements VillagerTrades.ITrade {
         private final Item tradeItem;

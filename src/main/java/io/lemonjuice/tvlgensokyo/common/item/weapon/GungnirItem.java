@@ -11,8 +11,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class ItemGungnir extends TGCombatWeaponBase implements IRenderPowerHUD {
-    public ItemGungnir() {
+public class GungnirItem extends TGCombatWeaponBase implements IRenderPowerHUD {
+    public GungnirItem() {
         super(9, -2.8F);
     }
 

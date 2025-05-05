@@ -15,6 +15,7 @@ public class TestSpell extends Spell{
     public void onActivate(PlayerEntity player, ItemStack book) {
         Danmaku danmaku = new Danmaku(Danmaku.Type.DOT, Danmaku.Color.WHITE, 400, 0);
         EntityDanmaku danmakuEntity = new EntityDanmaku(player.world, danmaku, IHasGroup.TGGroups.FRIENDLY, player);
+        danmakuEntity.setOwner(player);
         danmakuEntity.setPosition(player.getPosX(), player.getPosYEye(), player.getPosZ());
         danmakuEntity.setRotationAndMotion(player.rotationYaw, player.rotationPitch);
         danmakuEntity.setSpeed(0.2F);

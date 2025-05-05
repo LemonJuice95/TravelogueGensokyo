@@ -15,6 +15,8 @@ public class TGBlockRenderHandler {
         RenderTypeLookup.setRenderLayer(TGBlockRegister.MAPLE_LEAVES.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(TGBlockRegister.FALLEN_MAPLE_LEAVES.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(TGBlockRegister.MAPLE_SAPLING.get(), RenderType.getCutout());
+
+        RenderTypeLookup.setRenderLayer(TGBlockRegister.PINK_PETALS.get(), RenderType.getCutout());
         
         RenderTypeLookup.setRenderLayer(TGBlockRegister.SPELL_WRITING_TABLE.get(), RenderType.getTranslucent());
     }

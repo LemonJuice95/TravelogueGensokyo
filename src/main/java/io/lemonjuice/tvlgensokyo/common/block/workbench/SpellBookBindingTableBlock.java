@@ -24,12 +24,12 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
-public class BlockSpellBookBindingTable extends Block {
+public class SpellBookBindingTableBlock extends Block {
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
     protected static final VoxelShape SHAPE = VoxelShapes.or(makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 12.0D, 15.0D), makeCuboidShape(0.0D, 12.0D, 0.0D, 16.0D, 14.0D, 16.0D));
 
-    public BlockSpellBookBindingTable(AbstractBlock.Properties properties) {
+    public SpellBookBindingTableBlock(AbstractBlock.Properties properties) {
         super(properties);
         this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH));
     }

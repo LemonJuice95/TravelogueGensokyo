@@ -65,6 +65,14 @@ public class TGBlockLootTables extends BlockLootTables {
         this.registerDropSelfLootTable(TGBlockRegister.MAPLE_SAPLING.get());
         this.registerLootTable(TGBlockRegister.MAPLE_LEAVES.get(), droppingWithChancesAndSticks(TGBlockRegister.MAPLE_LEAVES.get(), TGBlockRegister.MAPLE_SAPLING.get(), DEFAULT_SAPLING_DROP_RATES));
 
+        this.registerDropSelfLootTable(TGBlockRegister.SAKURA_LOG.get());
+        this.registerDropSelfLootTable(TGBlockRegister.STRIPPED_SAKURA_LOG.get());
+        this.registerDropSelfLootTable(TGBlockRegister.SAKURA_WOOD.get());
+        this.registerDropSelfLootTable(TGBlockRegister.STRIPPED_SAKURA_WOOD.get());
+        this.registerDropSelfLootTable(TGBlockRegister.SAKURA_PLANKS.get());
+
+        this.registerDropSelfLootTable(TGBlockRegister.SPELL_BOOK_BINDING_TABLE.get());
+        this.registerDropSelfLootTable(TGBlockRegister.SPELL_WRITING_TABLE.get());
     }
 
     @Override

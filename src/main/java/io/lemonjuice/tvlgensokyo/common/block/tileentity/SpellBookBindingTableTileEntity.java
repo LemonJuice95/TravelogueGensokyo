@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.block.tileentity;
 
-import io.lemonjuice.tvlgensokyo.common.container.ContainerSpellBookBindingTable;
+import io.lemonjuice.tvlgensokyo.common.container.SpellBookBindingTableContainer;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -28,7 +28,7 @@ public class SpellBookBindingTableTileEntity extends LockableTileEntity {
 
     @Override
     protected Container createMenu(int id, PlayerInventory playerInventory) {
-        return new ContainerSpellBookBindingTable(id, playerInventory.player, this.getPos());
+        return new SpellBookBindingTableContainer(id, playerInventory.player, this.getPos());
     }
 
     @Override
@@ -98,7 +98,7 @@ public class SpellBookBindingTableTileEntity extends LockableTileEntity {
     @Nullable
     @Override
     public Container createMenu(int id, PlayerInventory inventory, PlayerEntity player) {
-        return new ContainerSpellBookBindingTable(id, player, this.getPos());
+        return new SpellBookBindingTableContainer(id, player, this.getPos());
     }
 
     @Override

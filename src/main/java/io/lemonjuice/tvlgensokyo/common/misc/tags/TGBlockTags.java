@@ -9,6 +9,7 @@ import net.minecraft.util.ResourceLocation;
 public class TGBlockTags {
     //tvlgensokyo tags
     public static final ITag.INamedTag<Block> MAPLE_LOGS = createTGTag("maple_log");
+    public static final ITag.INamedTag<Block> SAKURA_LOGS = createTGTag("sakura_log");
 
     //forge tags
 

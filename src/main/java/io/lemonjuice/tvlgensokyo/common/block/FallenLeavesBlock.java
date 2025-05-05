@@ -13,10 +13,10 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.common.IForgeShearable;
 
-public class BlockFallenLeaves extends Block implements IForgeShearable {
+public class FallenLeavesBlock extends Block implements IForgeShearable {
     protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
 
-    public BlockFallenLeaves(AbstractBlock.Properties properties) {
+    public FallenLeavesBlock(AbstractBlock.Properties properties) {
         super(properties);
     }
 

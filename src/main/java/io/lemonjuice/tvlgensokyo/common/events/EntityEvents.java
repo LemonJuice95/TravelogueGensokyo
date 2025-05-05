@@ -2,7 +2,7 @@ package io.lemonjuice.tvlgensokyo.common.events;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.common.item.TGItemRegister;
-import io.lemonjuice.tvlgensokyo.common.item.weapon.ItemLaevatein;
+import io.lemonjuice.tvlgensokyo.common.item.weapon.LaevateinItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
@@ -13,7 +13,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -47,7 +46,7 @@ public class EntityEvents {
         Entity source = event.getSource().getTrueSource();
         if(source instanceof PlayerEntity) {
             ItemStack stack = ((PlayerEntity) source).getHeldItemMainhand();
-            if(!source.world.isRemote && stack.getItem() instanceof ItemLaevatein && ItemLaevatein.isActivated(stack)) {
+            if(!source.world.isRemote && stack.getItem() instanceof LaevateinItem && LaevateinItem.isActivated(stack)) {
                 LivingEntity target = event.getEntityLiving();
                 target.setFire(15);
 

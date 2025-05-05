@@ -8,7 +8,7 @@ import io.lemonjuice.tvlgensokyo.client.input.TGInputs;
 import io.lemonjuice.tvlgensokyo.client.renderer.environment.GensokyoRenderInfo;
 import io.lemonjuice.tvlgensokyo.client.renderer.environment.GensokyoWeatherRenderer;
 import io.lemonjuice.tvlgensokyo.common.item.interfaces.ISpellInstrument;
-import io.lemonjuice.tvlgensokyo.common.item.misc.ItemSpellBookPage;
+import io.lemonjuice.tvlgensokyo.common.item.misc.SpellBookPageItem;
 import io.lemonjuice.tvlgensokyo.common.item.weapon.ItemSpellBook;
 import io.lemonjuice.tvlgensokyo.common.network.TGNetworkHandler;
 import io.lemonjuice.tvlgensokyo.common.network.toserver.SetBookOpenStatePacket;
@@ -72,7 +72,7 @@ public class TGClientEventsHandler {
                 chantingProgress = 0.0F;
             }
             if(item1.getItem() instanceof ItemSpellBook) {
-                Spell spell = ItemSpellBookPage.getSpell(((ItemSpellBook) item1.getItem()).getInventory(item1).getCurrentPage());
+                Spell spell = SpellBookPageItem.getSpell(((ItemSpellBook) item1.getItem()).getInventory(item1).getCurrentPage());
                 SpellChantHUD spellChantHUD = new SpellChantHUD(chantingProgress, player.isCreative(), new TranslationTextComponent(spell.getTranslationKey()));
                 spellChantHUD.render(event.getMatrixStack());
             }
