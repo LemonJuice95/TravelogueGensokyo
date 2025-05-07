@@ -2,7 +2,7 @@ package io.lemonjuice.tvlgensokyo.common.network;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.common.network.toclient.SIntCapSyncPacket;
-import io.lemonjuice.tvlgensokyo.common.network.toserver.CClickButtonPacket;
+import io.lemonjuice.tvlgensokyo.common.network.toserver.CChangePlayerDimPacket;
 import io.lemonjuice.tvlgensokyo.common.network.toserver.CItemSpecialScrollPacket;
 import io.lemonjuice.tvlgensokyo.common.network.toserver.CSetBookOpenStatePacket;
 import net.minecraft.util.ResourceLocation;
@@ -21,9 +21,13 @@ public class TGNetworkHandler {
 
     public static void packetsRegistry() {
         int id = 0;
+
+        //Server Packets
         CHANNEL.registerMessage(id++, SIntCapSyncPacket.class, SIntCapSyncPacket::encode, SIntCapSyncPacket::new, SIntCapSyncPacket::handle);
-        CHANNEL.registerMessage(id++, CClickButtonPacket.class, CClickButtonPacket::encode, CClickButtonPacket::new, CClickButtonPacket::handle);
+
+        //Client Packets
         CHANNEL.registerMessage(id++, CItemSpecialScrollPacket.class, CItemSpecialScrollPacket::encode, CItemSpecialScrollPacket::new, CItemSpecialScrollPacket::handle);
         CHANNEL.registerMessage(id++, CSetBookOpenStatePacket.class, CSetBookOpenStatePacket::encode, CSetBookOpenStatePacket::new, CSetBookOpenStatePacket::handle);
+        CHANNEL.registerMessage(id++, CChangePlayerDimPacket.class, CChangePlayerDimPacket::encode, CChangePlayerDimPacket::new, CChangePlayerDimPacket::handle);
     }
 }

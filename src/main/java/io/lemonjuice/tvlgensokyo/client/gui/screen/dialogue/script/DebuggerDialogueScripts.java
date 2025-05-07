@@ -3,8 +3,9 @@ package io.lemonjuice.tvlgensokyo.client.gui.screen.dialogue.script;
 import io.lemonjuice.tvlgensokyo.client.gui.screen.dialogue.DialogueButtonForScript;
 import io.lemonjuice.tvlgensokyo.client.gui.screen.dialogue.DialoguePage;
 import io.lemonjuice.tvlgensokyo.client.gui.screen.dialogue.DialogueScript;
+import io.lemonjuice.tvlgensokyo.common.network.TGNetworkHandler;
+import io.lemonjuice.tvlgensokyo.common.network.toserver.CChangePlayerDimPacket;
 import io.lemonjuice.tvlgensokyo.common.world.dimension.TGDimensionRegister;
-import io.lemonjuice.tvlgensokyo.utils.TGPlayerUtils;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
@@ -15,7 +16,7 @@ public class DebuggerDialogueScripts {
     public static DialogueScript getScript(PlayerEntity player) {
         HashMap<String, DialoguePage> page_map = new HashMap<>();
         page_map.put("index", makeIndexPage());
-        page_map.put("dimensions", makeDimensionPage(player));
+        page_map.put("dimensions", makeDimensionPage());
 
         return new DialogueScript(page_map, "index");
     }
@@ -27,19 +28,19 @@ public class DebuggerDialogueScripts {
         return index;
     }
 
-    private static DialoguePage makeDimensionPage(PlayerEntity player) {
+    private static DialoguePage makeDimensionPage() {
         DialoguePage dimensionsPage = new DialoguePage(new TranslationTextComponent("dialogue.tvlgensokyo.debugger.dimensions"));
 
         dimensionsPage.addButton(new DialogueButtonForScript(new TranslationTextComponent("dialogue.button.tvlgensokyo.to_the_overworld"), (button) -> {
-            TGPlayerUtils.changePlayerDimension(player, World.OVERWORLD, 0, 255, 0);
+            TGNetworkHandler.CHANNEL.sendToServer(new CChangePlayerDimPacket(World.OVERWORLD, 0, 255, 0));
         }));
 
         dimensionsPage.addButton(new DialogueButtonForScript(new TranslationTextComponent("dialogue.button.tvlgensokyo.to_the_gensokyo"), (button) -> {
-            TGPlayerUtils.changePlayerDimension(player, TGDimensionRegister.GENSOKYO, 0, 255, 0);
+            TGNetworkHandler.CHANNEL.sendToServer(new CChangePlayerDimPacket(TGDimensionRegister.GENSOKYO, 0, 255, 0));
         }));
 
         dimensionsPage.addButton(new DialogueButtonForScript(new TranslationTextComponent("dialogue.button.tvlgensokyo.to_the_dream_world"), (button) -> {
-            TGPlayerUtils.changePlayerDimension(player, TGDimensionRegister.DREAM_WORLD, 0, 255, 0);
+            TGNetworkHandler.CHANNEL.sendToServer(new CChangePlayerDimPacket(TGDimensionRegister.DREAM_WORLD, 0, 255, 0));
         }));
 
         return dimensionsPage;
