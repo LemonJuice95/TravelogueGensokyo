@@ -66,6 +66,7 @@ public class TGItemRegister {
     public static final RegistryObject<Item> MAPLE_LOG = ITEMS.register("maple_log", () -> new TGBlockItem(TGBlockRegister.MAPLE_LOG.get()));
     public static final RegistryObject<Item> SAKURA_LOG = ITEMS.register("sakura_log", () -> new TGBlockItem(TGBlockRegister.SAKURA_LOG.get()));
     public static final RegistryObject<Item> MAPLE_LEAVES = ITEMS.register("maple_leaves", () -> new TGBlockItem(TGBlockRegister.MAPLE_LEAVES.get()));
+    public static final RegistryObject<Item> SAKURA_LEAVES = ITEMS.register("sakura_leaves", () -> new TGBlockItem(TGBlockRegister.SAKURA_LEAVES.get()));
     public static final RegistryObject<Item> FALLEN_MAPLE_LEAVES = ITEMS.register("fallen_maple_leaves", () -> new TGBlockItem(TGBlockRegister.FALLEN_MAPLE_LEAVES.get()));
     public static final RegistryObject<Item> PINK_PETALS = ITEMS.register("pink_petals", () -> new TGBlockItem(TGBlockRegister.PINK_PETALS.get()));
     public static final RegistryObject<Item> STRIPPED_MAPLE_LOG = ITEMS.register("stripped_maple_log", () -> new TGBlockItem(TGBlockRegister.STRIPPED_MAPLE_LOG.get()));
@@ -90,9 +91,13 @@ public class TGItemRegister {
     public static void registerCompostable() {
         ComposterBlock.CHANCES.put(CUCUMBER.get(), 0.65F);
         ComposterBlock.CHANCES.put(CUCUMBER_SEEDS.get(), 0.3F);
+
         ComposterBlock.CHANCES.put(MAPLE_LEAVES.get(), 0.3F);
         ComposterBlock.CHANCES.put(FALLEN_MAPLE_LEAVES.get(), 0.3F);
         ComposterBlock.CHANCES.put(MAPLE_SAPLING.get(), 0.3F);
+
+        ComposterBlock.CHANCES.put(SAKURA_LEAVES.get(), 0.3F);
+        ComposterBlock.CHANCES.put(PINK_PETALS.get(), 0.3F);
     }
 
     private static ForgeSpawnEggItem spawnEgg(RegistryObject<? extends EntityType<?>> entityType, int bgColor, int spotColor) {

@@ -4,7 +4,7 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.common.container.PowerProviderContainer;
 import io.lemonjuice.tvlgensokyo.common.network.TGNetworkHandler;
-import io.lemonjuice.tvlgensokyo.common.network.toserver.ClickButtonPacket;
+import io.lemonjuice.tvlgensokyo.common.network.toserver.CClickButtonPacket;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.entity.player.PlayerInventory;
@@ -25,7 +25,7 @@ public class PowerProviderContainerScreen extends ContainerScreen<PowerProviderC
     @Override
     protected void init() {
         this.addButton(new Button(this.width / 2 - 25, this.height / 2 - 35, 50, 20, new TranslationTextComponent("gui.tvlgensokyo.inject_power"), (button) -> {
-            TGNetworkHandler.CHANNEL.sendToServer(new ClickButtonPacket(ClickButtonPacket.Operations.INJECT_POWER));
+            TGNetworkHandler.CHANNEL.sendToServer(new CClickButtonPacket(CClickButtonPacket.Operations.INJECT_POWER));
         }));
         super.init();
     }

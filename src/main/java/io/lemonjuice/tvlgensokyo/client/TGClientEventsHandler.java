@@ -11,7 +11,7 @@ import io.lemonjuice.tvlgensokyo.common.item.interfaces.ISpellInstrument;
 import io.lemonjuice.tvlgensokyo.common.item.misc.SpellBookPageItem;
 import io.lemonjuice.tvlgensokyo.common.item.weapon.ItemSpellBook;
 import io.lemonjuice.tvlgensokyo.common.network.TGNetworkHandler;
-import io.lemonjuice.tvlgensokyo.common.network.toserver.SetBookOpenStatePacket;
+import io.lemonjuice.tvlgensokyo.common.network.toserver.CSetBookOpenStatePacket;
 import io.lemonjuice.tvlgensokyo.common.spell.Spell;
 import io.lemonjuice.tvlgensokyo.utils.TGMathUtils;
 import net.minecraft.client.Minecraft;
@@ -45,9 +45,9 @@ public class TGClientEventsHandler {
             if(stack.getItem() instanceof ItemSpellBook) {
                 if(TGInputs.SPECIAL_SCROLL_SWITCH.isKeyDown()) {
                     if(!ItemSpellBook.isOpened(stack))
-                        TGNetworkHandler.CHANNEL.sendToServer(new SetBookOpenStatePacket(true));
+                        TGNetworkHandler.CHANNEL.sendToServer(new CSetBookOpenStatePacket(true));
                 } else if(ItemSpellBook.isOpened(stack) && TravelogueGensokyo.PROXY.getChantingProgress() == 0) {
-                    TGNetworkHandler.CHANNEL.sendToServer(new SetBookOpenStatePacket(false));
+                    TGNetworkHandler.CHANNEL.sendToServer(new CSetBookOpenStatePacket(false));
                 }
             }
         }

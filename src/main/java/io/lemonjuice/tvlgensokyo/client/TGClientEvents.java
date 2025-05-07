@@ -4,7 +4,7 @@ import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.common.item.interfaces.IScrollable;
 import io.lemonjuice.tvlgensokyo.client.input.TGInputs;
 import io.lemonjuice.tvlgensokyo.common.network.TGNetworkHandler;
-import io.lemonjuice.tvlgensokyo.common.network.toserver.ItemSpecialScrollPacket;
+import io.lemonjuice.tvlgensokyo.common.network.toserver.CItemSpecialScrollPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,7 +36,7 @@ public class TGClientEvents {
         PlayerEntity player = MC.player;
         if (TGInputs.SPECIAL_SCROLL_SWITCH.isKeyDown() && player != null) {
             if(player.getHeldItemMainhand().getItem() instanceof IScrollable || player.getHeldItemOffhand().getItem() instanceof IScrollable) {
-                TGNetworkHandler.CHANNEL.sendToServer(new ItemSpecialScrollPacket(-event.getScrollDelta()));
+                TGNetworkHandler.CHANNEL.sendToServer(new CItemSpecialScrollPacket(-event.getScrollDelta()));
                 event.setCanceled(true);
             }
         }

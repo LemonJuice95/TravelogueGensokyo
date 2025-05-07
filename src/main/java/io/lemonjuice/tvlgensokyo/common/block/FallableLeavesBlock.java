@@ -13,8 +13,8 @@ import net.minecraft.world.server.ServerWorld;
 import java.util.Random;
 
 public class FallableLeavesBlock extends LeavesBlock {
-    private final BlockState fallenLeaves;
-    private BasicParticleType fallingLeafParticle = null;
+    protected final BlockState fallenLeaves;
+    protected BasicParticleType fallingLeafParticle = null;
 
     public FallableLeavesBlock(AbstractBlock.Properties properties, BlockState fallenLeaves) {
         super(properties);

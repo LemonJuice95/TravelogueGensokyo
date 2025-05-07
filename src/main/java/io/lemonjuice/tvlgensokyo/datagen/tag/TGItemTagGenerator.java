@@ -49,6 +49,7 @@ public class TGItemTagGenerator extends ItemTagsProvider {
         this.getOrCreateBuilder(ItemTags.LOGS).add(TGItemRegister.SAKURA_LOG.get(), TGItemRegister.STRIPPED_SAKURA_LOG.get(), TGItemRegister.SAKURA_WOOD.get(), TGItemRegister.STRIPPED_SAKURA_WOOD.get());
         this.getOrCreateBuilder(ItemTags.LOGS_THAT_BURN).add(TGItemRegister.SAKURA_LOG.get(), TGItemRegister.STRIPPED_SAKURA_LOG.get(), TGItemRegister.SAKURA_WOOD.get(), TGItemRegister.STRIPPED_SAKURA_WOOD.get());
         this.getOrCreateBuilder(ItemTags.PLANKS).add(TGItemRegister.SAKURA_PLANKS.get());
+        this.getOrCreateBuilder(ItemTags.LEAVES).add(TGItemRegister.SAKURA_LEAVES.get());
     }
 
     @Override

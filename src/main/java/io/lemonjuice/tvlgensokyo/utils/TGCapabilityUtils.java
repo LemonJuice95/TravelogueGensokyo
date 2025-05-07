@@ -6,14 +6,11 @@ import io.lemonjuice.tvlgensokyo.common.capability.TGCapabilityList;
 import io.lemonjuice.tvlgensokyo.common.capability.PlayerDataManager;
 import io.lemonjuice.tvlgensokyo.common.misc.TGGameEvent;
 import io.lemonjuice.tvlgensokyo.common.network.TGNetworkHandler;
-import io.lemonjuice.tvlgensokyo.common.network.toclient.IntCapPacketToClient;
+import io.lemonjuice.tvlgensokyo.common.network.toclient.SIntCapSyncPacket;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fml.network.PacketDistributor;
-
-import java.util.Optional;
 
 public class TGCapabilityUtils {
     public static final int BASE_POWER_RECOVERY = 5;
@@ -28,7 +25,7 @@ public class TGCapabilityUtils {
         if(player instanceof ServerPlayerEntity && player.isAlive()) {
             PlayerDataManager manager = getManager(player);
             manager.addPower(power);
-            syncToClient((ServerPlayerEntity) player, new IntCapPacketToClient(IntCapPacketToClient.Capability.POWER, manager.getPower()));
+            syncToClient((ServerPlayerEntity) player, new SIntCapSyncPacket(SIntCapSyncPacket.Capability.POWER, manager.getPower()));
         }
     }
 
@@ -36,7 +33,7 @@ public class TGCapabilityUtils {
         if(player instanceof ServerPlayerEntity && player.isAlive()) {
             PlayerDataManager manager = getManager(player);
             manager.setPower(power);
-            syncToClient((ServerPlayerEntity) player, new IntCapPacketToClient(IntCapPacketToClient.Capability.POWER, power));
+            syncToClient((ServerPlayerEntity) player, new SIntCapSyncPacket(SIntCapSyncPacket.Capability.POWER, power));
         }
     }
 
@@ -78,7 +75,7 @@ public class TGCapabilityUtils {
         if(player instanceof ServerPlayerEntity && player.isAlive()) {
             PlayerDataManager manager = getManager(player);
             manager.setMaxPower(maxPower);
-            syncToClient((ServerPlayerEntity) player, new IntCapPacketToClient(IntCapPacketToClient.Capability.MAX_POWER, maxPower));
+            syncToClient((ServerPlayerEntity) player, new SIntCapSyncPacket(SIntCapSyncPacket.Capability.MAX_POWER, maxPower));
         }
     }
 
@@ -99,8 +96,8 @@ public class TGCapabilityUtils {
     }
 
     public static void syncCapabilities(ServerPlayerEntity player) {
-        syncToClient(player, new IntCapPacketToClient(IntCapPacketToClient.Capability.POWER, getManager(player).getPower()));
-        syncToClient(player, new IntCapPacketToClient(IntCapPacketToClient.Capability.MAX_POWER, getManager(player).getMaxPower()));
+        syncToClient(player, new SIntCapSyncPacket(SIntCapSyncPacket.Capability.POWER, getManager(player).getPower()));
+        syncToClient(player, new SIntCapSyncPacket(SIntCapSyncPacket.Capability.MAX_POWER, getManager(player).getMaxPower()));
     }
 
     public static void syncToClient(ServerPlayerEntity player, ITGCapabilityPacket packet) {
