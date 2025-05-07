@@ -8,14 +8,14 @@ import net.minecraftforge.fml.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class ItemSpecialScrollPacket {
+public class CItemSpecialScrollPacket {
     private double direction;
 
-    public ItemSpecialScrollPacket(double direction) {
+    public CItemSpecialScrollPacket(double direction) {
         this.direction = direction;
     }
 
-    public ItemSpecialScrollPacket(PacketBuffer buffer) {
+    public CItemSpecialScrollPacket(PacketBuffer buffer) {
         this.direction = buffer.readDouble();
     }
 
@@ -23,18 +23,18 @@ public class ItemSpecialScrollPacket {
         buffer.writeDouble(this.direction);
     }
 
-    public static class Handler {
-        public static void onMessage(ItemSpecialScrollPacket packet, Supplier<NetworkEvent.Context> ctx) {
-            final ServerPlayerEntity player = ctx.get().getSender();
-            if(player != null) {
+    public static void handle(CItemSpecialScrollPacket packet, Supplier<NetworkEvent.Context> ctx) {
+        final ServerPlayerEntity player = ctx.get().getSender();
+        ctx.get().enqueueWork(() -> {
+            if (player != null) {
                 ItemStack stack = player.getHeldItemMainhand();
-                if(!(stack.getItem() instanceof IScrollable))
+                if (!(stack.getItem() instanceof IScrollable))
                     stack = player.getHeldItemOffhand();
-                if(stack.getItem() instanceof IScrollable) {
+                if (stack.getItem() instanceof IScrollable) {
                     ((IScrollable) stack.getItem()).specialScroll(stack, packet.direction);
                 }
             }
-            ctx.get().setPacketHandled(true);
-        }
+        });
+        ctx.get().setPacketHandled(true);
     }
 }

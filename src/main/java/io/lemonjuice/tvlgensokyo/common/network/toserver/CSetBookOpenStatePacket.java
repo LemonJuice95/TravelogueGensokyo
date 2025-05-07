@@ -8,14 +8,14 @@ import net.minecraftforge.fml.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class SetBookOpenStatePacket {
+public class CSetBookOpenStatePacket {
     private boolean isOpened;
 
-    public SetBookOpenStatePacket(boolean isOpened) {
+    public CSetBookOpenStatePacket(boolean isOpened) {
         this.isOpened = isOpened;
     }
 
-    public SetBookOpenStatePacket(PacketBuffer buffer) {
+    public CSetBookOpenStatePacket(PacketBuffer buffer) {
         this.isOpened = buffer.readBoolean();
     }
 
@@ -23,18 +23,18 @@ public class SetBookOpenStatePacket {
         buffer.writeBoolean(this.isOpened);
     }
 
-    public static class Handler {
-        public static void onMessage(SetBookOpenStatePacket packet, Supplier<NetworkEvent.Context> ctx) {
-            ServerPlayerEntity player = ctx.get().getSender();
-            if(player != null) {
+    public static void handle(CSetBookOpenStatePacket packet, Supplier<NetworkEvent.Context> ctx) {
+        ServerPlayerEntity player = ctx.get().getSender();
+        ctx.get().enqueueWork(() -> {
+            if (player != null) {
                 ItemStack stack = player.getHeldItemMainhand();
-                if(!(stack.getItem() instanceof ItemSpellBook))
+                if (!(stack.getItem() instanceof ItemSpellBook))
                     stack = player.getHeldItemOffhand();
-                if(stack.getItem() instanceof ItemSpellBook) {
+                if (stack.getItem() instanceof ItemSpellBook) {
                     ItemSpellBook.setOpened(stack, packet.isOpened);
                 }
             }
-            ctx.get().setPacketHandled(true);
-        }
+        });
+        ctx.get().setPacketHandled(true);
     }
 }

@@ -1,10 +1,10 @@
 package io.lemonjuice.tvlgensokyo.common.network;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
-import io.lemonjuice.tvlgensokyo.common.network.toclient.IntCapPacketToClient;
-import io.lemonjuice.tvlgensokyo.common.network.toserver.ClickButtonPacket;
-import io.lemonjuice.tvlgensokyo.common.network.toserver.ItemSpecialScrollPacket;
-import io.lemonjuice.tvlgensokyo.common.network.toserver.SetBookOpenStatePacket;
+import io.lemonjuice.tvlgensokyo.common.network.toclient.SIntCapSyncPacket;
+import io.lemonjuice.tvlgensokyo.common.network.toserver.CClickButtonPacket;
+import io.lemonjuice.tvlgensokyo.common.network.toserver.CItemSpecialScrollPacket;
+import io.lemonjuice.tvlgensokyo.common.network.toserver.CSetBookOpenStatePacket;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
@@ -21,9 +21,9 @@ public class TGNetworkHandler {
 
     public static void packetsRegistry() {
         int id = 0;
-        CHANNEL.registerMessage(id++, IntCapPacketToClient.class, IntCapPacketToClient::encode, IntCapPacketToClient::new, IntCapPacketToClient.Handler::onMessage);
-        CHANNEL.registerMessage(id++, ClickButtonPacket.class, ClickButtonPacket::encode, ClickButtonPacket::new, ClickButtonPacket.Handler::onMessage);
-        CHANNEL.registerMessage(id++, ItemSpecialScrollPacket.class, ItemSpecialScrollPacket::encode, ItemSpecialScrollPacket::new, ItemSpecialScrollPacket.Handler::onMessage);
-        CHANNEL.registerMessage(id++, SetBookOpenStatePacket.class, SetBookOpenStatePacket::encode, SetBookOpenStatePacket::new, SetBookOpenStatePacket.Handler::onMessage);
+        CHANNEL.registerMessage(id++, SIntCapSyncPacket.class, SIntCapSyncPacket::encode, SIntCapSyncPacket::new, SIntCapSyncPacket::handle);
+        CHANNEL.registerMessage(id++, CClickButtonPacket.class, CClickButtonPacket::encode, CClickButtonPacket::new, CClickButtonPacket::handle);
+        CHANNEL.registerMessage(id++, CItemSpecialScrollPacket.class, CItemSpecialScrollPacket::encode, CItemSpecialScrollPacket::new, CItemSpecialScrollPacket::handle);
+        CHANNEL.registerMessage(id++, CSetBookOpenStatePacket.class, CSetBookOpenStatePacket::encode, CSetBookOpenStatePacket::new, CSetBookOpenStatePacket::handle);
     }
 }

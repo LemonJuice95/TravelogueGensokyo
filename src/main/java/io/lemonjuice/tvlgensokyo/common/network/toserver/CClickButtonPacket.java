@@ -7,14 +7,14 @@ import net.minecraftforge.fml.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class ClickButtonPacket {
+public class CClickButtonPacket {
     private int operation;
 
-    public ClickButtonPacket(Operations operation) {
+    public CClickButtonPacket(Operations operation) {
         this.operation = operation.ordinal();
     }
 
-    public ClickButtonPacket(PacketBuffer buffer) {
+    public CClickButtonPacket(PacketBuffer buffer) {
         this.operation = buffer.readInt();
     }
 
@@ -22,17 +22,17 @@ public class ClickButtonPacket {
         buffer.writeInt(this.operation);
     }
 
-    public static class Handler {
-        public static void onMessage(ClickButtonPacket packet, Supplier<NetworkEvent.Context> ctx) {
-            final ServerPlayerEntity player = ctx.get().getSender();
+    public static void handle(CClickButtonPacket packet, Supplier<NetworkEvent.Context> ctx) {
+        final ServerPlayerEntity player = ctx.get().getSender();
+        ctx.get().enqueueWork(() -> {
             Operations operation = Operations.values()[packet.operation];
-            if(operation == Operations.INJECT_POWER) {
+            if (operation == Operations.INJECT_POWER) {
                 if (player != null && player.openContainer instanceof PowerProviderContainer) {
                     ((PowerProviderContainer) player.openContainer).onPowerInject();
                 }
             }
-            ctx.get().setPacketHandled(true);
-        }
+        });
+        ctx.get().setPacketHandled(true);
     }
 
     public enum Operations {
