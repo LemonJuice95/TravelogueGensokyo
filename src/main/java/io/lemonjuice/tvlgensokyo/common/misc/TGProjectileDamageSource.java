@@ -5,7 +5,6 @@ import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityDanmaku;
 import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityGungnir;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.IndirectEntityDamageSource;
 
 public class TGProjectileDamageSource extends IndirectEntityDamageSource {
