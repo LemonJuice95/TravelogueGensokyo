@@ -22,8 +22,10 @@ public class DebuggerItem extends Item {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         ItemStack stack = playerIn.getHeldItem(handIn);
         if(worldIn.isRemote) {
-            DialogueScript script = DebuggerDialogueScripts.getScript(playerIn);
-            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> TravelogueGensokyo.PROXY.openDialogueGui(script));
+            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
+                DialogueScript script = DebuggerDialogueScripts.getScript(playerIn);
+                TravelogueGensokyo.PROXY.openDialogueGui(script);
+            });
         }
         return ActionResult.func_233538_a_(stack, worldIn.isRemote);
     }
