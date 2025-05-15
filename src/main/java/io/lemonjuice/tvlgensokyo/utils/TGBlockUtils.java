@@ -32,6 +32,8 @@ public class TGBlockUtils {
 
         STRIPPED_BLOCK_MAP.put(TGBlockRegister.MAPLE_LOG.get(), TGBlockRegister.STRIPPED_MAPLE_LOG.get());
         STRIPPED_BLOCK_MAP.put(TGBlockRegister.MAPLE_WOOD.get(), TGBlockRegister.STRIPPED_MAPLE_WOOD.get());
+        STRIPPED_BLOCK_MAP.put(TGBlockRegister.SAKURA_LOG.get(), TGBlockRegister.STRIPPED_SAKURA_LOG.get());
+        STRIPPED_BLOCK_MAP.put(TGBlockRegister.SAKURA_WOOD.get(), TGBlockRegister.STRIPPED_SAKURA_WOOD.get());
     }
 
     @Nullable
