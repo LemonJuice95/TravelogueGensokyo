@@ -1,4 +1,4 @@
-package io.lemonjuice.tvlgensokyo.common.world.feature.tree;
+package io.lemonjuice.tvlgensokyo.common.world.feature.tree.decorator;
 
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;

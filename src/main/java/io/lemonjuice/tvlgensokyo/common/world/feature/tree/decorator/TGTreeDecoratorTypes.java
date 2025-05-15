@@ -1,4 +1,4 @@
-package io.lemonjuice.tvlgensokyo.common.world.feature.tree;
+package io.lemonjuice.tvlgensokyo.common.world.feature.tree.decorator;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import net.minecraft.util.ResourceLocation;
