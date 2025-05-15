@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "tvlgensokyo:block/sakura_planks",
+    "top": "tvlgensokyo:block/sakura_planks",
+    "side": "tvlgensokyo:block/sakura_planks"
+  }
+}

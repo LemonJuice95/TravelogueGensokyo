@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tvlgensokyo:block/sakura_slab"
+    },
+    "type=double": {
+      "model": "tvlgensokyo:block/sakura_planks"
+    },
+    "type=top": {
+      "model": "tvlgensokyo:block/sakura_slab_top"
+    }
+  }
+}

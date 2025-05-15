@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "tvlgensokyo:sakura_leaves"
+    }
+  },
+  "result": {
+    "item": "tvlgensokyo:pink_petals",
+    "count": 3
+  }
+}
