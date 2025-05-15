@@ -143,7 +143,7 @@ public abstract class TGProjectileEntity extends Entity implements IHasOwner, IH
         boolean flag2 = true;
         boolean flag3 = (entity instanceof TameableEntity) && ((TameableEntity) entity).isTamed();
         if(entity instanceof IHasGroup) {
-            flag2 = ((IHasGroup) entity).getGroup() != this.group;
+            flag2 = ((IHasGroup) entity).getGroup() != this.group || ((IHasGroup) entity).getGroup() == TGGroups.NEUTRAL || this.group == TGGroups.NEUTRAL;
         }
         flag = flag || flag3;
 
