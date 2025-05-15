@@ -14,7 +14,8 @@ import io.lemonjuice.tvlgensokyo.common.network.TGNetworkHandler;
 import io.lemonjuice.tvlgensokyo.common.world.biome.TGBiomeRegister;
 import io.lemonjuice.tvlgensokyo.common.world.dimension.TGDimensionRegister;
 import io.lemonjuice.tvlgensokyo.common.world.feature.TGFeatureRegister;
-import io.lemonjuice.tvlgensokyo.common.world.feature.tree.TGTreeDecoratorTypes;
+import io.lemonjuice.tvlgensokyo.common.world.feature.tree.decorator.TGTreeDecoratorTypes;
+import io.lemonjuice.tvlgensokyo.common.world.feature.tree.placer.TGTreePlacerRegister;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.minecraftforge.common.MinecraftForge;
@@ -50,6 +51,7 @@ public class TravelogueGensokyo {
         TGEnchantmentRegister.ENCHANTMENTS.register(bus);
         TGContainerRegister.CONTAINERS.register(bus);
         TGBiomeRegister.BIOMES.register(bus);
+        TGTreePlacerRegister.FOLIAGE_PLACER_TYPES.register(bus);
         TGTileEntityRegister.TILE_ENTITIES.register(bus);
         TGRecipeRegister.RECIPE_SERIALIZERS.register(bus);
 
