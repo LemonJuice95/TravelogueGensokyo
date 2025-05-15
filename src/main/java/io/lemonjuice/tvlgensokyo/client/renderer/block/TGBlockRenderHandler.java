@@ -23,6 +23,7 @@ public class TGBlockRenderHandler {
 
         RenderTypeLookup.setRenderLayer(TGBlockRegister.PINK_PETALS.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(TGBlockRegister.SAKURA_LEAVES.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(TGBlockRegister.SAKURA_SAPLING.get(), RenderType.getCutout());
         
         RenderTypeLookup.setRenderLayer(TGBlockRegister.SPELL_WRITING_TABLE.get(), RenderType.getTranslucent());
     }
