@@ -98,6 +98,7 @@
   "block.tvlgensokyo.maple_button": "枫木按钮",
   "block.tvlgensokyo.maple_pressure_plate": "枫木压力板",
 
+  "block.tvlgensokyo.sakura_sapling": "樱花树苗",
   "block.tvlgensokyo.sakura_log": "樱花原木",
   "block.tvlgensokyo.stripped_sakura_log": "去皮樱花原木",
   "block.tvlgensokyo.sakura_wood": "樱花木",
@@ -105,6 +106,14 @@
   "block.tvlgensokyo.sakura_planks": "樱花木板",
   "block.tvlgensokyo.pink_petals": "粉红花簇",
   "block.tvlgensokyo.sakura_leaves": "樱花树叶",
+  "block.tvlgensokyo.sakura_slab": "樱花木台阶",
+  "block.tvlgensokyo.sakura_stairs": "樱花木楼梯",
+  "block.tvlgensokyo.sakura_sign": "樱花木告示牌",
+  "block.tvlgensokyo.sakura_wall_sign": "樱花木告示牌",
+  "block.tvlgensokyo.sakura_fence": "樱花木栅栏",
+  "block.tvlgensokyo.sakura_fence_gate": "樱花木栅栏门",
+  "block.tvlgensokyo.sakura_button": "樱花木按钮",
+  "block.tvlgensokyo.sakura_pressure_plate": "樱花木压力板",
 
   "block.tvlgensokyo.spell_book_binding_table": "魔导书装订台",
   "block.tvlgensokyo.spell_writing_table": "魔导书页刻录台",
