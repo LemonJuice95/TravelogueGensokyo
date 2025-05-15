@@ -24,10 +24,10 @@ public class TGItemTagGenerator extends ItemTagsProvider {
         //forge tags
         this.getOrCreateBuilder(TGItemTags.CUCUMBERS).add(TGItemRegister.CUCUMBER.get());
         this.getOrCreateBuilder(TGItemTags.CUCUMBER_SEEDS).add(TGItemRegister.CUCUMBER_SEEDS.get());
-        this.getOrCreateBuilder(Tags.Items.FENCES).add(TGItemRegister.MAPLE_FENCE.get());
-        this.getOrCreateBuilder(Tags.Items.FENCES_WOODEN).add(TGItemRegister.MAPLE_FENCE.get());
-        this.getOrCreateBuilder(Tags.Items.FENCE_GATES).add(TGItemRegister.MAPLE_FENCE_GATE.get());
-        this.getOrCreateBuilder(Tags.Items.FENCE_GATES_WOODEN).add(TGItemRegister.MAPLE_FENCE_GATE.get());
+        this.getOrCreateBuilder(Tags.Items.FENCES).add(TGItemRegister.MAPLE_FENCE.get(), TGItemRegister.SAKURA_FENCE.get());
+        this.getOrCreateBuilder(Tags.Items.FENCES_WOODEN).add(TGItemRegister.MAPLE_FENCE.get(), TGItemRegister.SAKURA_FENCE.get());
+        this.getOrCreateBuilder(Tags.Items.FENCE_GATES).add(TGItemRegister.MAPLE_FENCE_GATE.get(), TGItemRegister.SAKURA_FENCE_GATE.get());
+        this.getOrCreateBuilder(Tags.Items.FENCE_GATES_WOODEN).add(TGItemRegister.MAPLE_FENCE_GATE.get(), TGItemRegister.SAKURA_FENCE_GATE.get());
 
         //mc tags
         this.getOrCreateBuilder(ItemTags.LOGS).add(TGItemRegister.MAPLE_LOG.get(), TGItemRegister.STRIPPED_MAPLE_LOG.get(), TGItemRegister.MAPLE_WOOD.get(), TGItemRegister.STRIPPED_MAPLE_WOOD.get());
@@ -50,6 +50,16 @@ public class TGItemTagGenerator extends ItemTagsProvider {
         this.getOrCreateBuilder(ItemTags.LOGS_THAT_BURN).add(TGItemRegister.SAKURA_LOG.get(), TGItemRegister.STRIPPED_SAKURA_LOG.get(), TGItemRegister.SAKURA_WOOD.get(), TGItemRegister.STRIPPED_SAKURA_WOOD.get());
         this.getOrCreateBuilder(ItemTags.PLANKS).add(TGItemRegister.SAKURA_PLANKS.get());
         this.getOrCreateBuilder(ItemTags.LEAVES).add(TGItemRegister.SAKURA_LEAVES.get());
+        this.getOrCreateBuilder(ItemTags.SLABS).add(TGItemRegister.SAKURA_SLAB.get());
+        this.getOrCreateBuilder(ItemTags.WOODEN_SLABS).add(TGItemRegister.SAKURA_SLAB.get());
+        this.getOrCreateBuilder(ItemTags.STAIRS).add(TGItemRegister.SAKURA_STAIRS.get());
+        this.getOrCreateBuilder(ItemTags.WOODEN_STAIRS).add(TGItemRegister.SAKURA_STAIRS.get());
+        this.getOrCreateBuilder(ItemTags.SIGNS).add(TGItemRegister.SAKURA_SIGN.get());
+        this.getOrCreateBuilder(ItemTags.FENCES).add(TGItemRegister.SAKURA_FENCE.get());
+        this.getOrCreateBuilder(ItemTags.WOODEN_FENCES).add(TGItemRegister.SAKURA_FENCE.get());
+        this.getOrCreateBuilder(ItemTags.BUTTONS).add(TGItemRegister.SAKURA_BUTTON.get());
+        this.getOrCreateBuilder(ItemTags.WOODEN_BUTTONS).add(TGItemRegister.SAKURA_BUTTON.get());
+        this.getOrCreateBuilder(ItemTags.WOODEN_PRESSURE_PLATES).add(TGItemRegister.SAKURA_PRESSURE_PLATE.get());
     }
 
     @Override

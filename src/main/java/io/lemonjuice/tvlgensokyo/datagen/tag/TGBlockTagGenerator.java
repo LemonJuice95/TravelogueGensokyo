@@ -21,10 +21,10 @@ public class TGBlockTagGenerator extends BlockTagsProvider {
         this.getOrCreateBuilder(TGBlockTags.SAKURA_LOGS).add(TGBlockRegister.SAKURA_LOG.get(), TGBlockRegister.STRIPPED_SAKURA_LOG.get(), TGBlockRegister.SAKURA_WOOD.get(), TGBlockRegister.STRIPPED_SAKURA_WOOD.get());
 
         //forge tags
-        this.getOrCreateBuilder(Tags.Blocks.FENCES).add(TGBlockRegister.MAPLE_FENCE.get());
-        this.getOrCreateBuilder(Tags.Blocks.FENCES_WOODEN).add(TGBlockRegister.MAPLE_FENCE.get());
-        this.getOrCreateBuilder(Tags.Blocks.FENCE_GATES).add(TGBlockRegister.MAPLE_FENCE_GATE.get());
-        this.getOrCreateBuilder(Tags.Blocks.FENCE_GATES_WOODEN).add(TGBlockRegister.MAPLE_FENCE_GATE.get());
+        this.getOrCreateBuilder(Tags.Blocks.FENCES).add(TGBlockRegister.MAPLE_FENCE.get(), TGBlockRegister.SAKURA_FENCE.get());
+        this.getOrCreateBuilder(Tags.Blocks.FENCES_WOODEN).add(TGBlockRegister.MAPLE_FENCE.get(), TGBlockRegister.SAKURA_FENCE.get());
+        this.getOrCreateBuilder(Tags.Blocks.FENCE_GATES).add(TGBlockRegister.MAPLE_FENCE_GATE.get(), TGBlockRegister.SAKURA_FENCE_GATE.get());
+        this.getOrCreateBuilder(Tags.Blocks.FENCE_GATES_WOODEN).add(TGBlockRegister.MAPLE_FENCE_GATE.get(), TGBlockRegister.SAKURA_FENCE_GATE.get());
 
         //mc tags
         this.getOrCreateBuilder(BlockTags.LOGS).add(TGBlockRegister.MAPLE_LOG.get(), TGBlockRegister.STRIPPED_MAPLE_LOG.get(), TGBlockRegister.MAPLE_WOOD.get(), TGBlockRegister.STRIPPED_MAPLE_WOOD.get());
@@ -51,6 +51,20 @@ public class TGBlockTagGenerator extends BlockTagsProvider {
         this.getOrCreateBuilder(BlockTags.LOGS_THAT_BURN).add(TGBlockRegister.SAKURA_LOG.get(), TGBlockRegister.STRIPPED_SAKURA_LOG.get(), TGBlockRegister.SAKURA_WOOD.get(), TGBlockRegister.STRIPPED_SAKURA_WOOD.get());
         this.getOrCreateBuilder(BlockTags.PLANKS).add(TGBlockRegister.SAKURA_PLANKS.get());
         this.getOrCreateBuilder(BlockTags.LEAVES).add(TGBlockRegister.SAKURA_LEAVES.get());
+        this.getOrCreateBuilder(BlockTags.SLABS).add(TGBlockRegister.SAKURA_SLAB.get());
+        this.getOrCreateBuilder(BlockTags.WOODEN_SLABS).add(TGBlockRegister.SAKURA_SLAB.get());
+        this.getOrCreateBuilder(BlockTags.STAIRS).add(TGBlockRegister.SAKURA_STAIRS.get());
+        this.getOrCreateBuilder(BlockTags.WOODEN_STAIRS).add(TGBlockRegister.SAKURA_STAIRS.get());
+        this.getOrCreateBuilder(BlockTags.SIGNS).add(TGBlockRegister.SAKURA_SIGN.get(), TGBlockRegister.SAKURA_WALL_SIGN.get());
+        this.getOrCreateBuilder(BlockTags.STANDING_SIGNS).add(TGBlockRegister.SAKURA_SIGN.get());
+        this.getOrCreateBuilder(BlockTags.WALL_SIGNS).add(TGBlockRegister.SAKURA_WALL_SIGN.get());
+        this.getOrCreateBuilder(BlockTags.FENCES).add(TGBlockRegister.SAKURA_FENCE.get());
+        this.getOrCreateBuilder(BlockTags.WOODEN_FENCES).add(TGBlockRegister.SAKURA_FENCE.get());
+        this.getOrCreateBuilder(BlockTags.BUTTONS).add(TGBlockRegister.SAKURA_BUTTON.get());
+        this.getOrCreateBuilder(BlockTags.WOODEN_BUTTONS).add(TGBlockRegister.SAKURA_BUTTON.get());
+        this.getOrCreateBuilder(BlockTags.PRESSURE_PLATES).add(TGBlockRegister.SAKURA_PRESSURE_PLATE.get());
+        this.getOrCreateBuilder(BlockTags.WOODEN_PRESSURE_PLATES).add(TGBlockRegister.SAKURA_PRESSURE_PLATE.get());
+        this.getOrCreateBuilder(BlockTags.FENCE_GATES).add(TGBlockRegister.SAKURA_FENCE_GATE.get());
     }
 
 
