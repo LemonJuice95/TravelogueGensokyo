@@ -3,7 +3,9 @@ package io.lemonjuice.tvlgensokyo.common.world.feature;
 import com.google.common.collect.ImmutableList;
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.common.block.TGBlockRegister;
-import io.lemonjuice.tvlgensokyo.common.world.feature.tree.FallenLeavesTreeDecorator;
+import io.lemonjuice.tvlgensokyo.common.world.feature.tree.decorator.FallenLeavesTreeDecorator;
+import io.lemonjuice.tvlgensokyo.common.world.feature.tree.placer.SakuraFoliagePlacer;
+import io.lemonjuice.tvlgensokyo.common.world.feature.tree.placer.SakuraTrunkPlacer;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
@@ -40,6 +42,15 @@ public class TGFeatures {
 
     public static final ConfiguredFeature<BaseTreeFeatureConfig, ?> MAPLE_TREE_WITH_FALLEN_LEAVES = register("maple_tree_with_fallen_leaves", Feature.TREE
             .withConfiguration(MAPLE_TREE.getConfig().copy(ImmutableList.of(new FallenLeavesTreeDecorator(new SimpleBlockStateProvider(TGBlockRegister.FALLEN_MAPLE_LEAVES.get().getDefaultState()))))));
+
+    public static final ConfiguredFeature<BaseTreeFeatureConfig, ?> SAKURA_TREE = register("sakura_tree", Feature.TREE
+            .withConfiguration((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(TGBlockRegister.SAKURA_LOG.get().getDefaultState()),
+                                                                  new SimpleBlockStateProvider(TGBlockRegister.SAKURA_LEAVES.get().getDefaultState()),
+                                                                  new SakuraFoliagePlacer(FeatureSpread.create(4), FeatureSpread.create(0), FeatureSpread.create(5), 0.25F, 0.5F, 0.16666667F, 0.33333334F),
+                                                                  new SakuraTrunkPlacer(7, 1, 0),
+                                                                  new TwoLayerFeature(1, 0, 2))
+                                                         .setIgnoreVines()
+                                                         .build())));
 
 
     //Configured features which will directly be use in worldgen
