@@ -257,12 +257,8 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
         tooltip.add(new TranslationTextComponent("tooltip.tvlgensokyo.book_pages"));
         SpellBookInventory inventory = this.getInventory(stack);
         for(int i = 0; i < inventory.getSizeInventory(); i++) {
-            if(!inventory.getStackInSlot(i).isEmpty()) {
-                Spell spell = SpellBookPageItem.getSpell(inventory.getStackInSlot(i));
-                tooltip.add(new TranslationTextComponent(spell.getTranslationKey()).mergeStyle(spell.getTextFormattings()));
-            } else {
-                tooltip.add(new TranslationTextComponent(TGSpellInit.EMPTY.getTranslationKey()).mergeStyle(TextFormatting.GRAY));
-            }
+            Spell spell = SpellBookPageItem.getSpell(inventory.getStackInSlot(i));
+            tooltip.add(new TranslationTextComponent(spell.getTranslationKey()).mergeStyle(spell.getTextFormattings()));
         }
         tooltip.add(new StringTextComponent(""));
         super.addInformation(stack, worldIn, tooltip, flagIn);
