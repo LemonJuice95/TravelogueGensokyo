@@ -49,7 +49,7 @@ public class TGItemRegister {
     public static final RegistryObject<Item> CUCUMBER = ITEMS.register("cucumber", () -> new TGFoodBase(2, 0.4F));
     public static final RegistryObject<Item> CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds",() -> new BlockNamedItem(TGBlockRegister.CUCUMBER.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
     public static final RegistryObject<Item> MAPLE_SAPLING = ITEMS.register("maple_sapling", () -> new BlockItem(TGBlockRegister.MAPLE_SAPLING.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
-
+    public static final RegistryObject<Item> SAKURA_SAPLING = ITEMS.register("sakura_sapling", () -> new BlockItem(TGBlockRegister.SAKURA_SAPLING.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
 
     //Combat
     public static final RegistryObject<Item> LAEVATEIN = ITEMS.register("laevatein", LaevateinItem::new);
@@ -78,12 +78,19 @@ public class TGItemRegister {
     public static final RegistryObject<Item> MAPLE_PLANKS = ITEMS.register("maple_planks", () -> new TGBlockItem(TGBlockRegister.MAPLE_PLANKS.get()));
     public static final RegistryObject<Item> SAKURA_PLANKS = ITEMS.register("sakura_planks", () -> new TGBlockItem(TGBlockRegister.SAKURA_PLANKS.get()));
     public static final RegistryObject<Item> MAPLE_SLAB = ITEMS.register("maple_slab", () -> new TGBlockItem(TGBlockRegister.MAPLE_SLAB.get()));
+    public static final RegistryObject<Item> SAKURA_SLAB = ITEMS.register("sakura_slab", () -> new TGBlockItem(TGBlockRegister.SAKURA_SLAB.get()));
     public static final RegistryObject<Item> MAPLE_STAIRS = ITEMS.register("maple_stairs", () -> new TGBlockItem(TGBlockRegister.MAPLE_STAIRS.get()));
+    public static final RegistryObject<Item> SAKURA_STAIRS = ITEMS.register("sakura_stairs", () -> new TGBlockItem(TGBlockRegister.SAKURA_STAIRS.get()));
     public static final RegistryObject<Item> MAPLE_SIGN = ITEMS.register("maple_sign", () -> new SignItem(new Item.Properties().group(TGItemGroups.BLOCK).maxStackSize(16), TGBlockRegister.MAPLE_SIGN.get(), TGBlockRegister.MAPLE_WALL_SIGN.get()));
+    public static final RegistryObject<Item> SAKURA_SIGN = ITEMS.register("sakura_sign", () -> new SignItem(new Item.Properties().group(TGItemGroups.BLOCK).maxStackSize(16), TGBlockRegister.SAKURA_SIGN.get(), TGBlockRegister.SAKURA_WALL_SIGN.get()));
     public static final RegistryObject<Item> MAPLE_FENCE = ITEMS.register("maple_fence", () -> new TGBlockItem(TGBlockRegister.MAPLE_FENCE.get()));
+    public static final RegistryObject<Item> SAKURA_FENCE = ITEMS.register("sakura_fence", () -> new TGBlockItem(TGBlockRegister.SAKURA_FENCE.get()));
     public static final RegistryObject<Item> MAPLE_FENCE_GATE = ITEMS.register("maple_fence_gate", () -> new TGBlockItem(TGBlockRegister.MAPLE_FENCE_GATE.get()));
+    public static final RegistryObject<Item> SAKURA_FENCE_GATE = ITEMS.register("sakura_fence_gate", () -> new TGBlockItem(TGBlockRegister.SAKURA_FENCE_GATE.get()));
     public static final RegistryObject<Item> MAPLE_BUTTON = ITEMS.register("maple_button", () -> new TGBlockItem(TGBlockRegister.MAPLE_BUTTON.get()));
+    public static final RegistryObject<Item> SAKURA_BUTTON = ITEMS.register("sakura_button", () -> new TGBlockItem(TGBlockRegister.SAKURA_BUTTON.get()));
     public static final RegistryObject<Item> MAPLE_PRESSURE_PLATE = ITEMS.register("maple_pressure_plate", () -> new TGBlockItem(TGBlockRegister.MAPLE_PRESSURE_PLATE.get()));
+    public static final RegistryObject<Item> SAKURA_PRESSURE_PLATE = ITEMS.register("sakura_pressure_plate", () -> new TGBlockItem(TGBlockRegister.SAKURA_PRESSURE_PLATE.get()));
 
     public static final RegistryObject<Item> SPELL_BOOK_BINDING_TABLE = ITEMS.register("spell_book_binding_table", () -> new TGBlockItem(TGBlockRegister.SPELL_BOOK_BINDING_TABLE.get()));
     public static final RegistryObject<Item> SPELL_WRITING_TABLE = ITEMS.register("spell_writing_table", () -> new TGBlockItem(TGBlockRegister.SPELL_WRITING_TABLE.get()));

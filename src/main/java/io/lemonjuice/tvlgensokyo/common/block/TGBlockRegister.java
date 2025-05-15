@@ -6,6 +6,7 @@ import io.lemonjuice.tvlgensokyo.common.block.workbench.SpellBookBindingTableBlo
 import io.lemonjuice.tvlgensokyo.common.block.workbench.SpellWritingTableBlock;
 import io.lemonjuice.tvlgensokyo.common.world.feature.tree.MapleTree;
 import io.lemonjuice.tvlgensokyo.common.misc.TGWoodType;
+import io.lemonjuice.tvlgensokyo.common.world.feature.tree.SakuraTree;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -47,6 +48,7 @@ public class TGBlockRegister {
     public static final RegistryObject<Block> MAPLE_PRESSURE_PLATE = BLOCKS.register("maple_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.create(Material.WOOD, MaterialColor.SAND).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
 
     //Sakura
+    public static final RegistryObject<Block> SAKURA_SAPLING = BLOCKS.register("sakura_sapling", () -> new SaplingBlock(new SakuraTree(), AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)));
     public static final RegistryObject<Block> SAKURA_LOG = BLOCKS.register("sakura_log", () -> createLogBlock(MaterialColor.WHITE_TERRACOTTA, MaterialColor.GRAY_TERRACOTTA));
     public static final RegistryObject<Block> STRIPPED_SAKURA_LOG = BLOCKS.register("stripped_sakura_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> PINK_PETALS = BLOCKS.register("pink_petals", PinkPetalsBlock::new);
@@ -54,6 +56,14 @@ public class TGBlockRegister {
     public static final RegistryObject<Block> SAKURA_WOOD = BLOCKS.register("sakura_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.GRAY_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> STRIPPED_SAKURA_WOOD = BLOCKS.register("stripped_sakura_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> SAKURA_PLANKS = BLOCKS.register("sakura_planks", () -> new Block(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> SAKURA_SLAB = BLOCKS.register("sakura_slab", () -> new SlabBlock(AbstractBlock.Properties.from(SAKURA_PLANKS.get())));
+    public static final RegistryObject<Block> SAKURA_STAIRS = BLOCKS.register("sakura_stairs", () -> new StairsBlock(() -> SAKURA_PLANKS.get().getDefaultState(), AbstractBlock.Properties.from(SAKURA_PLANKS.get())));
+    public static final RegistryObject<StandingSignBlock> SAKURA_SIGN = BLOCKS.register("sakura_sign", () -> new TGSignBlock(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), TGWoodType.SAKURA));
+    public static final RegistryObject<WallSignBlock> SAKURA_WALL_SIGN = BLOCKS.register("sakura_wall_sign", () -> new TGWallSignBlock(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), TGWoodType.SAKURA));
+    public static final RegistryObject<Block> SAKURA_FENCE = BLOCKS.register("sakura_fence", () -> new FenceBlock(AbstractBlock.Properties.from(SAKURA_PLANKS.get())));
+    public static final RegistryObject<Block> SAKURA_FENCE_GATE = BLOCKS.register("sakura_fence_gate", () -> new FenceGateBlock(AbstractBlock.Properties.from(SAKURA_PLANKS.get())));
+    public static final RegistryObject<Block> SAKURA_BUTTON = BLOCKS.register("sakura_button", () -> new WoodButtonBlock(AbstractBlock.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> SAKURA_PRESSURE_PLATE = BLOCKS.register("sakura_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
 
     //Sweet Bed
     public static final RegistryObject<SweetBedBlock> SWEET_BED_WHITE = BLOCKS.register("sweet_bed_white", () -> new SweetBedBlock((BedBlock)Blocks.WHITE_BED, DyeColor.WHITE));
@@ -111,6 +121,6 @@ public class TGBlockRegister {
     }
 
     private static FallenLeavesBlock createFallenLeaves() {
-        return new FallenLeavesBlock(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).sound(SoundType.PLANT).notSolid().doesNotBlockMovement().setAllowsSpawn(TGBlockRegister::neverAllowSpawn).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false));
+        return new FallenLeavesBlock(AbstractBlock.Properties.create(Material.PLANTS).hardnessAndResistance(0.2F).sound(SoundType.PLANT).notSolid().doesNotBlockMovement().setAllowsSpawn(TGBlockRegister::neverAllowSpawn).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false));
     }
 }
