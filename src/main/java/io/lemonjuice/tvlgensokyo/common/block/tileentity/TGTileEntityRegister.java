@@ -31,7 +31,9 @@ public class TGTileEntityRegister {
 
     public static final RegistryObject<TileEntityType<TGSignTileEntity>> TG_SIGN = TILE_ENTITIES.register("sign", () -> TileEntityType.Builder.create(TGSignTileEntity::new,
             TGBlockRegister.MAPLE_SIGN.get(),
-            TGBlockRegister.MAPLE_WALL_SIGN.get())
+            TGBlockRegister.MAPLE_WALL_SIGN.get(),
+            TGBlockRegister.SAKURA_SIGN.get(),
+            TGBlockRegister.SAKURA_WALL_SIGN.get())
             .build(null));
 
 
