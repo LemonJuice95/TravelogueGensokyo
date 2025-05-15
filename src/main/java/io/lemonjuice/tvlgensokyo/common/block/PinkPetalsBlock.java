@@ -42,7 +42,7 @@ public class PinkPetalsBlock extends FallenLeavesBlock implements IGrowable {
 
 
     public PinkPetalsBlock() {
-        super(AbstractBlock.Properties.create(Material.LEAVES)
+        super(AbstractBlock.Properties.create(Material.PLANTS)
                 .hardnessAndResistance(0.2F)
                 .sound(SoundType.PLANT)
                 .notSolid()
@@ -75,7 +75,8 @@ public class PinkPetalsBlock extends FallenLeavesBlock implements IGrowable {
 
     @Override
     public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-        return true;
+        BlockState state1 = worldIn.getBlockState(pos.down());
+        return state1.matchesBlock(Blocks.GRASS_BLOCK) || state1.matchesBlock(Blocks.DIRT) || state1.matchesBlock(Blocks.COARSE_DIRT) || state1.matchesBlock(Blocks.PODZOL);
     }
 
     @Override
