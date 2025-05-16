@@ -65,6 +65,7 @@ public class Spell {
             return TGSpellInit.SPELL_MAP.inverse().get(this);
         } catch (NullPointerException e) {
             TravelogueGensokyo.LOGGER.warn("Found a spell not registered: " + this.toString());
+            TravelogueGensokyo.LOGGER.warn(e.getStackTrace());
             return new ResourceLocation("", "");
         }
     }
