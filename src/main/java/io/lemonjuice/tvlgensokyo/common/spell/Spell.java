@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Optional;
 
 public class Spell {
     private final int powerCost;
@@ -61,13 +62,11 @@ public class Spell {
     }
 
     public ResourceLocation getName() {
-        try {
-            return TGSpellInit.SPELL_MAP.inverse().get(this);
-        } catch (NullPointerException e) {
-            TravelogueGensokyo.LOGGER.warn("Found a spell not registered: " + this.toString());
-            TravelogueGensokyo.LOGGER.warn(e.getStackTrace());
+        return Optional.ofNullable(TGSpellInit.SPELL_MAP.inverse().get(this)).orElseGet(() -> {
+            TravelogueGensokyo.LOGGER.warn("Found a spell not registered, " + this);
+            TravelogueGensokyo.LOGGER.warn("Please check your code at " + Thread.currentThread().getStackTrace()[4]);
             return new ResourceLocation("", "");
-        }
+        });
     }
 
 
