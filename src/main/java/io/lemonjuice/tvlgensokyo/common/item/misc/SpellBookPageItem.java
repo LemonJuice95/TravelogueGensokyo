@@ -64,7 +64,7 @@ public class SpellBookPageItem extends Item {
     public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
         if (group == ItemGroup.SEARCH || group == TGItemGroups.BOOK_PAGE) {
             for (Spell spell : TGSpellInit.SPELL_MAP.values()) {
-                if (!spell.equals(TGSpellInit.EMPTY))
+                if (spell != TGSpellInit.EMPTY)
                     items.add(setSpell(new ItemStack(this), spell));
             }
         }
