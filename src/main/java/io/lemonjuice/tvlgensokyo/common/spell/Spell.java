@@ -63,7 +63,7 @@ public class Spell {
 
     public ResourceLocation getName() {
         return Optional.ofNullable(TGSpellInit.SPELL_MAP.inverse().get(this)).orElseGet(() -> {
-            TravelogueGensokyo.LOGGER.warn("Found a spell not registered, " + this);
+            TravelogueGensokyo.LOGGER.warn("Found a spell not registered: " + this);
             TravelogueGensokyo.LOGGER.warn("Please check your code at " + Thread.currentThread().getStackTrace()[4]);
             return new ResourceLocation("tvlgensokyo", "empty");
         });
