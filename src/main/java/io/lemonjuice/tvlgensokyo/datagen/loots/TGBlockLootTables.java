@@ -1,5 +1,6 @@
 package io.lemonjuice.tvlgensokyo.datagen.loots;
 
+import io.lemonjuice.tvlgensokyo.common.block.PinkPetalsBlock;
 import io.lemonjuice.tvlgensokyo.common.block.TGBlockRegister;
 import io.lemonjuice.tvlgensokyo.common.item.TGItemRegister;
 import net.minecraft.advancements.criterion.StatePropertiesPredicate;
@@ -11,6 +12,7 @@ import net.minecraft.loot.*;
 import net.minecraft.loot.conditions.BlockStateProperty;
 import net.minecraft.loot.conditions.ILootCondition;
 import net.minecraft.loot.conditions.SurvivesExplosion;
+import net.minecraft.loot.functions.SetCount;
 import net.minecraft.state.properties.BedPart;
 
 import java.util.Arrays;
@@ -65,11 +67,34 @@ public class TGBlockLootTables extends BlockLootTables {
         this.registerDropSelfLootTable(TGBlockRegister.MAPLE_SAPLING.get());
         this.registerLootTable(TGBlockRegister.MAPLE_LEAVES.get(), droppingWithChancesAndSticks(TGBlockRegister.MAPLE_LEAVES.get(), TGBlockRegister.MAPLE_SAPLING.get(), DEFAULT_SAPLING_DROP_RATES));
 
+        this.registerLootTable(TGBlockRegister.PINK_PETALS.get(), (block) -> {
+            return LootTable.builder()
+                    .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
+                            .addEntry(withExplosionDecay(TGBlockRegister.PINK_PETALS.get(), ItemLootEntry.builder(block)
+                                    .acceptFunction(SetCount.builder(ConstantRange.of(2)).acceptCondition(BlockStateProperty.builder(block)
+                                            .fromProperties(StatePropertiesPredicate.Builder.newBuilder().withIntProp(PinkPetalsBlock.AMOUNT, 2))))
+                                    .acceptFunction(SetCount.builder(ConstantRange.of(3)).acceptCondition(BlockStateProperty.builder(block)
+                                            .fromProperties(StatePropertiesPredicate.Builder.newBuilder().withIntProp(PinkPetalsBlock.AMOUNT, 3))))
+                                    .acceptFunction(SetCount.builder(ConstantRange.of(4)).acceptCondition(BlockStateProperty.builder(block)
+                                            .fromProperties(StatePropertiesPredicate.Builder.newBuilder().withIntProp(PinkPetalsBlock.AMOUNT, 4))))
+                            )));
+        });
+
         this.registerDropSelfLootTable(TGBlockRegister.SAKURA_LOG.get());
         this.registerDropSelfLootTable(TGBlockRegister.STRIPPED_SAKURA_LOG.get());
         this.registerDropSelfLootTable(TGBlockRegister.SAKURA_WOOD.get());
         this.registerDropSelfLootTable(TGBlockRegister.STRIPPED_SAKURA_WOOD.get());
         this.registerDropSelfLootTable(TGBlockRegister.SAKURA_PLANKS.get());
+        this.registerLootTable(TGBlockRegister.SAKURA_SLAB.get(), droppingSlab(TGBlockRegister.SAKURA_SLAB.get()));
+        this.registerDropSelfLootTable(TGBlockRegister.SAKURA_STAIRS.get());
+        this.registerDropSelfLootTable(TGBlockRegister.SAKURA_SIGN.get());
+        this.registerLootTable(TGBlockRegister.SAKURA_WALL_SIGN.get(), dropping(TGItemRegister.SAKURA_SIGN.get()));
+        this.registerDropSelfLootTable(TGBlockRegister.SAKURA_FENCE.get());
+        this.registerDropSelfLootTable(TGBlockRegister.SAKURA_FENCE_GATE.get());
+        this.registerDropSelfLootTable(TGBlockRegister.SAKURA_BUTTON.get());
+        this.registerDropSelfLootTable(TGBlockRegister.SAKURA_PRESSURE_PLATE.get());
+        this.registerDropSelfLootTable(TGBlockRegister.SAKURA_SAPLING.get());
+        this.registerLootTable(TGBlockRegister.SAKURA_LEAVES.get(), droppingWithChancesAndSticks(TGBlockRegister.SAKURA_LEAVES.get(), TGBlockRegister.SAKURA_SAPLING.get(), DEFAULT_SAPLING_DROP_RATES));
 
         this.registerDropSelfLootTable(TGBlockRegister.SPELL_BOOK_BINDING_TABLE.get());
         this.registerDropSelfLootTable(TGBlockRegister.SPELL_WRITING_TABLE.get());
