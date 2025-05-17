@@ -5,7 +5,7 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import io.lemonjuice.tvlgensokyo.client.TGClientUtils;
 import io.lemonjuice.tvlgensokyo.client.models.itemstack.BasicSpellBookModel;
 import io.lemonjuice.tvlgensokyo.client.models.itemstack.SpellBookModelBase;
-import io.lemonjuice.tvlgensokyo.common.item.weapon.ItemSpellBook;
+import io.lemonjuice.tvlgensokyo.common.item.weapon.SpellBookItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.ItemRenderer;
@@ -19,7 +19,7 @@ public class SpellBookISTER extends ItemStackTileEntityRenderer {
 
     @Override
     public void func_239207_a_(ItemStack stack, ItemCameraTransforms.TransformType transformType, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             float partialTicks = MC.isGamePaused() ? MC.renderPartialTicksPaused : MC.getRenderPartialTicks();
 
             matrixStack.push();
@@ -28,7 +28,7 @@ public class SpellBookISTER extends ItemStackTileEntityRenderer {
             matrixStack.translate(0.74, -1.5, -1.27);
             SpellBookModelBase model;
             model = TGClientUtils.MODEL_MAP.containsKey(stack.getItem()) ? TGClientUtils.MODEL_MAP.get(stack.getItem()) : new BasicSpellBookModel();
-            model.setBookState(ItemSpellBook.getOpenAmount(stack), ItemSpellBook.getLeftPageFlipAmount(stack), ItemSpellBook.getRightPageFlipAmount(stack), partialTicks, ItemSpellBook.isOpened(stack));
+            model.setBookState(SpellBookItem.getOpenAmount(stack), SpellBookItem.getLeftPageFlipAmount(stack), SpellBookItem.getRightPageFlipAmount(stack), partialTicks, SpellBookItem.isOpened(stack));
             IVertexBuilder iVertexBuilder = ItemRenderer.getBuffer(buffer, model.getRenderType(model.getTexture()), false, stack.hasEffect());
             model.render(matrixStack, iVertexBuilder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
             matrixStack.pop();

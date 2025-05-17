@@ -8,7 +8,6 @@ import io.lemonjuice.tvlgensokyo.common.item.interfaces.ISpellInstrument;
 import io.lemonjuice.tvlgensokyo.common.item.group.TGItemGroups;
 import io.lemonjuice.tvlgensokyo.common.item.misc.SpellBookPageItem;
 import io.lemonjuice.tvlgensokyo.common.spell.Spell;
-import io.lemonjuice.tvlgensokyo.common.spell.TGSpellInit;
 import io.lemonjuice.tvlgensokyo.utils.TGCapabilityUtils;
 import io.lemonjuice.tvlgensokyo.utils.TGMathUtils;
 import net.minecraft.client.util.ITooltipFlag;
@@ -36,12 +35,12 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
-public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable, ISpellInstrument {
+public class SpellBookItem extends Item implements IRenderPowerHUD, IScrollable, ISpellInstrument {
     public final int slotCount;
     public final float speedMultiply;
     public final float powerMultiply;
 
-    public ItemSpellBook(int slotCount, float speedMultiply, float powerMultiply, boolean hasISTER) {
+    public SpellBookItem(int slotCount, float speedMultiply, float powerMultiply, boolean hasISTER) {
         super(new Item.Properties().group(TGItemGroups.COMBAT).maxStackSize(1).setISTER(hasISTER ? () -> SpellBookISTER::new : null));
         this.slotCount = slotCount;
         this.speedMultiply = speedMultiply;
@@ -49,19 +48,19 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
     }
 
     public static void setOpened(ItemStack stack, boolean isOpened) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             stack.getOrCreateTag().putBoolean("Opened", isOpened);
         }
     }
 
     public static void setOpenAmount(ItemStack stack, float openAmount) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             stack.getOrCreateTag().putFloat("OpenAmount", openAmount);
         }
     }
 
     public static void pushFlipAction(ItemStack stack, double direction) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             ListNBT actions = new ListNBT();
             if(stack.getOrCreateTag().contains("FlipActions")) {
                 actions = stack.getOrCreateTag().getList("FlipActions", Constants.NBT.TAG_INT);
@@ -74,7 +73,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
     }
 
     public static void popFlipAction(ItemStack stack) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             ListNBT actions = new ListNBT();
             if(stack.getOrCreateTag().contains("FlipActions")) {
                 actions = stack.getOrCreateTag().getList("FlipActions", Constants.NBT.TAG_INT);
@@ -86,7 +85,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
     }
 
     public static void clearFlipAction(ItemStack stack) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             ListNBT actions = new ListNBT();
             if(stack.getOrCreateTag().contains("FlipActions")) {
                 actions = stack.getOrCreateTag().getList("FlipActions", Constants.NBT.TAG_INT);
@@ -98,7 +97,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
     }
 
     public static int getFirstFlipAction(ItemStack stack) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             ListNBT actions = new ListNBT();
             if(stack.getOrCreateTag().contains("FlipActions")) {
                 actions = stack.getOrCreateTag().getList("FlipActions", Constants.NBT.TAG_INT);
@@ -111,7 +110,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
     }
 
     public static boolean isFlipActionEmpty(ItemStack stack) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             ListNBT actions = new ListNBT();
             if(stack.getOrCreateTag().contains("FlipActions")) {
                 actions = stack.getOrCreateTag().getList("FlipActions", Constants.NBT.TAG_INT);
@@ -122,7 +121,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
     }
 
     public static float getOpenAmount(ItemStack stack) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             if(stack.getOrCreateTag().contains("OpenAmount"))
                 return stack.getOrCreateTag().getFloat("OpenAmount");
         }
@@ -130,7 +129,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
     }
 
     public static boolean isOpened(ItemStack stack) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             if(stack.getOrCreateTag().contains("Opened"))
                 return stack.getOrCreateTag().getBoolean("Opened");
         }
@@ -138,19 +137,19 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
     }
 
     public static void setLeftPageFlipAmount(ItemStack stack, float amount) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             stack.getOrCreateTag().putFloat("LeftPageFlipAmount", amount);
         }
     }
 
     public static void setRightPageFlipAmount(ItemStack stack, float amount) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             stack.getOrCreateTag().putFloat("RightPageFlipAmount", amount);
         }
     }
 
     public static float getLeftPageFlipAmount(ItemStack stack) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             if(stack.getOrCreateTag().contains("LeftPageFlipAmount"))
                 return stack.getOrCreateTag().getFloat("LeftPageFlipAmount");
         }
@@ -159,7 +158,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
 
 
     public static float getRightPageFlipAmount(ItemStack stack) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             if(stack.getOrCreateTag().contains("RightPageFlipAmount"))
                 return stack.getOrCreateTag().getFloat("RightPageFlipAmount");
         }
@@ -167,7 +166,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
     }
 
     protected static void tickOpenAmount(ItemStack stack) {
-        if(stack.getItem() instanceof ItemSpellBook) {
+        if(stack.getItem() instanceof SpellBookItem) {
             float openAmount = getOpenAmount(stack);
             if(isOpened(stack)) {
                 if(openAmount < 1.0F) {
@@ -323,8 +322,8 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
 
     @Override
     public void specialScroll(ItemStack stack, double direction) {
-        if(stack.getItem() instanceof ItemSpellBook) {
-            SpellBookInventory inventory = ((ItemSpellBook) stack.getItem()).getInventory(stack);
+        if(stack.getItem() instanceof SpellBookItem) {
+            SpellBookInventory inventory = ((SpellBookItem) stack.getItem()).getInventory(stack);
             if (direction > 0.0D) {
                 direction = 1.0D;
             } else if (direction < 0.0D) {
@@ -354,8 +353,8 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
     }
 
     public static void setCurrentPage(ItemStack stack, int index) {
-        if(stack.getItem() instanceof ItemSpellBook) {
-            ((ItemSpellBook) stack.getItem()).getInventory(stack).setCurrentPage(index);
+        if(stack.getItem() instanceof SpellBookItem) {
+            ((SpellBookItem) stack.getItem()).getInventory(stack).setCurrentPage(index);
         }
     }
 
@@ -369,7 +368,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
             this.spellBook = spellBook;
 
             ListNBT nbt = new ListNBT();
-            if(!spellBook.isEmpty() && spellBook.getItem() instanceof ItemSpellBook && spellBook.getOrCreateTag().contains(NAME)) {
+            if(!spellBook.isEmpty() && spellBook.getItem() instanceof SpellBookItem && spellBook.getOrCreateTag().contains(NAME)) {
                 nbt = spellBook.getOrCreateTag().getList(NAME, Constants.NBT.TAG_COMPOUND);
                 this.currentPage = spellBook.getOrCreateTag().getInt("CurrentPage");
             }
@@ -403,7 +402,7 @@ public class ItemSpellBook extends Item implements IRenderPowerHUD, IScrollable,
 
         @Override
         public boolean isUsableByPlayer(PlayerEntity player) {
-            return !this.spellBook.isEmpty() && this.spellBook.getItem() instanceof ItemSpellBook;
+            return !this.spellBook.isEmpty() && this.spellBook.getItem() instanceof SpellBookItem;
         }
 
         @Override

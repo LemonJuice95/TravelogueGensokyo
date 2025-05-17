@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.network.toserver;
 
-import io.lemonjuice.tvlgensokyo.common.item.weapon.ItemSpellBook;
+import io.lemonjuice.tvlgensokyo.common.item.weapon.SpellBookItem;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
@@ -28,10 +28,10 @@ public class CSetBookOpenStatePacket {
         ctx.get().enqueueWork(() -> {
             if (player != null) {
                 ItemStack stack = player.getHeldItemMainhand();
-                if (!(stack.getItem() instanceof ItemSpellBook))
+                if (!(stack.getItem() instanceof SpellBookItem))
                     stack = player.getHeldItemOffhand();
-                if (stack.getItem() instanceof ItemSpellBook) {
-                    ItemSpellBook.setOpened(stack, packet.isOpened);
+                if (stack.getItem() instanceof SpellBookItem) {
+                    SpellBookItem.setOpened(stack, packet.isOpened);
                 }
             }
         });

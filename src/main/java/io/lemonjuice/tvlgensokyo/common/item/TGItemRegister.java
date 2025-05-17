@@ -11,7 +11,7 @@ import io.lemonjuice.tvlgensokyo.common.item.group.TGItemGroups;
 import io.lemonjuice.tvlgensokyo.common.item.misc.*;
 import io.lemonjuice.tvlgensokyo.common.item.weapon.GungnirItem;
 import io.lemonjuice.tvlgensokyo.common.item.weapon.LaevateinItem;
-import io.lemonjuice.tvlgensokyo.common.item.weapon.ItemSpellBook;
+import io.lemonjuice.tvlgensokyo.common.item.weapon.SpellBookItem;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItem;
@@ -54,8 +54,8 @@ public class TGItemRegister {
     //Combat
     public static final RegistryObject<Item> LAEVATEIN = ITEMS.register("laevatein", LaevateinItem::new);
     public static final RegistryObject<Item> GUNGNIR = ITEMS.register("gungnir", GungnirItem::new);
-    public static final RegistryObject<Item> BASIC_SPELL_BOOK = ITEMS.register("basic_spell_book", () -> new ItemSpellBook(4, 1.0F, 1.0F, true));
-    public static final RegistryObject<Item> BASIC_THICK_SPELL_BOOK = ITEMS.register("basic_thick_spell_book", () -> new ItemSpellBook(8, 1.0F, 1.0F, true));
+    public static final RegistryObject<Item> BASIC_SPELL_BOOK = ITEMS.register("basic_spell_book", () -> new SpellBookItem(4, 1.0F, 1.0F, true));
+    public static final RegistryObject<Item> BASIC_THICK_SPELL_BOOK = ITEMS.register("basic_thick_spell_book", () -> new SpellBookItem(8, 1.0F, 1.0F, true));
     public static final RegistryObject<Item> SPELL_BOOK_PAGE = ITEMS.register("spell_book_page", SpellBookPageItem::new);
 
     //Danmaku

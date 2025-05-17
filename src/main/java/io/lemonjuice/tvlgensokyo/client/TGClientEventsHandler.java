@@ -9,7 +9,7 @@ import io.lemonjuice.tvlgensokyo.client.renderer.environment.GensokyoRenderInfo;
 import io.lemonjuice.tvlgensokyo.client.renderer.environment.GensokyoWeatherRenderer;
 import io.lemonjuice.tvlgensokyo.common.item.interfaces.ISpellInstrument;
 import io.lemonjuice.tvlgensokyo.common.item.misc.SpellBookPageItem;
-import io.lemonjuice.tvlgensokyo.common.item.weapon.ItemSpellBook;
+import io.lemonjuice.tvlgensokyo.common.item.weapon.SpellBookItem;
 import io.lemonjuice.tvlgensokyo.common.network.TGNetworkHandler;
 import io.lemonjuice.tvlgensokyo.common.network.toserver.CSetBookOpenStatePacket;
 import io.lemonjuice.tvlgensokyo.common.spell.Spell;
@@ -39,14 +39,14 @@ public class TGClientEventsHandler {
     public static void handleSpellBookOpenState() {
         if(MC.player != null) {
             ItemStack stack = MC.player.getHeldItemMainhand();
-            if(!(stack.getItem() instanceof ItemSpellBook)) {
+            if(!(stack.getItem() instanceof SpellBookItem)) {
                 stack = MC.player.getHeldItemOffhand();
             }
-            if(stack.getItem() instanceof ItemSpellBook) {
+            if(stack.getItem() instanceof SpellBookItem) {
                 if(TGInputs.SPECIAL_SCROLL_SWITCH.isKeyDown()) {
-                    if(!ItemSpellBook.isOpened(stack))
+                    if(!SpellBookItem.isOpened(stack))
                         TGNetworkHandler.CHANNEL.sendToServer(new CSetBookOpenStatePacket(true));
-                } else if(ItemSpellBook.isOpened(stack) && TravelogueGensokyo.PROXY.getChantingProgress() == 0) {
+                } else if(SpellBookItem.isOpened(stack) && TravelogueGensokyo.PROXY.getChantingProgress() == 0) {
                     TGNetworkHandler.CHANNEL.sendToServer(new CSetBookOpenStatePacket(false));
                 }
             }
@@ -71,8 +71,8 @@ public class TGClientEventsHandler {
                 TravelogueGensokyo.PROXY.setChantingProgress(0.0F);
                 chantingProgress = 0.0F;
             }
-            if(item1.getItem() instanceof ItemSpellBook) {
-                Spell spell = SpellBookPageItem.getSpell(((ItemSpellBook) item1.getItem()).getInventory(item1).getCurrentPage());
+            if(item1.getItem() instanceof SpellBookItem) {
+                Spell spell = SpellBookPageItem.getSpell(((SpellBookItem) item1.getItem()).getInventory(item1).getCurrentPage());
                 SpellChantHUD spellChantHUD = new SpellChantHUD(chantingProgress, player.isCreative(), new TranslationTextComponent(spell.getTranslationKey()));
                 spellChantHUD.render(event.getMatrixStack());
             }

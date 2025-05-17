@@ -1,7 +1,7 @@
 package io.lemonjuice.tvlgensokyo.common.container;
 
 import io.lemonjuice.tvlgensokyo.common.block.tileentity.SpellBookBindingTableTileEntity;
-import io.lemonjuice.tvlgensokyo.common.item.weapon.ItemSpellBook;
+import io.lemonjuice.tvlgensokyo.common.item.weapon.SpellBookItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
@@ -27,7 +27,7 @@ public class SpellBookBindingTableContainer extends TGContainerBase {
         this.addSlot(new Slot(this.tileEntity, 0, 26, 36) {
             @Override
             public boolean isItemValid(ItemStack stack) {
-                return stack.getItem() instanceof ItemSpellBook;
+                return stack.getItem() instanceof SpellBookItem;
             }
 
             @Override
@@ -45,9 +45,9 @@ public class SpellBookBindingTableContainer extends TGContainerBase {
         this.playerInvStartIndex = 1;
 
         ItemStack stack = this.tileEntity.getStackInSlot(0);
-        if(!stack.isEmpty() && stack.getItem() instanceof ItemSpellBook) {
-            int slotCount = ((ItemSpellBook) stack.getItem()).slotCount;
-            ItemSpellBook.SpellBookInventory pageInventory = ((ItemSpellBook) stack.getItem()).getInventory(stack);
+        if(!stack.isEmpty() && stack.getItem() instanceof SpellBookItem) {
+            int slotCount = ((SpellBookItem) stack.getItem()).slotCount;
+            SpellBookItem.SpellBookInventory pageInventory = ((SpellBookItem) stack.getItem()).getInventory(stack);
             if(slotCount <= 4) {
                 for(int i = 0; i < slotCount; i++) {
                     this.addSlot(new Slot(pageInventory, i, 87 + i / 2 * 27, i % 2 == 0 ? 27 : 45) {
@@ -86,8 +86,8 @@ public class SpellBookBindingTableContainer extends TGContainerBase {
 
     public int getSpellPageSlotCount() {
         Slot slot = this.getSlot(0);
-        if(slot.getHasStack() && slot.getStack().getItem() instanceof ItemSpellBook) {
-            return ((ItemSpellBook)slot.getStack().getItem()).slotCount;
+        if(slot.getHasStack() && slot.getStack().getItem() instanceof SpellBookItem) {
+            return ((SpellBookItem)slot.getStack().getItem()).slotCount;
         } else {
             return 0;
         }
