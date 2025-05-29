@@ -12,6 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class TGParticleRegister {
     public static final BasicParticleType FALLING_MAPLE_LEAF = registerParticleType("falling_maple_leaf", false);
+    public static final BasicParticleType SAKURA = registerParticleType("sakura", false);
 
     private static BasicParticleType registerParticleType(String name, boolean alwaysShow) {
         BasicParticleType particleType = new BasicParticleType(alwaysShow);
@@ -24,5 +25,6 @@ public class TGParticleRegister {
     public static void onParticleFactoryRegistry(ParticleFactoryRegisterEvent event) {
         ParticleManager manager = Minecraft.getInstance().particles;
         manager.registerFactory(FALLING_MAPLE_LEAF, FallingLeafParticle.Factory::new);
+        manager.registerFactory(SAKURA, SakuraParticle.Factory::new);
     }
 }
