@@ -5,22 +5,21 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particles.BasicParticleType;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
-public class FallingLeafParticle extends SpriteTexturedParticle {
+public class SakuraParticle extends SpriteTexturedParticle {
     private float rotSpeed;
     private final float spinAcceleration;
 
-    public FallingLeafParticle(ClientWorld world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+    public SakuraParticle(ClientWorld world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
         super(world, x, y, z, xSpeed, ySpeed, zSpeed);
+        this.motionX = xSpeed;
+        this.motionY = ySpeed;
+        this.motionZ = zSpeed;
         this.particleGravity = 0.075F;
         float size = this.rand.nextBoolean() ? 0.075F : 0.05F;
         this.particleScale = size;
         this.setSize(size, size);
-        this.motionX = xSpeed;
-        this.motionY = ySpeed;
-        this.motionZ = zSpeed;
-        this.maxAge = 400;
+        this.maxAge = 300;
         this.rotSpeed = (float)Math.toRadians(this.rand.nextBoolean() ? -5.0 : 5.0);
         this.spinAcceleration = (float)Math.toRadians(this.rand.nextBoolean() ? -0.5 : 0.5);
     }
@@ -55,7 +54,6 @@ public class FallingLeafParticle extends SpriteTexturedParticle {
 
             this.prevParticleAngle = particleAngle;
         }
-
     }
 
     @Override
@@ -73,8 +71,8 @@ public class FallingLeafParticle extends SpriteTexturedParticle {
         @Nullable
         @Override
         public Particle makeParticle(BasicParticleType type, ClientWorld world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            FallingLeafParticle particle = new FallingLeafParticle(world, x, y, z, xSpeed, ySpeed, zSpeed);
-            particle.selectSpriteRandomly(this.sprite);
+            SakuraParticle particle = new SakuraParticle(world, x, y, z, xSpeed, ySpeed, zSpeed);
+            particle.setSprite(this.sprite.get(particle.rand.nextInt(12), 12));
             return particle;
         }
     }

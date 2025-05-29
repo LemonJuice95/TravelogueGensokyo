@@ -56,7 +56,7 @@ public class FallableLeavesBlock extends LeavesBlock {
     public void animateTick(BlockState state, World world, BlockPos pos, Random random) {
         super.animateTick(state, world, pos, random);
         if(this.fallingLeafParticle != null) {
-            if(random.nextInt(100) == 1) {
+            if(random.nextInt(50) == 1) {
                 BlockPos blockpos = pos.down();
                 BlockState blockstate = world.getBlockState(blockpos);
                 if (!blockstate.isSolid() || !blockstate.isSolidSide(world, blockpos, Direction.UP)) {

@@ -1,5 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.block;
 
+import io.lemonjuice.tvlgensokyo.client.particle.TGParticleRegister;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -13,7 +14,7 @@ import java.util.Random;
 
 public class SakuraLeavesBlock extends FallableLeavesBlock {
     public SakuraLeavesBlock() {
-        super(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setAllowsSpawn(TGBlockRegister::allowsSpawnOnLeaves).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false), TGBlockRegister.PINK_PETALS.get().getDefaultState());
+        super(AbstractBlock.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid().setAllowsSpawn(TGBlockRegister::allowsSpawnOnLeaves).setSuffocates((state, reader, pos) -> false).setBlocksVision((state, reader, pos) -> false), TGBlockRegister.PINK_PETALS.get().getDefaultState(), TGParticleRegister.SAKURA);
     }
 
     @Override
