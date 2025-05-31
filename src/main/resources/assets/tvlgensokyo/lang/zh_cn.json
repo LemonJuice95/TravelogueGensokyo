@@ -1,5 +1,5 @@
 {
-  "c1": "==================================Items=================================",
+  "##": "==================================Items=================================",
   "item.tvlgensokyo.debugger": "调试器",
 
   "item.tvlgensokyo.spell_book_page": "魔导书页",
@@ -30,12 +30,12 @@
   "item.tvlgensokyo.kappa_spawn_egg": "河童刷怪蛋",
   "item.tvlgensokyo.gensokyo_villager_spawn_egg": "人里村民刷怪蛋",
 
-  "c2": "=================================Gui====================================",
+  "##": "=================================Gui====================================",
   "gui.tvlgensokyo.inject_power": "注入",
 
   "container.tvlgensokyo.spell_writing": "魔导书页刻录台",
 
-  "c3": "===============================Tooltip==================================",
+  "##": "===============================Tooltip==================================",
   "tooltip.tvlgensokyo.power_provider.storage": "灵力储量: %s/%s",
   "tooltip.tvlgensokyo.power_provider.speed": "灵力供给: %s/tick",
   "tooltip.tvlgensokyo.power_provider.using": "置于副手时提供灵力回复",
@@ -57,7 +57,7 @@
 
   "tooltip.tvlgensokyo.sweet_pillow": "似乎经过了某些特殊改造",
 
-  "c4": "================================Entity==================================",
+  "##": "================================Entity==================================",
   "entity.tvlgensokyo.amulet": "灵符",
   "entity.tvlgensokyo.gungnir": "冈格尼尔",
 
@@ -66,21 +66,21 @@
 
   "entity.tvlgensokyo.kappa": "河童",
 
-  "c5": "===============================Spells===================================",
+  "##": "===============================Spells===================================",
   "spell.tvlgensokyo.empty": "空白",
   "spell.tvlgensokyo.test_spell": "测试用魔法",
   "spell.tvlgensokyo.test_spell_2": "测试用魔法2",
 
   "spell.info.none": "暂无说明",
 
-  "c6": "============================ItemGroups==================================",
+  "##": "============================ItemGroups==================================",
   "itemGroup.tvlgensokyo.food_and_agriculture": "东方幻想游记 | 食物与农业",
   "itemGroup.tvlgensokyo.misc": "东方幻想游记 | 杂项",
   "itemGroup.tvlgensokyo.combat": "东方幻想游记 | 战斗用品",
   "itemGroup.tvlgensokyo.block": "东方幻想游记 | 方块",
   "itemGroup.tvlgensokyo.book_page": "东方幻想游记 | 魔导书页",
 
-  "c7": "============================Blocks======================================",
+  "##": "============================Blocks======================================",
   "block.tvlgensokyo.maple_sapling": "枫树树苗",
   "block.tvlgensokyo.maple_log": "枫木原木",
   "block.tvlgensokyo.maple_leaves": "枫树树叶",
@@ -118,7 +118,26 @@
   "block.tvlgensokyo.spell_book_binding_table": "魔导书装订台",
   "block.tvlgensokyo.spell_writing_table": "魔导书页刻录台",
 
-  "c7": "=============================Dialogue===========================",
+  "##": "=============================Biomes=============================",
+  "biome.tvlgensokyo.dream_world": "梦境世界",
+
+  "biome.tvlgensokyo.gensokyo_river": "河流（幻想乡）",
+
+  "biome.tvlgensokyo.sun_field": "太阳花田",
+
+  "biome.tvlgensokyo.bamboo_forest_of_lost": "迷途竹林",
+
+  "biome.tvlgensokyo.misty_lake": "雾之湖",
+
+  "biome.tvlgensokyo.youkai_mountain": "妖怪之山",
+  "biome.tvlgensokyo.genbu_ravine": "玄武之涧",
+  "biome.tvlgensokyo.genbu_ravine_edge": "玄武之涧（边缘）",
+
+  "biome.tvlgensokyo.youkai_trail": "妖怪兽道",
+  "biome.tvlgensokyo.youkai_trail_river": "河流（妖怪兽道）",
+
+
+  "##": "=============================Dialogue===========================",
   "dialogue.button.tvlgensokyo.to_the_gensokyo": "前往幻想乡",
   "dialogue.button.tvlgensokyo.to_the_overworld": "前往主世界",
   "dialogue.button.tvlgensokyo.to_the_dream_world": "前往梦境世界",
@@ -126,6 +145,6 @@
   "dialogue.tvlgensokyo.debugger": "调试器",
   "dialogue.tvlgensokyo.debugger.dimensions": "维度相关",
 
-  "c99": "============================Others=====================================",
+  "##": "============================Others=====================================",
   "key.category.tvlgensokyo": "东方幻想游记"
 }

@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.mixin;
 
-import io.lemonjuice.tvlgensokyo.common.world.dimension.TGDimensionRegister;
+import io.lemonjuice.tvlgensokyo.common.world.WorldGenInfoHolder;
 import net.minecraft.world.gen.settings.DimensionGeneratorSettings;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,6 +15,6 @@ public class MixinDimensionGeneratorSettings {
 
     @Inject(method = "<init>*", at = @At("TAIL"))
     private void init(CallbackInfo ci) {
-        TGDimensionRegister.setSeed(this.seed);
+        WorldGenInfoHolder.getInstance().setSeed(this.seed);
     }
 }

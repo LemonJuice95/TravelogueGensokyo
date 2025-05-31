@@ -1,15 +1,21 @@
 package io.lemonjuice.tvlgensokyo.client;
 
+import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.client.gui.screen.dialogue.DialogueScreen;
 import io.lemonjuice.tvlgensokyo.client.gui.screen.dialogue.DialogueScript;
 import io.lemonjuice.tvlgensokyo.common.CommonProxy;
+import io.lemonjuice.tvlgensokyo.common.world.biome.TGBiomeRegister;
+import io.lemonjuice.tvlgensokyo.utils.TGBiomeUtils;
 import io.lemonjuice.tvlgensokyo.utils.TGCapabilityUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.MathHelper;
 
 public class ClientProxy extends CommonProxy {
     private int powerBarCache;
+    private float fogAmount;
     private float chantingProgress;
     private static final Minecraft MC = Minecraft.getInstance();
 
@@ -31,6 +37,20 @@ public class ClientProxy extends CommonProxy {
                 this.resetPowerBarCache();
 
         }
+    }
+
+    @Override
+    public float getFogAmount() {
+        Entity entity = MC.getRenderViewEntity();
+        boolean flag = TGBiomeUtils.isSameBiome(entity.world.getBiome(entity.getPosition()), TGBiomeRegister.MISTY_LAKE);
+        if(flag) {
+            this.fogAmount = Math.min(this.fogAmount + (1.0F - this.fogAmount) / 400.0F, 1.0F);
+        } else {
+            this.fogAmount = Math.max(this.fogAmount - this.fogAmount / 400.0F, 0.0F);
+            if(this.fogAmount < 0.01F)
+                this.fogAmount = 0.0F;
+        }
+        return this.fogAmount;
     }
 
     @Override

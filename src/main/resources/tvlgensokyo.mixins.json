@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "tvlgensokyo.refmap.json",
   "mixins": [
-    "MixinDimensionGeneratorSettings"
+    "MixinDimensionGeneratorSettings",
+    "MixinRabbitEntity"
   ],
   "client": [
     "MixinSplashText"

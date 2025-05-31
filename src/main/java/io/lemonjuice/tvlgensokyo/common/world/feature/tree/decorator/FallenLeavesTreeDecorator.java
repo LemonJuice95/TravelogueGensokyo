@@ -43,14 +43,14 @@ public class FallenLeavesTreeDecorator extends TreeDecorator {
         }
         for(Pair<Integer, Integer> i : leaves) {
             if(rand.nextInt() % 7 == 0) {
-                BlockPos pos = new BlockPos(i.getFirst(), lowestLeaf - 1, i.getSecond());
+                BlockPos.Mutable pos = new BlockPos(i.getFirst(), lowestLeaf - 1, i.getSecond()).toMutable();
                 do {
-                    pos = pos.add(0, -1, 0);
+                    pos.move(0, -1, 0);
                 } while (world.getBlockState(pos).getBlock().matchesBlock(Blocks.AIR) && pos.getY() > 0);
 
                 if (world.getBlockState(pos).getBlock() == Blocks.GRASS) {
                     world.setBlockState(pos, Blocks.AIR.getDefaultState(), 23);
-                    pos.add(0, -1, 0);
+                    pos.move(0, -1, 0);
                 }
 
                 if (world.getBlockState(pos.up()).isAir()) {

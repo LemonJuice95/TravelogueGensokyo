@@ -31,6 +31,10 @@ public class CommonProxy {
         return 0.0F;
     }
 
+    public float getFogAmount() {
+        return 0.0F;
+    }
+
     public void setChantingProgress(float chantingProgress) {
 
     }
