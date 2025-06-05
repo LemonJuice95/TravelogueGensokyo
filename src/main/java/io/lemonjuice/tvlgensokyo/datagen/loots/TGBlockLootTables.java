@@ -2,6 +2,7 @@ package io.lemonjuice.tvlgensokyo.datagen.loots;
 
 import io.lemonjuice.tvlgensokyo.common.block.PinkPetalsBlock;
 import io.lemonjuice.tvlgensokyo.common.block.TGBlockRegister;
+import io.lemonjuice.tvlgensokyo.common.block.crops.RiceBlock;
 import io.lemonjuice.tvlgensokyo.common.item.TGItemRegister;
 import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.block.BedBlock;
@@ -14,6 +15,9 @@ import net.minecraft.loot.conditions.ILootCondition;
 import net.minecraft.loot.conditions.SurvivesExplosion;
 import net.minecraft.loot.functions.SetCount;
 import net.minecraft.state.properties.BedPart;
+import net.minecraft.state.properties.DoubleBlockHalf;
+import net.minecraft.state.properties.Half;
+import net.minecraft.util.Hand;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -45,6 +49,18 @@ public class TGBlockLootTables extends BlockLootTables {
         this.tmpBuilder = BlockStateProperty.builder(TGBlockRegister.CUCUMBER.get()).fromProperties(StatePropertiesPredicate.Builder.newBuilder().withIntProp(CropsBlock.AGE, 7));
         this.registerLootTable(TGBlockRegister.CUCUMBER.get(), (block) -> {
             return droppingAndBonusWhen(TGBlockRegister.CUCUMBER.get(), TGItemRegister.CUCUMBER.get(), TGItemRegister.CUCUMBER_SEEDS.get(), this.tmpBuilder);
+        });
+
+        this.registerLootTable(TGBlockRegister.RICE.get(), (block) -> {
+            LootPool.Builder poolBuilder = LootPool.builder();
+            for(int i = 0; i <= 2; i++) {
+                this.tmpBuilder = BlockStateProperty.builder(TGBlockRegister.RICE.get()).fromProperties(StatePropertiesPredicate.Builder.newBuilder().withIntProp(RiceBlock.AGE, i));
+                poolBuilder.addEntry(ItemLootEntry.builder(TGItemRegister.RICE.get()).acceptCondition(this.tmpBuilder));
+            }
+            this.tmpBuilder = BlockStateProperty.builder(TGBlockRegister.RICE.get()).fromProperties(StatePropertiesPredicate.Builder.newBuilder().withIntProp(RiceBlock.AGE, 3).withProp(RiceBlock.HALF, DoubleBlockHalf.UPPER));
+            poolBuilder.addEntry(ItemLootEntry.builder(TGItemRegister.EAR_OF_RICE.get()).acceptCondition(this.tmpBuilder));
+
+            return LootTable.builder().addLootPool(poolBuilder);
         });
 
         this.registerLootTable(TGBlockRegister.FALLEN_MAPLE_LEAVES.get(), (block) -> {

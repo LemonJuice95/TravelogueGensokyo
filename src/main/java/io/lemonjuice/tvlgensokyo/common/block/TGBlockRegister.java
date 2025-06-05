@@ -2,6 +2,7 @@ package io.lemonjuice.tvlgensokyo.common.block;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.client.particle.TGParticleRegister;
+import io.lemonjuice.tvlgensokyo.common.block.crops.RiceBlock;
 import io.lemonjuice.tvlgensokyo.common.block.workbench.SpellBookBindingTableBlock;
 import io.lemonjuice.tvlgensokyo.common.block.workbench.SpellWritingTableBlock;
 import io.lemonjuice.tvlgensokyo.common.world.feature.tree.MapleTree;
@@ -23,7 +24,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class TGBlockRegister {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TravelogueGensokyo.MODID);
 
+    //Crops
     public static final RegistryObject<CropsBlock> CUCUMBER = BLOCKS.register("cucumber", () -> new CropsBlock(AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.CROP)));
+    public static final RegistryObject<Block> RICE = BLOCKS.register("rice", RiceBlock::new);
 
     //Workbench
     public static final RegistryObject<Block> SPELL_BOOK_BINDING_TABLE = BLOCKS.register("spell_book_binding_table", () -> new SpellBookBindingTableBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD).notSolid()));

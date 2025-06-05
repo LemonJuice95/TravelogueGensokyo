@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "tvlgensokyo:block/rice_upper_2"
+  }
+}

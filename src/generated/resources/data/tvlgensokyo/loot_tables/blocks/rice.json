@@ -1,0 +1,63 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "tvlgensokyo:rice",
+              "properties": {
+                "age": "0"
+              }
+            }
+          ],
+          "name": "tvlgensokyo:rice"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "tvlgensokyo:rice",
+              "properties": {
+                "age": "1"
+              }
+            }
+          ],
+          "name": "tvlgensokyo:rice"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "tvlgensokyo:rice",
+              "properties": {
+                "age": "2"
+              }
+            }
+          ],
+          "name": "tvlgensokyo:rice"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "tvlgensokyo:rice",
+              "properties": {
+                "age": "3",
+                "half": "upper"
+              }
+            }
+          ],
+          "name": "tvlgensokyo:ear_of_rice"
+        }
+      ]
+    }
+  ]
+}

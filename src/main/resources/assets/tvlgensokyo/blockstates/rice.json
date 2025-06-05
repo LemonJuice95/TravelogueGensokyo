@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "half=lower,age=0": {
+      "model": "tvlgensokyo:block/rice_lower_0"
+    },
+    "half=lower,age=1": {
+      "model": "tvlgensokyo:block/rice_lower_1"
+    },
+    "half=lower,age=2": {
+      "model": "tvlgensokyo:block/rice_lower_2"
+    },
+    "half=lower,age=3": {
+      "model": "tvlgensokyo:block/rice_lower_3"
+    },
+    "half=upper,age=0": {
+      "model": "tvlgensokyo:block/rice_upper_0"
+    },
+    "half=upper,age=1": {
+      "model": "tvlgensokyo:block/rice_upper_1"
+    },
+    "half=upper,age=2": {
+      "model": "tvlgensokyo:block/rice_upper_2"
+    },
+    "half=upper,age=3": {
+      "model": "tvlgensokyo:block/rice_upper_3"
+    }
+  }
+}

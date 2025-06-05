@@ -16,7 +16,10 @@ public class TGBlockRenderHandler {
 
     public static void registerBlockRenderType() {
         RenderTypeLookup.setRenderLayer(TGBlockRegister.DREAM_BASE.get(), RenderType.getTranslucent());
+
         RenderTypeLookup.setRenderLayer(TGBlockRegister.CUCUMBER.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(TGBlockRegister.RICE.get(), RenderType.getCutout());
+
         RenderTypeLookup.setRenderLayer(TGBlockRegister.MAPLE_LEAVES.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(TGBlockRegister.FALLEN_MAPLE_LEAVES.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(TGBlockRegister.MAPLE_SAPLING.get(), RenderType.getCutout());
