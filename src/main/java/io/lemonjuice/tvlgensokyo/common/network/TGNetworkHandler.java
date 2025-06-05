@@ -5,6 +5,7 @@ import io.lemonjuice.tvlgensokyo.common.network.toclient.SIntCapSyncPacket;
 import io.lemonjuice.tvlgensokyo.common.network.toserver.CChangePlayerDimPacket;
 import io.lemonjuice.tvlgensokyo.common.network.toserver.CItemSpecialScrollPacket;
 import io.lemonjuice.tvlgensokyo.common.network.toserver.CSetBookOpenStatePacket;
+import io.lemonjuice.tvlgensokyo.common.network.toserver.CWithdrawMoneyPacket;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
@@ -29,5 +30,6 @@ public class TGNetworkHandler {
         CHANNEL.registerMessage(id++, CItemSpecialScrollPacket.class, CItemSpecialScrollPacket::encode, CItemSpecialScrollPacket::new, CItemSpecialScrollPacket::handle);
         CHANNEL.registerMessage(id++, CSetBookOpenStatePacket.class, CSetBookOpenStatePacket::encode, CSetBookOpenStatePacket::new, CSetBookOpenStatePacket::handle);
         CHANNEL.registerMessage(id++, CChangePlayerDimPacket.class, CChangePlayerDimPacket::encode, CChangePlayerDimPacket::new, CChangePlayerDimPacket::handle);
+        CHANNEL.registerMessage(id++, CWithdrawMoneyPacket.class, CWithdrawMoneyPacket::encode, CWithdrawMoneyPacket::new, CWithdrawMoneyPacket::handle);
     }
 }

@@ -33,6 +33,7 @@ public class TGItemRegister {
     public static final RegistryObject<Item> POWER_POINT = ITEMS.register("power_point", () -> new Item(new Item.Properties().group(TGItemGroups.MISC)));
     public static final RegistryObject<Item> AMULET = ITEMS.register("amulet", AmuletItem::new);
     public static final RegistryObject<Item> SWEET_PILLOW = ITEMS.register("sweet_pillow", SweetPillowItem::new);
+    public static final RegistryObject<Item> BANK_IN_GAP = ITEMS.register("bank_in_gap", BankInGapItem::new);
 
     //Currency
     public static final RegistryObject<CurrencyItem> COPPER_COIN = ITEMS.register("copper_coin", () -> new CurrencyItem(1));
@@ -43,11 +44,13 @@ public class TGItemRegister {
     public static final RegistryObject<Item> KAPPA_SPAWN_EGG = ITEMS.register("kappa_spawn_egg", () -> spawnEgg(TGEntityRegister.KAPPA, 0x1d642a, 0x00c1bc));
     public static final RegistryObject<Item> GENSOKYO_VILLAGER_SPAWN_EGG = ITEMS.register("gensokyo_villager_spawn_egg", () -> spawnEgg(TGEntityRegister.GENSOKYO_VILLAGER, 0x563c33, 0xbd8b72));
 
-    //Food && Agriculture
+    //Food & Agriculture
     public static final RegistryObject<Item> HAGFISH = ITEMS.register("hagfish", () -> new TGFoodBase(2, 0.4F));
     public static final RegistryObject<Item> ROASTED_HAGFISH = ITEMS.register("roasted_hagfish", RoastedHagfishItem::new);
     public static final RegistryObject<Item> CUCUMBER = ITEMS.register("cucumber", () -> new TGFoodBase(2, 0.4F));
-    public static final RegistryObject<Item> CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds",() -> new BlockNamedItem(TGBlockRegister.CUCUMBER.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
+    public static final RegistryObject<Item> CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new BlockNamedItem(TGBlockRegister.CUCUMBER.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
+    public static final RegistryObject<Item> EAR_OF_RICE = ITEMS.register("ear_of_rice", () -> new Item(new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
+    public static final RegistryObject<Item> RICE = ITEMS.register("rice", () -> new BlockNamedItem(TGBlockRegister.RICE.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
     public static final RegistryObject<Item> MAPLE_SAPLING = ITEMS.register("maple_sapling", () -> new BlockItem(TGBlockRegister.MAPLE_SAPLING.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
     public static final RegistryObject<Item> SAKURA_SAPLING = ITEMS.register("sakura_sapling", () -> new BlockItem(TGBlockRegister.SAKURA_SAPLING.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
 
@@ -105,6 +108,7 @@ public class TGItemRegister {
 
         ComposterBlock.CHANCES.put(SAKURA_LEAVES.get(), 0.3F);
         ComposterBlock.CHANCES.put(PINK_PETALS.get(), 0.3F);
+        ComposterBlock.CHANCES.put(SAKURA_SAPLING.get(), 0.3F);
     }
 
     private static ForgeSpawnEggItem spawnEgg(RegistryObject<? extends EntityType<?>> entityType, int bgColor, int spotColor) {

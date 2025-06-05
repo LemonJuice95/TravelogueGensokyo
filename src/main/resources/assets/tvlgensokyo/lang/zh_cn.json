@@ -7,6 +7,7 @@
   "item.tvlgensokyo.power_point": "灵力点",
   "item.tvlgensokyo.amulet": "灵符",
   "item.tvlgensokyo.sweet_pillow": "苏伊特安眠枕",
+  "item.tvlgensokyo.bank_in_gap": "隙间钱庄",
 
 
   "item.tvlgensokyo.copper_coin": "铜钱",
@@ -17,6 +18,8 @@
   "item.tvlgensokyo.hagfish": "八目鳗",
   "item.tvlgensokyo.cucumber": "黄瓜",
   "item.tvlgensokyo.cucumber_seeds": "黄瓜种子",
+  "item.tvlgensokyo.ear_of_rice": "稻穗",
+  "item.tvlgensokyo.rice": "稻米",
 
   "item.tvlgensokyo.laevatein": "莱瓦汀",
   "item.tvlgensokyo.gungnir": "冈格尼尔",
@@ -33,6 +36,12 @@
   "##": "=================================Gui====================================",
   "gui.tvlgensokyo.inject_power": "注入",
 
+  "gui.tvlgensokyo.balance": "余额: %s",
+  "gui.tvlgensokyo.deposit": "存入",
+  "gui.tvlgensokyo.withdraw_copper_coin": "取出铜钱 x%s",
+  "gui.tvlgensokyo.withdraw_silver_piece": "取出碎银 x%s",
+  "gui.tvlgensokyo.withdraw_silver_ingot": "取出银两 x%s",
+
   "container.tvlgensokyo.spell_writing": "魔导书页刻录台",
 
   "##": "===============================Tooltip==================================",
@@ -47,6 +56,7 @@
   "tooltip.tvlgensokyo.book_power_multiply": "灵力消耗倍率: %sx",
   "tooltip.tvlgensokyo.book_pages": "书页:",
 
+  "tooltip.tvlgensokyo.balance": "余额: %s",
 
   "tooltip.tvlgensokyo.currency": "幻想乡通用货币",
   "tooltip.tvlgensokyo.currency_value": "价值: %s",
@@ -65,6 +75,10 @@
   "entity.tvlgensokyo.danmaku_small_jade": "小玉",
 
   "entity.tvlgensokyo.kappa": "河童",
+
+  "entity.tvlgensokyo.gensokyo_villager": "人里村民",
+  "entity.tvlgensokyo.gensokyo_villager.farmer": "农民",
+  "entity.tvlgensokyo.gensokyo_villager.librarian": "图书管理员",
 
   "##": "===============================Spells===================================",
   "spell.tvlgensokyo.empty": "空白",
@@ -117,6 +131,9 @@
 
   "block.tvlgensokyo.spell_book_binding_table": "魔导书装订台",
   "block.tvlgensokyo.spell_writing_table": "魔导书页刻录台",
+
+  "block.tvlgensokyo.cucumber": "黄瓜",
+  "block.tvlgensokyo.rice": "水稻",
 
   "##": "=============================Biomes=============================",
   "biome.tvlgensokyo.dream_world": "梦境世界",
