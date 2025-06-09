@@ -1,7 +1,9 @@
 package io.lemonjuice.tvlgensokyo.common.spell;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
+import io.lemonjuice.tvlgensokyo.common.misc.GensokyoVillagerTrades;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -20,6 +22,7 @@ public class Spell {
     private final int chantTime;
     private final TextFormatting[] textFormattings;
     private String translationKey;
+    private TradeCategory tradeCategory;
 
     public Spell(int powerCost, int chantTime) {
         this(powerCost, chantTime, TextFormatting.LIGHT_PURPLE);
@@ -29,6 +32,17 @@ public class Spell {
         this.powerCost = powerCost;
         this.chantTime = chantTime;
         this.textFormattings = textFormattings;
+        this.tradeCategory = TradeCategory.NONE;
+    }
+
+    public Spell withTradeCategory(TradeCategory category) {
+        this.tradeCategory = category;
+        return this;
+    }
+
+    //决定魔导书页在村民交易时的基础价格
+    public TradeCategory getTradeCategory() {
+        return this.tradeCategory;
     }
 
     public void addInformation(@Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
@@ -47,7 +61,7 @@ public class Spell {
         return this.chantTime;
     }
 
-    public void onActivate(PlayerEntity player, ItemStack book){
+    public void onActivate(LivingEntity entity, ItemStack book){
     }
 
     public TextFormatting[] getTextFormattings() {
@@ -67,6 +81,15 @@ public class Spell {
             TravelogueGensokyo.LOGGER.warn("Please check your code at " + new Throwable().getStackTrace()[4]);
             return new ResourceLocation("tvlgensokyo", "empty");
         });
+    }
+
+    public enum TradeCategory {
+        NONE,
+        COMMON,
+        UNCOMMON,
+        RARE,
+        EPIC,
+        LEGENDARY
     }
 
 
