@@ -1,7 +1,7 @@
 package io.lemonjuice.tvlgensokyo.common.entity;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
-import io.lemonjuice.tvlgensokyo.common.entity.creature.EntityKappa;
+import io.lemonjuice.tvlgensokyo.common.entity.creature.KappaEntity;
 import io.lemonjuice.tvlgensokyo.common.entity.npc.EntityGensokyoVillager;
 import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityAmulet;
 import io.lemonjuice.tvlgensokyo.common.entity.misc.EntityWind;
@@ -38,8 +38,8 @@ public class TGEntityRegister {
     });
 
     //Creatures
-    public static final RegistryObject<EntityType<EntityKappa>> KAPPA = ENTITIES.register("kappa", () -> {
-        return EntityType.Builder.create((EntityType.IFactory<EntityKappa>) EntityKappa::new, EntityClassification.CREATURE).size(0.65F, 1.75F).build("kappa");
+    public static final RegistryObject<EntityType<KappaEntity>> KAPPA = ENTITIES.register("kappa", () -> {
+        return EntityType.Builder.create((EntityType.IFactory<KappaEntity>) KappaEntity::new, EntityClassification.CREATURE).size(0.65F, 1.75F).build("kappa");
     });
 
     //npc
