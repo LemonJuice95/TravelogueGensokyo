@@ -29,7 +29,7 @@ import net.minecraft.world.server.ServerWorld;
 import javax.annotation.Nullable;
 import java.util.UUID;
 
-public class EntityKappa extends CreatureEntity implements IHasGroup, IAngerable, IRangedAttackMob, IMerchant {
+public class KappaEntity extends CreatureEntity implements IHasGroup, IAngerable, IRangedAttackMob, IMerchant {
     private UUID angerTargetUUID = null;
     private LivingEntity angerTarget = null;
     private final MerchantOffers offers = new MerchantOffers();
@@ -37,15 +37,15 @@ public class EntityKappa extends CreatureEntity implements IHasGroup, IAngerable
 
     private static final RangedInteger ANGER_TIME_RANGE = RangedInteger.createRangedInteger(600, 800);
 
-    public static final DataParameter<Integer> ANGER_TIME = EntityDataManager.createKey(EntityKappa.class, DataSerializers.VARINT);
-    public static final DataParameter<Boolean> TRADED = EntityDataManager.createKey(EntityKappa.class, DataSerializers.BOOLEAN);
+    public static final DataParameter<Integer> ANGER_TIME = EntityDataManager.createKey(KappaEntity.class, DataSerializers.VARINT);
+    public static final DataParameter<Boolean> TRADED = EntityDataManager.createKey(KappaEntity.class, DataSerializers.BOOLEAN);
 
-    public EntityKappa(EntityType<? extends EntityKappa> type, World world) {
+    public KappaEntity(EntityType<? extends KappaEntity> type, World world) {
         super(type, world);
         this.initOffers();
     }
 
-    public EntityKappa(World world) {
+    public KappaEntity(World world) {
         super(TGEntityRegister.KAPPA.get(), world);
         this.initOffers();
     }
@@ -101,7 +101,6 @@ public class EntityKappa extends CreatureEntity implements IHasGroup, IAngerable
 
 
     @Override
-    //TODO Delete the DataParameter TRADED if don't need
     public void onTrade(MerchantOffer offer) {
         offer.increaseUses();
         this.dataManager.set(TRADED, true);
