@@ -74,9 +74,6 @@ public class SpellBookBindingTableTileEntity extends LockableTileEntity {
     public void setInventorySlotContents(int index, ItemStack stack) {
         if(index == 0)
             this.spellBook = stack;
-        /*if (!stack.isEmpty() && stack.getCount() > this.getInventoryStackLimit()) {
-            stack.setCount(this.getInventoryStackLimit());
-        }*/
 
         this.markDirty();
     }
