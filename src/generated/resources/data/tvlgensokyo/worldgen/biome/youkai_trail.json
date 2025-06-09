@@ -1,0 +1,709 @@
+{
+  "effects": {
+    "sky_color": 8037887,
+    "fog_color": 12638463,
+    "water_color": 6592134,
+    "water_fog_color": 4809549
+  },
+  "surface_builder": {
+    "config": {
+      "top_material": {
+        "Properties": {
+          "snowy": "false"
+        },
+        "Name": "minecraft:grass_block"
+      },
+      "under_material": {
+        "Name": "minecraft:dirt"
+      },
+      "underwater_material": {
+        "Name": "minecraft:dirt"
+      }
+    },
+    "type": "minecraft:default"
+  },
+  "carvers": {},
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      {
+        "config": {
+          "feature": {
+            "config": {
+              "feature": {
+                "config": {
+                  "feature": {
+                    "config": {
+                      "target": {
+                        "tag": "minecraft:base_stone_overworld",
+                        "predicate_type": "minecraft:tag_match"
+                      },
+                      "state": {
+                        "Name": "minecraft:coal_ore"
+                      },
+                      "size": 17
+                    },
+                    "type": "minecraft:ore"
+                  },
+                  "decorator": {
+                    "config": {
+                      "bottom_offset": 0,
+                      "top_offset": 0,
+                      "maximum": 128
+                    },
+                    "type": "minecraft:range"
+                  }
+                },
+                "type": "minecraft:decorated"
+              },
+              "decorator": {
+                "config": {},
+                "type": "minecraft:square"
+              }
+            },
+            "type": "minecraft:decorated"
+          },
+          "decorator": {
+            "config": {
+              "count": 20
+            },
+            "type": "minecraft:count"
+          }
+        },
+        "type": "minecraft:decorated"
+      },
+      {
+        "config": {
+          "feature": {
+            "config": {
+              "feature": {
+                "config": {
+                  "feature": {
+                    "config": {
+                      "target": {
+                        "tag": "minecraft:base_stone_overworld",
+                        "predicate_type": "minecraft:tag_match"
+                      },
+                      "state": {
+                        "Name": "minecraft:iron_ore"
+                      },
+                      "size": 9
+                    },
+                    "type": "minecraft:ore"
+                  },
+                  "decorator": {
+                    "config": {
+                      "bottom_offset": 0,
+                      "top_offset": 0,
+                      "maximum": 64
+                    },
+                    "type": "minecraft:range"
+                  }
+                },
+                "type": "minecraft:decorated"
+              },
+              "decorator": {
+                "config": {},
+                "type": "minecraft:square"
+              }
+            },
+            "type": "minecraft:decorated"
+          },
+          "decorator": {
+            "config": {
+              "count": 20
+            },
+            "type": "minecraft:count"
+          }
+        },
+        "type": "minecraft:decorated"
+      },
+      {
+        "config": {
+          "feature": {
+            "config": {
+              "feature": {
+                "config": {
+                  "feature": {
+                    "config": {
+                      "target": {
+                        "tag": "minecraft:base_stone_overworld",
+                        "predicate_type": "minecraft:tag_match"
+                      },
+                      "state": {
+                        "Name": "minecraft:gold_ore"
+                      },
+                      "size": 9
+                    },
+                    "type": "minecraft:ore"
+                  },
+                  "decorator": {
+                    "config": {
+                      "bottom_offset": 0,
+                      "top_offset": 0,
+                      "maximum": 32
+                    },
+                    "type": "minecraft:range"
+                  }
+                },
+                "type": "minecraft:decorated"
+              },
+              "decorator": {
+                "config": {},
+                "type": "minecraft:square"
+              }
+            },
+            "type": "minecraft:decorated"
+          },
+          "decorator": {
+            "config": {
+              "count": 2
+            },
+            "type": "minecraft:count"
+          }
+        },
+        "type": "minecraft:decorated"
+      },
+      {
+        "config": {
+          "feature": {
+            "config": {
+              "feature": {
+                "config": {
+                  "feature": {
+                    "config": {
+                      "target": {
+                        "tag": "minecraft:base_stone_overworld",
+                        "predicate_type": "minecraft:tag_match"
+                      },
+                      "state": {
+                        "Properties": {
+                          "lit": "false"
+                        },
+                        "Name": "minecraft:redstone_ore"
+                      },
+                      "size": 8
+                    },
+                    "type": "minecraft:ore"
+                  },
+                  "decorator": {
+                    "config": {
+                      "bottom_offset": 0,
+                      "top_offset": 0,
+                      "maximum": 16
+                    },
+                    "type": "minecraft:range"
+                  }
+                },
+                "type": "minecraft:decorated"
+              },
+              "decorator": {
+                "config": {},
+                "type": "minecraft:square"
+              }
+            },
+            "type": "minecraft:decorated"
+          },
+          "decorator": {
+            "config": {
+              "count": 8
+            },
+            "type": "minecraft:count"
+          }
+        },
+        "type": "minecraft:decorated"
+      },
+      {
+        "config": {
+          "feature": {
+            "config": {
+              "feature": {
+                "config": {
+                  "target": {
+                    "tag": "minecraft:base_stone_overworld",
+                    "predicate_type": "minecraft:tag_match"
+                  },
+                  "state": {
+                    "Name": "minecraft:diamond_ore"
+                  },
+                  "size": 8
+                },
+                "type": "minecraft:ore"
+              },
+              "decorator": {
+                "config": {
+                  "bottom_offset": 0,
+                  "top_offset": 0,
+                  "maximum": 16
+                },
+                "type": "minecraft:range"
+              }
+            },
+            "type": "minecraft:decorated"
+          },
+          "decorator": {
+            "config": {},
+            "type": "minecraft:square"
+          }
+        },
+        "type": "minecraft:decorated"
+      },
+      {
+        "config": {
+          "feature": {
+            "config": {
+              "feature": {
+                "config": {
+                  "target": {
+                    "tag": "minecraft:base_stone_overworld",
+                    "predicate_type": "minecraft:tag_match"
+                  },
+                  "state": {
+                    "Name": "minecraft:lapis_ore"
+                  },
+                  "size": 7
+                },
+                "type": "minecraft:ore"
+              },
+              "decorator": {
+                "config": {
+                  "baseline": 16,
+                  "spread": 16
+                },
+                "type": "minecraft:depth_average"
+              }
+            },
+            "type": "minecraft:decorated"
+          },
+          "decorator": {
+            "config": {},
+            "type": "minecraft:square"
+          }
+        },
+        "type": "minecraft:decorated"
+      }
+    ],
+    [],
+    [
+      {
+        "config": {
+          "feature": {
+            "config": {
+              "feature": {
+                "config": {
+                  "features": [
+                    {
+                      "feature": {
+                        "config": {
+                          "max_water_depth": 0,
+                          "ignore_vines": true,
+                          "heightmap": "OCEAN_FLOOR",
+                          "minimum_size": {
+                            "limit": 1,
+                            "lower_size": 0,
+                            "upper_size": 2,
+                            "type": "minecraft:two_layers_feature_size"
+                          },
+                          "decorators": [],
+                          "trunk_provider": {
+                            "state": {
+                              "Properties": {
+                                "axis": "y"
+                              },
+                              "Name": "tvlgensokyo:sakura_log"
+                            },
+                            "type": "minecraft:simple_state_provider"
+                          },
+                          "leaves_provider": {
+                            "state": {
+                              "Properties": {
+                                "persistent": "false",
+                                "distance": "7"
+                              },
+                              "Name": "tvlgensokyo:sakura_leaves"
+                            },
+                            "type": "minecraft:simple_state_provider"
+                          },
+                          "foliage_placer": {
+                            "wide_bottom_layer_hole_chance": 0.25,
+                            "corner_hole_chance": 0.5,
+                            "hanging_leaves_chance": 0.16666667,
+                            "hanging_leaves_extension_chance": 0.33333334,
+                            "radius": 4,
+                            "offset": 0,
+                            "height": 5,
+                            "type": "tvlgensokyo:sakura"
+                          },
+                          "trunk_placer": {
+                            "base_height": 7,
+                            "height_rand_a": 1,
+                            "height_rand_b": 0,
+                            "type": "tvlgensokyo:sakura_trunk_placer"
+                          }
+                        },
+                        "type": "minecraft:tree"
+                      },
+                      "chance": 0.5
+                    },
+                    {
+                      "feature": {
+                        "config": {
+                          "max_water_depth": 0,
+                          "ignore_vines": true,
+                          "heightmap": "OCEAN_FLOOR",
+                          "minimum_size": {
+                            "limit": 1,
+                            "lower_size": 0,
+                            "upper_size": 2,
+                            "type": "minecraft:two_layers_feature_size"
+                          },
+                          "decorators": [
+                            {
+                              "provider": {
+                                "entries": [
+                                  {
+                                    "weight": 4,
+                                    "data": {
+                                      "Properties": {
+                                        "flower_amount": "1",
+                                        "facing": "north"
+                                      },
+                                      "Name": "tvlgensokyo:pink_petals"
+                                    }
+                                  },
+                                  {
+                                    "weight": 2,
+                                    "data": {
+                                      "Properties": {
+                                        "flower_amount": "2",
+                                        "facing": "north"
+                                      },
+                                      "Name": "tvlgensokyo:pink_petals"
+                                    }
+                                  },
+                                  {
+                                    "weight": 2,
+                                    "data": {
+                                      "Properties": {
+                                        "flower_amount": "3",
+                                        "facing": "north"
+                                      },
+                                      "Name": "tvlgensokyo:pink_petals"
+                                    }
+                                  },
+                                  {
+                                    "weight": 1,
+                                    "data": {
+                                      "Properties": {
+                                        "flower_amount": "4",
+                                        "facing": "north"
+                                      },
+                                      "Name": "tvlgensokyo:pink_petals"
+                                    }
+                                  }
+                                ],
+                                "type": "minecraft:weighted_state_provider"
+                              },
+                              "type": "tvlgensokyo:fallen_leaves"
+                            }
+                          ],
+                          "trunk_provider": {
+                            "state": {
+                              "Properties": {
+                                "axis": "y"
+                              },
+                              "Name": "tvlgensokyo:sakura_log"
+                            },
+                            "type": "minecraft:simple_state_provider"
+                          },
+                          "leaves_provider": {
+                            "state": {
+                              "Properties": {
+                                "persistent": "false",
+                                "distance": "7"
+                              },
+                              "Name": "tvlgensokyo:sakura_leaves"
+                            },
+                            "type": "minecraft:simple_state_provider"
+                          },
+                          "foliage_placer": {
+                            "wide_bottom_layer_hole_chance": 0.25,
+                            "corner_hole_chance": 0.5,
+                            "hanging_leaves_chance": 0.16666667,
+                            "hanging_leaves_extension_chance": 0.33333334,
+                            "radius": 4,
+                            "offset": 0,
+                            "height": 5,
+                            "type": "tvlgensokyo:sakura"
+                          },
+                          "trunk_placer": {
+                            "base_height": 7,
+                            "height_rand_a": 1,
+                            "height_rand_b": 0,
+                            "type": "tvlgensokyo:sakura_trunk_placer"
+                          }
+                        },
+                        "type": "minecraft:tree"
+                      },
+                      "chance": 0.5
+                    }
+                  ],
+                  "default": {
+                    "config": {
+                      "max_water_depth": 0,
+                      "ignore_vines": true,
+                      "heightmap": "OCEAN_FLOOR",
+                      "minimum_size": {
+                        "limit": 1,
+                        "lower_size": 0,
+                        "upper_size": 2,
+                        "type": "minecraft:two_layers_feature_size"
+                      },
+                      "decorators": [
+                        {
+                          "provider": {
+                            "entries": [
+                              {
+                                "weight": 4,
+                                "data": {
+                                  "Properties": {
+                                    "flower_amount": "1",
+                                    "facing": "north"
+                                  },
+                                  "Name": "tvlgensokyo:pink_petals"
+                                }
+                              },
+                              {
+                                "weight": 2,
+                                "data": {
+                                  "Properties": {
+                                    "flower_amount": "2",
+                                    "facing": "north"
+                                  },
+                                  "Name": "tvlgensokyo:pink_petals"
+                                }
+                              },
+                              {
+                                "weight": 2,
+                                "data": {
+                                  "Properties": {
+                                    "flower_amount": "3",
+                                    "facing": "north"
+                                  },
+                                  "Name": "tvlgensokyo:pink_petals"
+                                }
+                              },
+                              {
+                                "weight": 1,
+                                "data": {
+                                  "Properties": {
+                                    "flower_amount": "4",
+                                    "facing": "north"
+                                  },
+                                  "Name": "tvlgensokyo:pink_petals"
+                                }
+                              }
+                            ],
+                            "type": "minecraft:weighted_state_provider"
+                          },
+                          "type": "tvlgensokyo:fallen_leaves"
+                        }
+                      ],
+                      "trunk_provider": {
+                        "state": {
+                          "Properties": {
+                            "axis": "y"
+                          },
+                          "Name": "tvlgensokyo:sakura_log"
+                        },
+                        "type": "minecraft:simple_state_provider"
+                      },
+                      "leaves_provider": {
+                        "state": {
+                          "Properties": {
+                            "persistent": "false",
+                            "distance": "7"
+                          },
+                          "Name": "tvlgensokyo:sakura_leaves"
+                        },
+                        "type": "minecraft:simple_state_provider"
+                      },
+                      "foliage_placer": {
+                        "wide_bottom_layer_hole_chance": 0.25,
+                        "corner_hole_chance": 0.5,
+                        "hanging_leaves_chance": 0.16666667,
+                        "hanging_leaves_extension_chance": 0.33333334,
+                        "radius": 4,
+                        "offset": 0,
+                        "height": 5,
+                        "type": "tvlgensokyo:sakura"
+                      },
+                      "trunk_placer": {
+                        "base_height": 7,
+                        "height_rand_a": 1,
+                        "height_rand_b": 0,
+                        "type": "tvlgensokyo:sakura_trunk_placer"
+                      }
+                    },
+                    "type": "minecraft:tree"
+                  }
+                },
+                "type": "minecraft:random_selector"
+              },
+              "decorator": {
+                "config": {
+                  "outer": {
+                    "config": {},
+                    "type": "minecraft:square"
+                  },
+                  "inner": {
+                    "config": {},
+                    "type": "minecraft:heightmap"
+                  }
+                },
+                "type": "minecraft:decorated"
+              }
+            },
+            "type": "minecraft:decorated"
+          },
+          "decorator": {
+            "config": {
+              "count": 3,
+              "extra_chance": 0.05,
+              "extra_count": 2
+            },
+            "type": "minecraft:count_extra"
+          }
+        },
+        "type": "minecraft:decorated"
+      },
+      {
+        "config": {
+          "feature": {
+            "config": {
+              "feature": {
+                "config": {
+                  "can_replace": false,
+                  "project": true,
+                  "need_water": false,
+                  "xspread": 7,
+                  "yspread": 3,
+                  "zspread": 7,
+                  "whitelist": [],
+                  "blacklist": [],
+                  "tries": 32,
+                  "state_provider": {
+                    "state": {
+                      "Name": "minecraft:grass"
+                    },
+                    "type": "minecraft:simple_state_provider"
+                  },
+                  "block_placer": {
+                    "type": "minecraft:simple_block_placer"
+                  }
+                },
+                "type": "minecraft:random_patch"
+              },
+              "decorator": {
+                "config": {
+                  "outer": {
+                    "config": {},
+                    "type": "minecraft:square"
+                  },
+                  "inner": {
+                    "config": {},
+                    "type": "minecraft:heightmap_spread_double"
+                  }
+                },
+                "type": "minecraft:decorated"
+              }
+            },
+            "type": "minecraft:decorated"
+          },
+          "decorator": {
+            "config": {
+              "count": 5
+            },
+            "type": "minecraft:count"
+          }
+        },
+        "type": "minecraft:decorated"
+      },
+      {
+        "config": {
+          "feature": {
+            "config": {
+              "feature": {
+                "config": {
+                  "can_replace": false,
+                  "project": true,
+                  "need_water": false,
+                  "xspread": 7,
+                  "yspread": 3,
+                  "zspread": 7,
+                  "whitelist": [],
+                  "blacklist": [],
+                  "tries": 10,
+                  "state_provider": {
+                    "state": {
+                      "Name": "minecraft:lily_pad"
+                    },
+                    "type": "minecraft:simple_state_provider"
+                  },
+                  "block_placer": {
+                    "type": "minecraft:simple_block_placer"
+                  }
+                },
+                "type": "minecraft:random_patch"
+              },
+              "decorator": {
+                "config": {
+                  "outer": {
+                    "config": {},
+                    "type": "minecraft:square"
+                  },
+                  "inner": {
+                    "config": {},
+                    "type": "minecraft:heightmap_spread_double"
+                  }
+                },
+                "type": "minecraft:decorated"
+              }
+            },
+            "type": "minecraft:decorated"
+          },
+          "decorator": {
+            "config": {
+              "count": 4
+            },
+            "type": "minecraft:count"
+          }
+        },
+        "type": "minecraft:decorated"
+      }
+    ]
+  ],
+  "starts": [],
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "player_spawn_friendly": false,
+  "forge:registry_name": "tvlgensokyo:youkai_trail",
+  "precipitation": "rain",
+  "temperature": 0.6,
+  "downfall": 0.4,
+  "category": "forest",
+  "depth": 0.2,
+  "scale": 0.1
+}
