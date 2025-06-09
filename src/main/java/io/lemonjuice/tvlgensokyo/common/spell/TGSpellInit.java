@@ -13,8 +13,8 @@ public class TGSpellInit {
 
     public static final Spell EMPTY = register("empty", new Spell(0, 0, TextFormatting.GRAY));
 
-    public static final Spell TEST_SPELL = register("test_spell", new TestSpell());
-    public static final Spell TEST_SPELL_2 = register("test_spell_2", new TestSpell2());
+    public static final Spell TEST_SPELL = register("test_spell", new TestSpell().withTradeCategory(Spell.TradeCategory.COMMON));
+    public static final Spell TEST_SPELL_2 = register("test_spell_2", new TestSpell2().withTradeCategory(Spell.TradeCategory.COMMON));
 
     private static Spell register(String name, Spell spell) {
         return register(new ResourceLocation("tvlgensokyo", name), spell);
