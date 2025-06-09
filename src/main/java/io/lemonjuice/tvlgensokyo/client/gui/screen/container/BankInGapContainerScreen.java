@@ -78,7 +78,7 @@ public class BankInGapContainerScreen extends ContainerScreen<BankInGapContainer
             });
 
             this.currencyType = currencyType;
-            this.value = CurrencyType.CURRENCY_MAP.get(currencyType).value;
+            this.value = currencyType.currencyItem.value;
         }
 
         @Override

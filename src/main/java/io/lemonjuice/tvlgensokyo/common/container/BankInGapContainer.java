@@ -67,7 +67,7 @@ public class BankInGapContainer extends TGContainerBase {
     }
 
     public void withdrawCurrency(PlayerEntity player, CurrencyType type, int count) {
-        CurrencyItem item = CurrencyType.CURRENCY_MAP.get(type);
+        CurrencyItem item = type.currencyItem;
         int value = item.value * count;
         if(BankInGapItem.getBalance(this.stack) >= value) {
             if(!player.world.isRemote) {
