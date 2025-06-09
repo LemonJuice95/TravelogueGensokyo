@@ -5,12 +5,12 @@ package io.lemonjuice.tvlgensokyo.client.models.entity.creature;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import io.lemonjuice.tvlgensokyo.common.entity.creature.EntityKappa;
+import io.lemonjuice.tvlgensokyo.common.entity.creature.KappaEntity;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
-public class KappaModel extends EntityModel<EntityKappa> {
+public class KappaModel extends EntityModel<KappaEntity> {
 	private final ModelRenderer rightLeg;
 	private final ModelRenderer leftLeg;
 	private final ModelRenderer body;
@@ -139,7 +139,7 @@ public class KappaModel extends EntityModel<EntityKappa> {
 	}
 
 	@Override
-	public void setRotationAngles(EntityKappa entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+	public void setRotationAngles(KappaEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
 		this.leftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * limbSwingAmount;
 		this.rightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * limbSwingAmount;
 		this.leftArm.rotateAngleX = MathHelper.cos(limbSwing* 0.6662F + (float)Math.PI) * limbSwingAmount;

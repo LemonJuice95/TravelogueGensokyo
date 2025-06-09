@@ -2,12 +2,12 @@ package io.lemonjuice.tvlgensokyo.client.renderer.entity.creature;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.client.models.entity.creature.KappaModel;
-import io.lemonjuice.tvlgensokyo.common.entity.creature.EntityKappa;
+import io.lemonjuice.tvlgensokyo.common.entity.creature.KappaEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class KappaRenderer extends MobRenderer<EntityKappa, KappaModel> {
+public class KappaRenderer extends MobRenderer<KappaEntity, KappaModel> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(TravelogueGensokyo.MODID, "textures/entity/creature/kappa.png");
 
     public KappaRenderer(EntityRendererManager manager) {
@@ -15,7 +15,7 @@ public class KappaRenderer extends MobRenderer<EntityKappa, KappaModel> {
     }
 
     @Override
-    public ResourceLocation getEntityTexture(EntityKappa entity) {
+    public ResourceLocation getEntityTexture(KappaEntity entity) {
         return TEXTURE;
     }
 }
