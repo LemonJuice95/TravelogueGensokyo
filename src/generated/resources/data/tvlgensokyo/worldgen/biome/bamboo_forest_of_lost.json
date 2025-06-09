@@ -1,0 +1,260 @@
+{
+  "effects": {
+    "sky_color": 8037887,
+    "fog_color": 12638463,
+    "water_color": 4159204,
+    "water_fog_color": 329011
+  },
+  "surface_builder": {
+    "config": {
+      "top_material": {
+        "Properties": {
+          "snowy": "false"
+        },
+        "Name": "minecraft:podzol"
+      },
+      "under_material": {
+        "Name": "minecraft:dirt"
+      },
+      "underwater_material": {
+        "Name": "minecraft:gravel"
+      }
+    },
+    "type": "minecraft:default"
+  },
+  "carvers": {},
+  "features": [
+    [],
+    [],
+    [
+      {
+        "config": {
+          "feature": {
+            "config": {
+              "feature": {
+                "config": {
+                  "state": {
+                    "Name": "minecraft:mossy_cobblestone"
+                  }
+                },
+                "type": "minecraft:forest_rock"
+              },
+              "decorator": {
+                "config": {
+                  "outer": {
+                    "config": {},
+                    "type": "minecraft:square"
+                  },
+                  "inner": {
+                    "config": {},
+                    "type": "minecraft:heightmap"
+                  }
+                },
+                "type": "minecraft:decorated"
+              }
+            },
+            "type": "minecraft:decorated"
+          },
+          "decorator": {
+            "config": {
+              "count": {
+                "base": 0,
+                "spread": 2
+              }
+            },
+            "type": "minecraft:count"
+          }
+        },
+        "type": "minecraft:decorated"
+      }
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      {
+        "config": {
+          "feature": {
+            "config": {
+              "feature": {
+                "config": {
+                  "feature": {
+                    "config": {
+                      "features": [
+                        {
+                          "feature": {
+                            "config": {
+                              "probability": 0.1
+                            },
+                            "type": "minecraft:bamboo"
+                          },
+                          "chance": 0.7
+                        },
+                        {
+                          "feature": {
+                            "config": {
+                              "feature": {
+                                "config": {
+                                  "can_replace": false,
+                                  "project": true,
+                                  "need_water": false,
+                                  "xspread": 7,
+                                  "yspread": 3,
+                                  "zspread": 7,
+                                  "whitelist": [
+                                    {
+                                      "Properties": {
+                                        "snowy": "false"
+                                      },
+                                      "Name": "minecraft:podzol"
+                                    }
+                                  ],
+                                  "blacklist": [],
+                                  "tries": 10,
+                                  "state_provider": {
+                                    "state": {
+                                      "Name": "minecraft:bamboo_sapling"
+                                    },
+                                    "type": "minecraft:simple_state_provider"
+                                  },
+                                  "block_placer": {
+                                    "type": "minecraft:simple_block_placer"
+                                  }
+                                },
+                                "type": "minecraft:random_patch"
+                              },
+                              "decorator": {
+                                "config": {
+                                  "outer": {
+                                    "config": {},
+                                    "type": "minecraft:square"
+                                  },
+                                  "inner": {
+                                    "config": {},
+                                    "type": "minecraft:heightmap_spread_double"
+                                  }
+                                },
+                                "type": "minecraft:decorated"
+                              }
+                            },
+                            "type": "minecraft:decorated"
+                          },
+                          "chance": 0.3
+                        }
+                      ],
+                      "default": {
+                        "config": {
+                          "probability": 0.1
+                        },
+                        "type": "minecraft:bamboo"
+                      }
+                    },
+                    "type": "minecraft:random_selector"
+                  },
+                  "decorator": {
+                    "config": {},
+                    "type": "minecraft:heightmap_world_surface"
+                  }
+                },
+                "type": "minecraft:decorated"
+              },
+              "decorator": {
+                "config": {},
+                "type": "minecraft:square"
+              }
+            },
+            "type": "minecraft:decorated"
+          },
+          "decorator": {
+            "config": {
+              "count": 48,
+              "extra_chance": 0.2,
+              "extra_count": 16
+            },
+            "type": "minecraft:count_extra"
+          }
+        },
+        "type": "minecraft:decorated"
+      },
+      {
+        "config": {
+          "feature": {
+            "config": {
+              "feature": {
+                "config": {
+                  "can_replace": false,
+                  "project": false,
+                  "need_water": false,
+                  "xspread": 7,
+                  "yspread": 3,
+                  "zspread": 7,
+                  "whitelist": [],
+                  "blacklist": [],
+                  "tries": 64,
+                  "state_provider": {
+                    "state": {
+                      "Name": "minecraft:brown_mushroom"
+                    },
+                    "type": "minecraft:simple_state_provider"
+                  },
+                  "block_placer": {
+                    "type": "minecraft:simple_block_placer"
+                  }
+                },
+                "type": "minecraft:random_patch"
+              },
+              "decorator": {
+                "config": {
+                  "chance": 4
+                },
+                "type": "minecraft:chance"
+              }
+            },
+            "type": "minecraft:decorated"
+          },
+          "decorator": {
+            "config": {
+              "outer": {
+                "config": {},
+                "type": "minecraft:square"
+              },
+              "inner": {
+                "config": {},
+                "type": "minecraft:heightmap"
+              }
+            },
+            "type": "minecraft:decorated"
+          }
+        },
+        "type": "minecraft:decorated"
+      }
+    ]
+  ],
+  "starts": [],
+  "spawners": {
+    "monster": [],
+    "creature": [
+      {
+        "type": "minecraft:rabbit",
+        "weight": 8,
+        "minCount": 3,
+        "maxCount": 5
+      }
+    ],
+    "ambient": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "player_spawn_friendly": false,
+  "forge:registry_name": "tvlgensokyo:bamboo_forest_of_lost",
+  "precipitation": "rain",
+  "temperature": 0.6,
+  "downfall": 0.5,
+  "category": "forest",
+  "depth": 0.2,
+  "scale": 0.1
+}
