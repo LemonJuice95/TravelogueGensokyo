@@ -1,0 +1,10 @@
+{
+  "type": "tvlgensokyo:pounding",
+  "ingredient": {
+    "item": "tvlgensokyo:ear_of_rice"
+  },
+  "result": {
+    "item": "tvlgensokyo:rice",
+    "count": 3
+  }
+}

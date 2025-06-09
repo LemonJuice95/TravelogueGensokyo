@@ -5,6 +5,7 @@ import io.lemonjuice.tvlgensokyo.client.particle.TGParticleRegister;
 import io.lemonjuice.tvlgensokyo.common.block.crops.RiceBlock;
 import io.lemonjuice.tvlgensokyo.common.block.workbench.SpellBookBindingTableBlock;
 import io.lemonjuice.tvlgensokyo.common.block.workbench.SpellWritingTableBlock;
+import io.lemonjuice.tvlgensokyo.common.block.workbench.StoneMortarBlock;
 import io.lemonjuice.tvlgensokyo.common.world.feature.tree.MapleTree;
 import io.lemonjuice.tvlgensokyo.common.misc.TGWoodType;
 import io.lemonjuice.tvlgensokyo.common.world.feature.tree.SakuraTree;
@@ -31,6 +32,7 @@ public class TGBlockRegister {
     //Workbench
     public static final RegistryObject<Block> SPELL_BOOK_BINDING_TABLE = BLOCKS.register("spell_book_binding_table", () -> new SpellBookBindingTableBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD).notSolid()));
     public static final RegistryObject<Block> SPELL_WRITING_TABLE = BLOCKS.register("spell_writing_table", () -> new SpellWritingTableBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD).notSolid()));
+    public static final RegistryObject<Block> STONE_MORTAR = BLOCKS.register("stone_mortar", StoneMortarBlock::new);
 
     //Maple
     public static final RegistryObject<Block> MAPLE_SAPLING = BLOCKS.register("maple_sapling", () -> new SaplingBlock(new MapleTree(), AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)));

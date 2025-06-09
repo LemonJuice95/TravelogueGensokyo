@@ -12,8 +12,9 @@ public class TGRecipeRegister {
 
     //Recipe Types
     public static final IRecipeType<SpellWritingRecipe> SPELL_WRITING_TYPE = IRecipeType.register("tvlgensokyo:spell_writing");
+    public static final IRecipeType<PoundingRecipe> POUNDING_TYPE = IRecipeType.register("tvlgensokyo:pounding");
 
     //Serializers
     public static final RegistryObject<SpellWritingRecipe.Serializer> SPELL_WRITING_SERIALIZER = RECIPE_SERIALIZERS.register("spell_writing", SpellWritingRecipe.Serializer::new);
-
+    public static final RegistryObject<PoundingRecipe.Serializer> POUNDING_SERIALIZER = RECIPE_SERIALIZERS.register("pounding", PoundingRecipe.Serializer::new);
 }

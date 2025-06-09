@@ -53,6 +53,8 @@ public class TGItemRegister {
     public static final RegistryObject<Item> RICE = ITEMS.register("rice", () -> new BlockNamedItem(TGBlockRegister.RICE.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
     public static final RegistryObject<Item> MAPLE_SAPLING = ITEMS.register("maple_sapling", () -> new BlockItem(TGBlockRegister.MAPLE_SAPLING.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
     public static final RegistryObject<Item> SAKURA_SAPLING = ITEMS.register("sakura_sapling", () -> new BlockItem(TGBlockRegister.SAKURA_SAPLING.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
+    public static final RegistryObject<Item> STONE_MORTAR = ITEMS.register("stone_mortar", () -> new BlockItem(TGBlockRegister.STONE_MORTAR.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
+    public static final RegistryObject<Item> PESTLE = ITEMS.register("pestle", () -> new Item(new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
 
     //Combat
     public static final RegistryObject<Item> LAEVATEIN = ITEMS.register("laevatein", LaevateinItem::new);
