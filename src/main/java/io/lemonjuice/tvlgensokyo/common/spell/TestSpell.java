@@ -4,7 +4,6 @@ import io.lemonjuice.tvlgensokyo.common.danmaku.Danmaku;
 import io.lemonjuice.tvlgensokyo.common.entity.api.IHasGroup;
 import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityDanmaku;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 
 public class TestSpell extends Spell{
