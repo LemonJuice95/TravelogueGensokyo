@@ -20,7 +20,7 @@ import net.minecraft.util.math.vector.Vector3f;
 
 public class SweetBedTileEntityRenderer extends TileEntityRenderer<SweetBedTileEntity> {
     private final ModelRenderer pillow;
-    TileEntityRendererDispatcher dispatcher;
+    private final TileEntityRendererDispatcher dispatcher;
 
     private static final ResourceLocation PILLOW_TEXTURE = new ResourceLocation(TravelogueGensokyo.MODID, "textures/tileentity/sweet_pillow.png");
 
