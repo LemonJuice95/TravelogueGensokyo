@@ -113,7 +113,7 @@ public class SpellWritingRecipe implements IRecipe<SpellWritingInventory>{
     }
 
     public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<SpellWritingRecipe> {
-        private static final ResourceLocation NAME = new ResourceLocation("tvlgensokyo", "spell_writing");
+        private static final ResourceLocation NAME = new ResourceLocation(TravelogueGensokyo.MODID, "spell_writing");
 
         @Override
         public SpellWritingRecipe read(ResourceLocation recipeId, JsonObject json) {
