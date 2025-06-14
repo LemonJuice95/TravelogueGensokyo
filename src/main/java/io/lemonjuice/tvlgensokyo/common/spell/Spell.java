@@ -1,10 +1,8 @@
 package io.lemonjuice.tvlgensokyo.common.spell;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
-import io.lemonjuice.tvlgensokyo.common.misc.GensokyoVillagerTrades;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Util;
