@@ -10,12 +10,16 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.*;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.server.ServerWorld;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -54,6 +58,7 @@ public class StoneMortarTileEntity extends TileEntity implements IInventory {
                 }
             }
         }
+        this.markDirty();
     }
 
     public boolean putItem(PlayerEntity player, Hand hand) {
@@ -73,6 +78,7 @@ public class StoneMortarTileEntity extends TileEntity implements IInventory {
                 this.itemStack.setCount(maxStackSize);
                 player.getHeldItem(hand).setCount(count1 + count2 - maxStackSize);
             }
+            this.markDirty();
             return true;
         }
 
@@ -120,7 +126,12 @@ public class StoneMortarTileEntity extends TileEntity implements IInventory {
         if(stack.getItem() instanceof BucketItem) {
             Fluid fluid = ((BucketItem) stack.getItem()).getFluid();
             if(fluid == Fluids.EMPTY) {
-                player.setHeldItem(hand, new ItemStack(this.fluid.getFilledBucket()));
+                if (stack.getCount() == 1) {
+                    player.setHeldItem(hand, new ItemStack(this.fluid.getFilledBucket()));
+                } else {
+                    stack.shrink(1);
+                    player.addItemStackToInventory(new ItemStack(this.fluid.getFilledBucket()));
+                }
                 this.setFluid(Fluids.EMPTY);
                 return true;
             }
@@ -135,6 +146,7 @@ public class StoneMortarTileEntity extends TileEntity implements IInventory {
     public boolean setFluid(Fluid fluid) {
         if(ALLOWED_FLUID.contains(fluid)) {
             this.fluid = fluid;
+            this.markDirty();
             return true;
         }
         return false;
@@ -146,6 +158,7 @@ public class StoneMortarTileEntity extends TileEntity implements IInventory {
 
     public void setHoldingStack(ItemStack stack) {
         this.itemStack = stack;
+        this.markDirty();
     }
 
     @Override
@@ -160,6 +173,22 @@ public class StoneMortarTileEntity extends TileEntity implements IInventory {
         nbt.put("Item", this.itemStack.write(new CompoundNBT()));
         nbt.putString("Fluid", Registry.FLUID.getKey(this.fluid).toString());
         return super.write(nbt);
+    }
+
+    @Nullable
+    @Override
+    public SUpdateTileEntityPacket getUpdatePacket() {
+        return new SUpdateTileEntityPacket(this.pos, 1, this.getUpdateTag());
+    }
+
+    @Override
+    public CompoundNBT getUpdateTag() {
+        return this.write(new CompoundNBT());
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+        this.handleUpdateTag(this.getBlockState(), pkt.getNbtCompound());
     }
 
     @Override

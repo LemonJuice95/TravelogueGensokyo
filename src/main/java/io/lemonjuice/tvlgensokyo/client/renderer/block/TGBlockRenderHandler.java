@@ -1,5 +1,6 @@
 package io.lemonjuice.tvlgensokyo.client.renderer.block;
 
+import io.lemonjuice.tvlgensokyo.client.renderer.tileentity.StoneMortarTileEntityRenderer;
 import io.lemonjuice.tvlgensokyo.client.renderer.tileentity.SweetBedTileEntityRenderer;
 import io.lemonjuice.tvlgensokyo.common.block.TGBlockRegister;
 import io.lemonjuice.tvlgensokyo.common.block.tileentity.TGTileEntityRegister;
@@ -33,6 +34,7 @@ public class TGBlockRenderHandler {
 
 
     public static void registerTileEntityRenderer() {
+        ClientRegistry.bindTileEntityRenderer(TGTileEntityRegister.STONE_MORTAR.get(), StoneMortarTileEntityRenderer::new);
         ClientRegistry.bindTileEntityRenderer(TGTileEntityRegister.SWEET_BED.get(), SweetBedTileEntityRenderer::new);
         ClientRegistry.bindTileEntityRenderer(TGTileEntityRegister.TG_SIGN.get(), SignTileEntityRenderer::new);
     }

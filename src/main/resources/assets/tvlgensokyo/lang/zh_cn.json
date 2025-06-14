@@ -21,6 +21,8 @@
   "item.tvlgensokyo.ear_of_rice": "稻穗",
   "item.tvlgensokyo.rice": "稻米",
 
+  "item.tvlgensokyo.pestle": "杵",
+
   "item.tvlgensokyo.laevatein": "莱瓦汀",
   "item.tvlgensokyo.gungnir": "冈格尼尔",
 
@@ -134,6 +136,8 @@
 
   "block.tvlgensokyo.cucumber": "黄瓜",
   "block.tvlgensokyo.rice": "水稻",
+
+  "block.tvlgensokyo.stone_mortar": "石臼",
 
   "##": "=============================Biomes=============================",
   "biome.tvlgensokyo.dream_world": "梦境世界",

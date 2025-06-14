@@ -15,14 +15,23 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
 public class StoneMortarBlock extends Block {
+    private static final VoxelShape SHAPE = makeCuboidShape(1.0F, 0.0F, 1.0F, 15.0F, 8.0F, 15.0F);
+
     public StoneMortarBlock() {
-        super(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3.5F));
+        super(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3.5F).notSolid());
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext selected) {
+        return SHAPE;
     }
 
     @Override
@@ -40,16 +49,21 @@ public class StoneMortarBlock extends Block {
             return ActionResultType.func_233537_a_(world.isRemote);
         }
 
-        if(stack.isEmpty() || player.isSneaking()) {
-            flag = tileEntity.pickUpItem(player, hand);
-        } else if(stack.getItem() instanceof BucketItem) {
-            if(((BucketItem) stack.getItem()).getFluid() == Fluids.EMPTY) {
-                flag = tileEntity.pickupFluid(player, hand);
+        if(!stack.isEmpty()) {
+            if(stack.getItem() instanceof BucketItem) {
+                if(((BucketItem) stack.getItem()).getFluid() == Fluids.EMPTY) {
+                    flag = tileEntity.pickupFluid(player, hand);
+                } else {
+                    flag = tileEntity.putFluid(player, hand);
+                }
             } else {
-                flag = tileEntity.putFluid(player, hand);
+                flag = tileEntity.putItem(player, hand);
+                if(!flag) {
+                    flag = tileEntity.pickUpItem(player, hand);
+                }
             }
         } else {
-            flag = tileEntity.putItem(player, hand);
+            flag = tileEntity.pickUpItem(player, hand);
         }
 
         return flag ? ActionResultType.func_233537_a_(world.isRemote) : ActionResultType.PASS;
