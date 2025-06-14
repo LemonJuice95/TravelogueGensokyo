@@ -2,6 +2,7 @@ package io.lemonjuice.tvlgensokyo.common.spell;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 
@@ -17,7 +18,7 @@ public class TGSpellInit {
     public static final Spell TEST_SPELL_2 = register("test_spell_2", new TestSpell2().withTradeCategory(Spell.TradeCategory.COMMON));
 
     private static Spell register(String name, Spell spell) {
-        return register(new ResourceLocation("tvlgensokyo", name), spell);
+        return register(new ResourceLocation(TravelogueGensokyo.MODID, name), spell);
     }
 
     public static Spell register(ResourceLocation name, Spell spell) {
