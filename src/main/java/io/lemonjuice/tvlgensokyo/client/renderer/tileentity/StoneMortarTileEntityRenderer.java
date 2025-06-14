@@ -1,7 +1,6 @@
 package io.lemonjuice.tvlgensokyo.client.renderer.tileentity;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import io.lemonjuice.tvlgensokyo.common.block.tileentity.StoneMortarTileEntity;
 import net.minecraft.client.Minecraft;
@@ -20,7 +19,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.*;
 import net.minecraft.world.IBlockDisplayReader;
-import org.lwjgl.opengl.GL11;
 
 public class StoneMortarTileEntityRenderer extends TileEntityRenderer<StoneMortarTileEntity> {
 
