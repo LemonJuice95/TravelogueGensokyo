@@ -49,7 +49,7 @@ public class StoneMortarTileEntity extends TileEntity implements IInventory {
                 this.itemStack.shrink(1);
                 this.setFluid(Fluids.EMPTY);
                 if(!this.world.isRemote) {
-                    ItemEntity itemEntity = new ItemEntity(this.world, this.getPos().getX(), this.getPos().getY() + 0.1, this.getPos().getZ(), recipe.get().getCraftingResult(this));
+                    ItemEntity itemEntity = new ItemEntity(this.world, this.getPos().getX() + 0.5, this.getPos().getY() + 0.25, this.getPos().getZ() + 0.5, recipe.get().getCraftingResult(this));
                     Random random = new Random();
                     double d1 = random.nextFloat() * 0.5F;
                     float f1 = random.nextFloat() * ((float)Math.PI * 2F);
