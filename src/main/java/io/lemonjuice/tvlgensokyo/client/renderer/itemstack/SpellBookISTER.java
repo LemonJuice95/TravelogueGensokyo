@@ -27,7 +27,7 @@ public class SpellBookISTER extends ItemStackTileEntityRenderer {
             matrixStack.rotate(Vector3f.XP.rotationDegrees(165F));
             matrixStack.translate(0.74, -1.5, -1.27);
             SpellBookModelBase model;
-            model = TGClientUtils.MODEL_MAP.containsKey(stack.getItem()) ? TGClientUtils.MODEL_MAP.get(stack.getItem()) : new BasicSpellBookModel();
+            model = TGClientUtils.SPELL_BOOK_MODEL_MAP.containsKey(stack.getItem()) ? TGClientUtils.SPELL_BOOK_MODEL_MAP.get(stack.getItem()) : new BasicSpellBookModel();
             model.setBookState(SpellBookItem.getOpenAmount(stack), SpellBookItem.getLeftPageFlipAmount(stack), SpellBookItem.getRightPageFlipAmount(stack), partialTicks, SpellBookItem.isOpened(stack));
             IVertexBuilder iVertexBuilder = ItemRenderer.getBuffer(buffer, model.getRenderType(model.getTexture()), false, stack.hasEffect());
             model.render(matrixStack, iVertexBuilder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
