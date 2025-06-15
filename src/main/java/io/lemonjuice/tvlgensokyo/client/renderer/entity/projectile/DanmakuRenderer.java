@@ -1,6 +1,8 @@
 package io.lemonjuice.tvlgensokyo.client.renderer.entity.projectile;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
 import io.lemonjuice.tvlgensokyo.common.danmaku.Danmaku;
 import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityDanmaku;
@@ -31,6 +33,8 @@ public class DanmakuRenderer extends EntityRenderer<EntityDanmaku> {
     @Override
     public void render(EntityDanmaku danmaku, float yaw, float partialTicks, MatrixStack stack, IRenderTypeBuffer buffer, int packedLight) {
         float scale = danmaku.danmaku.type.getRenderingScale();
+        RenderSystem.enableBlend();
+        RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);
 
         stack.push();
         stack.translate(0.0, danmaku.getBoundingBox().getYSize() / 2, 0.0);
@@ -44,5 +48,7 @@ public class DanmakuRenderer extends EntityRenderer<EntityDanmaku> {
         itemStack.setTag(nbt);
         itemRenderer.renderItem(itemStack, ItemCameraTransforms.TransformType.FIXED, 200, OverlayTexture.NO_OVERLAY, stack, buffer);
         stack.pop();
+
+        RenderSystem.disableBlend();
     }
 }
