@@ -72,7 +72,7 @@ public class TGClientEvents {
                 f3 = farPlaneDistance;
             } else {
                 f2 = f4 * (0.75F - fogAmount * 0.725F);
-                f3 = f4 * (1.0F - fogAmount * 0.75F);
+                f3 = f4 * (1.0F - fogAmount * 0.25F);
             }
             RenderSystem.fogStart(f2);
             RenderSystem.fogEnd(f3);
