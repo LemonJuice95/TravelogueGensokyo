@@ -14,15 +14,15 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class EntityAmulet extends TGProjectileEntity {
-    private static final DataParameter<Boolean> FISSILE = EntityDataManager.createKey(EntityAmulet.class, DataSerializers.BOOLEAN);
+public class AmuletEntity extends TGProjectileEntity {
+    private static final DataParameter<Boolean> FISSILE = EntityDataManager.createKey(AmuletEntity.class, DataSerializers.BOOLEAN);
 
-    public EntityAmulet(EntityType<? extends EntityAmulet> type, World world) {
+    public AmuletEntity(EntityType<? extends AmuletEntity> type, World world) {
         super(type, world);
         this.setNoGravity(true);
     }
 
-    public EntityAmulet(World world, boolean fissile, Entity owner, TGGroups group, int maxTick) {
+    public AmuletEntity(World world, boolean fissile, Entity owner, TGGroups group, int maxTick) {
         super(TGEntityRegister.AMULET.get(), world, owner, group, maxTick);
         this.dataManager.set(FISSILE, fissile);
         this.setNoGravity(true);
@@ -45,7 +45,7 @@ public class EntityAmulet extends TGProjectileEntity {
     private void fission() {
         Random random = new Random();
         for (int i = 0; i < 25; i++) {
-            EntityAmulet amulet = new EntityAmulet(this.world, false, this.owner, this.group, this.dataManager.get(MAX_TICK));
+            AmuletEntity amulet = new AmuletEntity(this.world, false, this.owner, this.group, this.dataManager.get(MAX_TICK));
 
             int pitch = -random.nextInt(20);
             int yaw = random.nextInt(360) - 180;

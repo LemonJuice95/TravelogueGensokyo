@@ -5,11 +5,11 @@ package io.lemonjuice.tvlgensokyo.client.models.entity.projectile;// Made with B
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityGungnir;
+import io.lemonjuice.tvlgensokyo.common.entity.projectile.GungnirEntity;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
-public class GungnirModel extends EntityModel<EntityGungnir> {
+public class GungnirModel extends EntityModel<GungnirEntity> {
 	private final ModelRenderer gungnir;
 
 	public GungnirModel() {
@@ -30,7 +30,7 @@ public class GungnirModel extends EntityModel<EntityGungnir> {
 	}
 
 	@Override
-	public void setRotationAngles(EntityGungnir entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+	public void setRotationAngles(GungnirEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
 		//previously the render function, render code was moved to a method below
 	}
 

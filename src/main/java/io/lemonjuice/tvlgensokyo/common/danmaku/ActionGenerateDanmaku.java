@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.danmaku;
 
-import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityDanmaku;
+import io.lemonjuice.tvlgensokyo.common.entity.projectile.DanmakuEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.ListNBT;
 import net.minecraft.world.World;
@@ -46,11 +46,11 @@ public class ActionGenerateDanmaku extends Action{
     }
 
     @Override
-    public void applyAction(EntityDanmaku danmaku) {
+    public void applyAction(DanmakuEntity danmaku) {
         World world = danmaku.world;
         if(!world.isRemote) {
             for(Danmaku i : this.danmakus) {
-                EntityDanmaku newDanmaku = new EntityDanmaku(world, i, danmaku.getGroup(), danmaku.getOwner());
+                DanmakuEntity newDanmaku = new DanmakuEntity(world, i, danmaku.getGroup(), danmaku.getOwner());
                 world.addEntity(newDanmaku);
             }
         }

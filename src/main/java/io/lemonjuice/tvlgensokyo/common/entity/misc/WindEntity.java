@@ -24,19 +24,19 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.UUID;
 
-public class EntityWind extends Entity implements IHasOwner {
+public class WindEntity extends Entity implements IHasOwner {
     private Entity owner;
     private UUID ownerId;
 
-    private static final DataParameter<Integer> TICKS_LEFT = EntityDataManager.createKey(EntityWind.class, DataSerializers.VARINT);
+    private static final DataParameter<Integer> TICKS_LEFT = EntityDataManager.createKey(WindEntity.class, DataSerializers.VARINT);
 
-    public EntityWind(EntityType<? extends EntityWind> type, World world) {
+    public WindEntity(EntityType<? extends WindEntity> type, World world) {
         super(type, world);
         this.setDefaultOwner();
         this.setNoGravity(true);
     }
 
-    public EntityWind(World world, Entity owner) {
+    public WindEntity(World world, Entity owner) {
         super(TGEntityRegister.WIND.get(), world);
         this.setOwner(owner);
         this.setNoGravity(true);

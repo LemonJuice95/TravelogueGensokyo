@@ -4,7 +4,7 @@ import io.lemonjuice.tvlgensokyo.common.entity.ai.goal.TalkWithPlayerGoal;
 import io.lemonjuice.tvlgensokyo.common.entity.api.IHasGroup;
 import io.lemonjuice.tvlgensokyo.common.danmaku.Danmaku;
 import io.lemonjuice.tvlgensokyo.common.entity.TGEntityRegister;
-import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityDanmaku;
+import io.lemonjuice.tvlgensokyo.common.entity.projectile.DanmakuEntity;
 import io.lemonjuice.tvlgensokyo.common.item.TGItemRegister;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -120,7 +120,7 @@ public class KappaEntity extends CreatureEntity implements IHasGroup, IAngerable
     @Override
     public void attackEntityWithRangedAttack(LivingEntity target, float distanceFactor) {
         Danmaku d = new Danmaku(Danmaku.Type.SMALL_JADE, Danmaku.Color.values()[this.rand.nextInt(8)], 200, 4.0F);
-        EntityDanmaku danmaku = new EntityDanmaku(this.world, d, this.getGroup(), this);
+        DanmakuEntity danmaku = new DanmakuEntity(this.world, d, this.getGroup(), this);
         danmaku.setPosition(this.getPosX(), this.getPosYEye() - 0.25F, this.getPosZ());
         double dx = target.getPosX() - this.getPosX();
         double dy = target.getPosY() - this.getPosY();

@@ -17,15 +17,15 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 
-public class EntityGungnir extends TGProjectileEntity {
+public class GungnirEntity extends TGProjectileEntity {
 
-    public static final DataParameter<Float> DAMAGE = EntityDataManager.createKey(EntityGungnir.class, DataSerializers.FLOAT);
+    public static final DataParameter<Float> DAMAGE = EntityDataManager.createKey(GungnirEntity.class, DataSerializers.FLOAT);
 
-    public EntityGungnir(EntityType<? extends EntityGungnir> type, World world) {
+    public GungnirEntity(EntityType<? extends GungnirEntity> type, World world) {
         super(type, world);
     }
 
-    public EntityGungnir(World world, Entity owner, TGGroups group, int maxTick) {
+    public GungnirEntity(World world, Entity owner, TGGroups group, int maxTick) {
         super(TGEntityRegister.GUNGNIR.get(), world, owner, group, maxTick);
     }
 

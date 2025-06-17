@@ -2,11 +2,11 @@ package io.lemonjuice.tvlgensokyo.client.models.entity.projectile;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityAmulet;
+import io.lemonjuice.tvlgensokyo.common.entity.projectile.AmuletEntity;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
-public class AmuletModel extends EntityModel<EntityAmulet> {
+public class AmuletModel extends EntityModel<AmuletEntity> {
 	private final ModelRenderer bb_main;
 
 	public AmuletModel() {
@@ -19,7 +19,7 @@ public class AmuletModel extends EntityModel<EntityAmulet> {
 	}
 
 	@Override
-	public void setRotationAngles(EntityAmulet entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+	public void setRotationAngles(AmuletEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
 		//previously the render function, render code was moved to a method below
 	}
 

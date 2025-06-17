@@ -9,8 +9,8 @@ import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
-public class EntityDoremySweet extends CreatureEntity implements INPC, IHasGroup {
-    public EntityDoremySweet(EntityType<? extends EntityDoremySweet> type, World world) {
+public class DoremySweetEntity extends CreatureEntity implements INPC, IHasGroup {
+    public DoremySweetEntity(EntityType<? extends DoremySweetEntity> type, World world) {
         super(type, world);
     }
 

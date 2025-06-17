@@ -2,7 +2,7 @@ package io.lemonjuice.tvlgensokyo.common.item.weapon;
 
 import io.lemonjuice.tvlgensokyo.common.entity.api.IHasGroup;
 import io.lemonjuice.tvlgensokyo.api.interfaces.IRenderPowerHUD;
-import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityGungnir;
+import io.lemonjuice.tvlgensokyo.common.entity.projectile.GungnirEntity;
 import io.lemonjuice.tvlgensokyo.utils.TGCapabilityUtils;
 import io.lemonjuice.tvlgensokyo.utils.TGMathUtils;
 import net.minecraft.entity.player.PlayerEntity;
@@ -27,7 +27,7 @@ public class GungnirItem extends TGCombatWeaponBase implements IRenderPowerHUD {
         if(player.isCreative() || TGCapabilityUtils.getPower(player) >= TGMathUtils.calculatePowerCost(this.getPowerCost(stack), player, stack)) {
             if(!world.isRemote) {
                 player.getCooldownTracker().setCooldown(this, 60);
-                EntityGungnir gungnir = new EntityGungnir(world, player, IHasGroup.TGGroups.FRIENDLY, 400);
+                GungnirEntity gungnir = new GungnirEntity(world, player, IHasGroup.TGGroups.FRIENDLY, 400);
                 gungnir.shoot(player.getPosX(), player.getPosY() + 1.5F, player.getPosZ(), player.rotationPitch, player.rotationYaw, 2.5);
                 gungnir.setDamage(30.0F);
                 world.addEntity(gungnir);

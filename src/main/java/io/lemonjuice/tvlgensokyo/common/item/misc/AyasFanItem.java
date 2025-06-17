@@ -1,7 +1,7 @@
 package io.lemonjuice.tvlgensokyo.common.item.misc;
 
 import io.lemonjuice.tvlgensokyo.api.interfaces.IRenderPowerHUD;
-import io.lemonjuice.tvlgensokyo.common.entity.misc.EntityWind;
+import io.lemonjuice.tvlgensokyo.common.entity.misc.WindEntity;
 import io.lemonjuice.tvlgensokyo.common.item.group.TGItemGroups;
 import io.lemonjuice.tvlgensokyo.utils.TGCapabilityUtils;
 import io.lemonjuice.tvlgensokyo.utils.TGMathUtils;
@@ -42,7 +42,7 @@ public class AyasFanItem extends Item implements IRenderPowerHUD {
 
             if (!world.isRemote) {
                 player.getCooldownTracker().setCooldown(this, 20);
-                EntityWind wind = new EntityWind(world, player);
+                WindEntity wind = new WindEntity(world, player);
                 wind.setPosition(player.getPosX(), player.getPosY() + 0.5, player.getPosZ());
                 wind.setMotion(motionVec);
                 wind.setTicksLeft(25);

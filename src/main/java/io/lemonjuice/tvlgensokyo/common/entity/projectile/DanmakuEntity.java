@@ -21,19 +21,19 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.List;
 
-public class EntityDanmaku extends TGProjectileEntity {
+public class DanmakuEntity extends TGProjectileEntity {
 
     public Danmaku danmaku;
-    public static final DataParameter<Integer> DANMAKU_TYPE = EntityDataManager.createKey(EntityDanmaku.class, DataSerializers.VARINT);
-    public static final DataParameter<Integer> DANMAKU_COLOR = EntityDataManager.createKey(EntityDanmaku.class, DataSerializers.VARINT);
-    public static final DataParameter<Float> SPEED = EntityDataManager.createKey(EntityDanmaku.class, DataSerializers.FLOAT);
+    public static final DataParameter<Integer> DANMAKU_TYPE = EntityDataManager.createKey(DanmakuEntity.class, DataSerializers.VARINT);
+    public static final DataParameter<Integer> DANMAKU_COLOR = EntityDataManager.createKey(DanmakuEntity.class, DataSerializers.VARINT);
+    public static final DataParameter<Float> SPEED = EntityDataManager.createKey(DanmakuEntity.class, DataSerializers.FLOAT);
 
-    public EntityDanmaku(EntityType<? extends EntityDanmaku> type, World world) {
+    public DanmakuEntity(EntityType<? extends DanmakuEntity> type, World world) {
         super(type, world);
         this.danmaku = new Danmaku(Danmaku.Type.DOT, Danmaku.Color.WHITE, 1, 0.0F);
     }
 
-    public EntityDanmaku(World world, Danmaku danmaku, TGGroups group, Entity owner) {
+    public DanmakuEntity(World world, Danmaku danmaku, TGGroups group, Entity owner) {
         super(TGDanmakuUtils.DANMAKU_ENTITY_MAP.get(danmaku.type), world, owner, group, danmaku.maxTick);
 
         this.danmaku = danmaku;

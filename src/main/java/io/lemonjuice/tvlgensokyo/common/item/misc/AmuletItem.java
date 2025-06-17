@@ -1,7 +1,7 @@
 package io.lemonjuice.tvlgensokyo.common.item.misc;
 
 import io.lemonjuice.tvlgensokyo.common.entity.api.IHasGroup;
-import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityAmulet;
+import io.lemonjuice.tvlgensokyo.common.entity.projectile.AmuletEntity;
 import io.lemonjuice.tvlgensokyo.common.item.group.TGItemGroups;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -19,7 +19,7 @@ public class AmuletItem extends Item {
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
         ItemStack stack = player.getHeldItem(hand);
         if(!world.isRemote) {
-            EntityAmulet amulet = new EntityAmulet(world, true, player, IHasGroup.TGGroups.FRIENDLY, 60);
+            AmuletEntity amulet = new AmuletEntity(world, true, player, IHasGroup.TGGroups.FRIENDLY, 60);
             amulet.shoot(player.getPosX(), player.getPosY() + 1.5, player.getPosZ(), player.rotationPitch, player.rotationYaw, 1.2);
             world.addEntity(amulet);
 

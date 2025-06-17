@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.danmaku;
 
-import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityDanmaku;
+import io.lemonjuice.tvlgensokyo.common.entity.projectile.DanmakuEntity;
 import net.minecraft.nbt.CompoundNBT;
 
 public class ActionRemove extends Action{
@@ -20,7 +20,7 @@ public class ActionRemove extends Action{
     }
 
     @Override
-    public void applyAction(EntityDanmaku danmaku) {
+    public void applyAction(DanmakuEntity danmaku) {
         danmaku.remove();
     }
 }

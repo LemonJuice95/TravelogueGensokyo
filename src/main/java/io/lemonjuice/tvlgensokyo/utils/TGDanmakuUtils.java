@@ -3,7 +3,7 @@ package io.lemonjuice.tvlgensokyo.utils;
 import com.google.common.collect.ImmutableMap;
 import io.lemonjuice.tvlgensokyo.common.danmaku.Danmaku;
 import io.lemonjuice.tvlgensokyo.common.entity.TGEntityRegister;
-import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityDanmaku;
+import io.lemonjuice.tvlgensokyo.common.entity.projectile.DanmakuEntity;
 import io.lemonjuice.tvlgensokyo.common.item.TGItemRegister;
 import io.lemonjuice.tvlgensokyo.common.item.misc.DanmakuItem;
 import net.minecraft.entity.EntityType;
@@ -11,7 +11,7 @@ import net.minecraft.entity.EntityType;
 import java.util.Map;
 
 public class TGDanmakuUtils {
-    public static final Map<Danmaku.Type, EntityType<? extends EntityDanmaku>> DANMAKU_ENTITY_MAP = ImmutableMap.of(
+    public static final Map<Danmaku.Type, EntityType<? extends DanmakuEntity>> DANMAKU_ENTITY_MAP = ImmutableMap.of(
             Danmaku.Type.DOT, TGEntityRegister.DANMAKU_SPOT.get(),
             Danmaku.Type.SMALL_JADE, TGEntityRegister.DANMAKU_SMALL_JADE.get()
     );

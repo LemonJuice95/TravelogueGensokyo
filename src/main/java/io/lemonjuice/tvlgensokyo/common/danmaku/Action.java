@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.danmaku;
 
-import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityDanmaku;
+import io.lemonjuice.tvlgensokyo.common.entity.projectile.DanmakuEntity;
 import net.minecraft.nbt.CompoundNBT;
 
 public abstract class Action {
@@ -16,5 +16,5 @@ public abstract class Action {
 
     public abstract CompoundNBT toCompoundNBT();
 
-    public abstract void applyAction(EntityDanmaku danmaku);
+    public abstract void applyAction(DanmakuEntity danmaku);
 }

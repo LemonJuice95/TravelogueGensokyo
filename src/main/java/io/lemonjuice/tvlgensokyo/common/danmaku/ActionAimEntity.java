@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.danmaku;
 
-import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityDanmaku;
+import io.lemonjuice.tvlgensokyo.common.entity.projectile.DanmakuEntity;
 import io.lemonjuice.tvlgensokyo.utils.TGEntityUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.CompoundNBT;
@@ -34,7 +34,7 @@ public class ActionAimEntity extends Action{
     }
 
     @Override
-    public void applyAction(EntityDanmaku danmaku) {
+    public void applyAction(DanmakuEntity danmaku) {
         Entity entity = TGEntityUtils.getClosestEntity(danmaku, danmaku::canBeHit, 32.0F);
         if(entity != null) {
             Random random = new Random();

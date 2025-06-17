@@ -12,8 +12,8 @@ import net.minecraft.world.World;
 import java.util.Optional;
 
 //TODO 农业方面基本完成后添加修改过后的FarmTask
-public class EntityGensokyoVillager extends VillagerEntity {
-    public EntityGensokyoVillager(EntityType<? extends EntityGensokyoVillager> entityType, World world) {
+public class GensokyoVillagerEntity extends VillagerEntity {
+    public GensokyoVillagerEntity(EntityType<? extends GensokyoVillagerEntity> entityType, World world) {
         super(entityType, world);
     }
 

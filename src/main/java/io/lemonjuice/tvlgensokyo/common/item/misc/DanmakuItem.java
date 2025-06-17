@@ -4,7 +4,7 @@ import io.lemonjuice.tvlgensokyo.common.item.interfaces.IScrollable;
 import io.lemonjuice.tvlgensokyo.common.entity.api.IHasGroup;
 import io.lemonjuice.tvlgensokyo.api.interfaces.IRenderPowerHUD;
 import io.lemonjuice.tvlgensokyo.common.danmaku.Danmaku;
-import io.lemonjuice.tvlgensokyo.common.entity.projectile.EntityDanmaku;
+import io.lemonjuice.tvlgensokyo.common.entity.projectile.DanmakuEntity;
 import io.lemonjuice.tvlgensokyo.common.item.group.TGItemGroups;
 import io.lemonjuice.tvlgensokyo.utils.TGCapabilityUtils;
 import io.lemonjuice.tvlgensokyo.utils.TGMathUtils;
@@ -96,7 +96,7 @@ public class DanmakuItem extends Item implements IRenderPowerHUD, IScrollable {
     }
 
     private void shootDanmaku(Danmaku danmaku, World world, int i, PlayerEntity player, float rotation) {
-        EntityDanmaku danmakuEntity = new EntityDanmaku(world, danmaku, IHasGroup.TGGroups.FRIENDLY, player);
+        DanmakuEntity danmakuEntity = new DanmakuEntity(world, danmaku, IHasGroup.TGGroups.FRIENDLY, player);
         Vector3d vector3d1 = player.getUpVector(1.0F);
         Quaternion quaternion = new Quaternion(new Vector3f(vector3d1), i * rotation, true);
         Vector3d vector3d = player.getLook(1.0F);
