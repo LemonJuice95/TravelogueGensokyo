@@ -1,7 +1,7 @@
 package io.lemonjuice.tvlgensokyo.common.entity.projectile;
 
-import io.lemonjuice.tvlgensokyo.common.entity.api.IHasGroup;
-import io.lemonjuice.tvlgensokyo.common.entity.api.IHasOwner;
+import io.lemonjuice.tvlgensokyo.common.entity.interfaces.IHasGroup;
+import io.lemonjuice.tvlgensokyo.common.entity.interfaces.IHasOwner;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.monster.MonsterEntity;

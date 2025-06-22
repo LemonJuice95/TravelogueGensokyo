@@ -1,6 +1,5 @@
-package io.lemonjuice.tvlgensokyo.api.interfaces;
+package io.lemonjuice.tvlgensokyo.common.item.interfaces;
 
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 
 public interface IRenderPowerHUD {

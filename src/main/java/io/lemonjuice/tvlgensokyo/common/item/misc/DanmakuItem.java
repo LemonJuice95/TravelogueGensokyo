@@ -1,8 +1,8 @@
 package io.lemonjuice.tvlgensokyo.common.item.misc;
 
 import io.lemonjuice.tvlgensokyo.common.item.interfaces.IScrollable;
-import io.lemonjuice.tvlgensokyo.common.entity.api.IHasGroup;
-import io.lemonjuice.tvlgensokyo.api.interfaces.IRenderPowerHUD;
+import io.lemonjuice.tvlgensokyo.common.entity.interfaces.IHasGroup;
+import io.lemonjuice.tvlgensokyo.common.item.interfaces.IRenderPowerHUD;
 import io.lemonjuice.tvlgensokyo.common.danmaku.Danmaku;
 import io.lemonjuice.tvlgensokyo.common.entity.projectile.DanmakuEntity;
 import io.lemonjuice.tvlgensokyo.common.item.group.TGItemGroups;

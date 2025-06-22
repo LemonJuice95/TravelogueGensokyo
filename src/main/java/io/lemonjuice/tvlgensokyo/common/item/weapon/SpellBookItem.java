@@ -1,7 +1,7 @@
 package io.lemonjuice.tvlgensokyo.common.item.weapon;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
-import io.lemonjuice.tvlgensokyo.api.interfaces.IRenderPowerHUD;
+import io.lemonjuice.tvlgensokyo.common.item.interfaces.IRenderPowerHUD;
 import io.lemonjuice.tvlgensokyo.client.renderer.itemstack.SpellBookISTER;
 import io.lemonjuice.tvlgensokyo.common.item.interfaces.IScrollable;
 import io.lemonjuice.tvlgensokyo.common.item.interfaces.ISpellInstrument;

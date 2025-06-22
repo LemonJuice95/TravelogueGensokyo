@@ -1,7 +1,7 @@
 package io.lemonjuice.tvlgensokyo.client;
 
 import io.lemonjuice.tvlgensokyo.TravelogueGensokyo;
-import io.lemonjuice.tvlgensokyo.api.interfaces.IRenderPowerHUD;
+import io.lemonjuice.tvlgensokyo.common.item.interfaces.IRenderPowerHUD;
 import io.lemonjuice.tvlgensokyo.client.gui.overlay.PowerHUD;
 import io.lemonjuice.tvlgensokyo.client.gui.overlay.SpellChantHUD;
 import io.lemonjuice.tvlgensokyo.client.input.TGInputs;

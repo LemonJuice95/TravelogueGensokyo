@@ -1,7 +1,7 @@
 package io.lemonjuice.tvlgensokyo.common.spell;
 
 import io.lemonjuice.tvlgensokyo.common.danmaku.Danmaku;
-import io.lemonjuice.tvlgensokyo.common.entity.api.IHasGroup;
+import io.lemonjuice.tvlgensokyo.common.entity.interfaces.IHasGroup;
 import io.lemonjuice.tvlgensokyo.common.entity.projectile.DanmakuEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;

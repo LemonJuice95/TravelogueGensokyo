@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.entity.ai.goal;
 
-import io.lemonjuice.tvlgensokyo.common.entity.api.ITalkerEntity;
+import io.lemonjuice.tvlgensokyo.common.entity.interfaces.ITalkerEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.merchant.IMerchant;

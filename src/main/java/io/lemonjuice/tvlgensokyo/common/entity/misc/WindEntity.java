@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.entity.misc;
 
-import io.lemonjuice.tvlgensokyo.common.entity.api.IHasOwner;
+import io.lemonjuice.tvlgensokyo.common.entity.interfaces.IHasOwner;
 import io.lemonjuice.tvlgensokyo.common.entity.TGEntityRegister;
 import io.lemonjuice.tvlgensokyo.utils.TGEntityUtils;
 import net.minecraft.entity.Entity;

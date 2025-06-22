@@ -2,7 +2,7 @@ package io.lemonjuice.tvlgensokyo.common.item.weapon;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import io.lemonjuice.tvlgensokyo.api.interfaces.IRenderPowerHUD;
+import io.lemonjuice.tvlgensokyo.common.item.interfaces.IRenderPowerHUD;
 import io.lemonjuice.tvlgensokyo.utils.TGCapabilityUtils;
 import io.lemonjuice.tvlgensokyo.utils.TGMathUtils;
 import net.minecraft.client.util.ITooltipFlag;

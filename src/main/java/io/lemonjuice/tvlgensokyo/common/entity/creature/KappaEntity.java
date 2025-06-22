@@ -1,7 +1,7 @@
 package io.lemonjuice.tvlgensokyo.common.entity.creature;
 
 import io.lemonjuice.tvlgensokyo.common.entity.ai.goal.TalkWithPlayerGoal;
-import io.lemonjuice.tvlgensokyo.common.entity.api.IHasGroup;
+import io.lemonjuice.tvlgensokyo.common.entity.interfaces.IHasGroup;
 import io.lemonjuice.tvlgensokyo.common.danmaku.Danmaku;
 import io.lemonjuice.tvlgensokyo.common.entity.TGEntityRegister;
 import io.lemonjuice.tvlgensokyo.common.entity.projectile.DanmakuEntity;

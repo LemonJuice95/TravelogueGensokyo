@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.item.misc;
 
-import io.lemonjuice.tvlgensokyo.api.interfaces.IRenderPowerHUD;
+import io.lemonjuice.tvlgensokyo.common.item.interfaces.IRenderPowerHUD;
 import io.lemonjuice.tvlgensokyo.common.container.PowerProviderContainer;
 import io.lemonjuice.tvlgensokyo.common.item.group.TGItemGroups;
 import net.minecraft.client.util.ITooltipFlag;

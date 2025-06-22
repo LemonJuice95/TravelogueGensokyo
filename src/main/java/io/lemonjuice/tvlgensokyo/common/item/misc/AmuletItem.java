@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.item.misc;
 
-import io.lemonjuice.tvlgensokyo.common.entity.api.IHasGroup;
+import io.lemonjuice.tvlgensokyo.common.entity.interfaces.IHasGroup;
 import io.lemonjuice.tvlgensokyo.common.entity.projectile.AmuletEntity;
 import io.lemonjuice.tvlgensokyo.common.item.group.TGItemGroups;
 import net.minecraft.entity.player.PlayerEntity;

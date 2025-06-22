@@ -1,6 +1,6 @@
 package io.lemonjuice.tvlgensokyo.common.entity.npc;
 
-import io.lemonjuice.tvlgensokyo.common.entity.api.IHasGroup;
+import io.lemonjuice.tvlgensokyo.common.entity.interfaces.IHasGroup;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.INPC;

@@ -1,4 +1,4 @@
-package io.lemonjuice.tvlgensokyo.common.entity.api;
+package io.lemonjuice.tvlgensokyo.common.entity.interfaces;
 
 import net.minecraft.entity.player.PlayerEntity;
 
