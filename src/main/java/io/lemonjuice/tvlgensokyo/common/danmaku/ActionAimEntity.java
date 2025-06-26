@@ -18,15 +18,6 @@ public class ActionAimEntity extends Action{
         this.jitter = jitter;
     }
 
-    @Override
-    public CompoundNBT toCompoundNBT() {
-        CompoundNBT nbt = new CompoundNBT();
-        nbt.putString("ActionType", this.getName());
-        nbt.putFloat("Jitter", this.jitter);
-        nbt.putDouble("Speed", this.speed);
-        return nbt;
-    }
-
     public static ActionAimEntity fromCompoundNBT(CompoundNBT nbt) {
         double speed = nbt.getDouble("Speed");
         float jitter = nbt.getFloat("Jitter");
@@ -40,6 +31,25 @@ public class ActionAimEntity extends Action{
             Random random = new Random();
             float jitterPitch = random.nextFloat() / 2.0F * this.jitter * (random.nextBoolean() ? -1.0F : 1.0F) * (float)Math.PI;
             float jitterYaw = random.nextFloat() / 2.0F * this.jitter * (random.nextBoolean() ? -1.0F : 1.0F) * (float)Math.PI;
+        }
+    }
+
+    public static class Serializer extends Action.Serializer<ActionAimEntity> {
+
+        @Override
+        public ActionAimEntity read(CompoundNBT nbt) {
+            double speed = nbt.getDouble("Speed");
+            float jitter = nbt.getFloat("Jitter");
+            return new ActionAimEntity(speed, jitter);
+        }
+
+        @Override
+        public CompoundNBT write(ActionAimEntity action) {
+            CompoundNBT nbt = new CompoundNBT();
+            nbt.putString("ActionType", action.getName());
+            nbt.putFloat("Jitter", action.jitter);
+            nbt.putDouble("Speed", action.speed);
+            return nbt;
         }
     }
 }

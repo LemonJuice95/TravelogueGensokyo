@@ -15,24 +15,27 @@ public class ActionRotate extends Action{
     }
 
     @Override
-    public CompoundNBT toCompoundNBT() {
-        CompoundNBT nbt = new CompoundNBT();
-        nbt.putFloat("Pitch", this.pitch);
-        nbt.putFloat("Yaw", this.yaw);
-        nbt.putString("ActionType", this.getName());
-        return nbt;
-    }
-
-    public static ActionRotate fromCompoundNBT(CompoundNBT nbt) {
-        float pitch = nbt.getFloat("Pitch");
-        float yaw = nbt.getFloat("Yaw");
-        return new ActionRotate(pitch, yaw);
-    }
-
-    @Override
     public void applyAction(DanmakuEntity danmaku) {
         if (!danmaku.world.isRemote) {
             danmaku.setRotationAndMotion(danmaku.rotationYaw + this.yaw, danmaku.rotationPitch - this.pitch);
+        }
+    }
+
+    public static class Serializer extends Action.Serializer<ActionRotate> {
+        @Override
+        public ActionRotate read(CompoundNBT nbt) {
+            float pitch = nbt.getFloat("Pitch");
+            float yaw = nbt.getFloat("Yaw");
+            return new ActionRotate(pitch, yaw);
+        }
+
+        @Override
+        public CompoundNBT write(ActionRotate action) {
+            CompoundNBT nbt = new CompoundNBT();
+            nbt.putFloat("Pitch", action.pitch);
+            nbt.putFloat("Yaw", action.yaw);
+            nbt.putString("ActionType", action.getName());
+            return nbt;
         }
     }
 }

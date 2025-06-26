@@ -14,7 +14,10 @@ public abstract class Action {
         return this.name;
     }
 
-    public abstract CompoundNBT toCompoundNBT();
-
     public abstract void applyAction(DanmakuEntity danmaku);
+
+    public static abstract class Serializer<T extends Action> {
+        public abstract T read(CompoundNBT nbt);
+        public abstract CompoundNBT write(T action);
+    }
 }

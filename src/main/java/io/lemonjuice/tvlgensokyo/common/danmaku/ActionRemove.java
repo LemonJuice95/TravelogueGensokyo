@@ -9,18 +9,21 @@ public class ActionRemove extends Action{
     }
 
     @Override
-    public CompoundNBT toCompoundNBT() {
-        CompoundNBT nbt = new CompoundNBT();
-        nbt.putString("ActionType", this.getName());
-        return nbt;
-    }
-
-    public static ActionRemove fromCompoundNBT(CompoundNBT nbt) {
-        return new ActionRemove();
-    }
-
-    @Override
     public void applyAction(DanmakuEntity danmaku) {
         danmaku.remove();
+    }
+
+    public static class Serializer extends Action.Serializer<ActionRemove> {
+        @Override
+        public ActionRemove read(CompoundNBT nbt) {
+            return new ActionRemove();
+        }
+
+        @Override
+        public CompoundNBT write(ActionRemove action) {
+            CompoundNBT nbt = new CompoundNBT();
+            nbt.putString("ActionType", action.getName());
+            return nbt;
+        }
     }
 }

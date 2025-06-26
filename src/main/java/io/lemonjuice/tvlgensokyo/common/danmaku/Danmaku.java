@@ -41,7 +41,7 @@ public class Danmaku {
             ListNBT actionList = nbt.getList("Actions", 10);
             actionList.forEach((a) -> {
                 try {
-                    Action action = DanmakuActions.ACTION_FROM_NBT.get(((CompoundNBT) a).getString("ActionType")).apply(((CompoundNBT) a));
+                    Action action = DanmakuActions.ACTION_SERIALIZERS.get(((CompoundNBT) a).getString("ActionType")).get().read((CompoundNBT) a);
                     this.addAction(((CompoundNBT) a).getInt("Tick"), action);
                 } catch (NullPointerException e) {
                     TravelogueGensokyo.LOGGER.error("Invalid Action NBT!");
@@ -66,15 +66,18 @@ public class Danmaku {
         nbt.putFloat("Damage", this.damage);
         ListNBT actionsNBT = new ListNBT();
         for(int i : this.actions.keySet()) {
-            CompoundNBT action = new CompoundNBT();
-            action.putInt("Tick", i);
-
-            ListNBT actionList = new ListNBT();
             this.actions.get(i).forEach((a) -> {
-                actionList.add(a.toCompoundNBT());
+                try {
+                    Action.Serializer<Action> serializer = (Action.Serializer<Action>)DanmakuActions.ACTION_SERIALIZERS.get(a.getName()).get();
+                    CompoundNBT action = serializer.write(a);
+                    action.putInt("Tick", i);
+                    actionsNBT.add(action);
+                } catch (NullPointerException e) {
+                    TravelogueGensokyo.LOGGER.error("Can't get the serializer of action: " + a + ", is it registered?");
+                } catch (ClassCastException e) {
+                    TravelogueGensokyo.LOGGER.error("Failed to serialize the action: " + a);
+                }
             });
-            action.put("Actions", actionList);
-            actionsNBT.add(action);
         }
         nbt.put("Actions", actionsNBT);
         return nbt;

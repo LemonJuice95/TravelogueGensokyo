@@ -1,23 +1,22 @@
 package io.lemonjuice.tvlgensokyo.common.danmaku;
 
-import net.minecraft.nbt.CompoundNBT;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class DanmakuActions {
-    public static final Map<String, Function<CompoundNBT, ? extends Action>> ACTION_FROM_NBT = new HashMap<>();
+    public static final Map<String, Supplier<? extends Action.Serializer<? extends Action>>> ACTION_SERIALIZERS = new HashMap<>();
 
     static {
-        register("change_type", ActionChangeDanmakuType::fromCompoundNBT);
-        register("generate_danmakus", ActionGenerateDanmaku::fromCompoundNBT);
-        register("remove", ActionRemove::fromCompoundNBT);
-        register("rotate", ActionRotate::fromCompoundNBT);
-        register("shoot_entity", ActionAimEntity::fromCompoundNBT);
+        register("change_type", ActionChangeDanmakuType.Serializer::new);
+        register("shoot_entity", ActionAimEntity.Serializer::new);
+        register("generate_danmakus", ActionGenerateDanmaku.Serializer::new);
+        register("remove", ActionRemove.Serializer::new);
+        register("rotate", ActionRotate.Serializer::new);
+
     }
 
-    public static void register(String name, Function<CompoundNBT, ? extends Action> func) {
-        ACTION_FROM_NBT.put(name, func);
+    public static void register(String name, Supplier<Action.Serializer<? extends Action>> serializer) {
+        ACTION_SERIALIZERS.put(name, serializer);
     }
 }
