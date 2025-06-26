@@ -21,7 +21,7 @@
   "item.tvlgensokyo.ear_of_rice": "稻穗",
   "item.tvlgensokyo.rice": "稻米",
 
-  "item.tvlgensokyo.pestle": "杵",
+  "item.tvlgensokyo.pestle": "横杵",
 
   "item.tvlgensokyo.laevatein": "莱瓦汀",
   "item.tvlgensokyo.gungnir": "冈格尼尔",
@@ -29,7 +29,7 @@
   "item.tvlgensokyo.basic_spell_book": "初学者魔导书",
   "item.tvlgensokyo.basic_thick_spell_book": "加厚的初学者魔导书",
 
-  "item.tvlgensokyo.danmaku_spot": "点弹",
+  "item.tvlgensokyo.danmaku_dot": "点弹",
   "item.tvlgensokyo.danmaku_small_jade": "小玉",
 
   "item.tvlgensokyo.kappa_spawn_egg": "河童刷怪蛋",
@@ -73,13 +73,15 @@
   "entity.tvlgensokyo.amulet": "灵符",
   "entity.tvlgensokyo.gungnir": "冈格尼尔",
 
-  "entity.tvlgensokyo.danmaku_spot": "点弹",
+  "entity.tvlgensokyo.danmaku_dot": "点弹",
   "entity.tvlgensokyo.danmaku_small_jade": "小玉",
 
   "entity.tvlgensokyo.kappa": "河童",
 
   "entity.tvlgensokyo.gensokyo_villager": "人里村民",
   "entity.tvlgensokyo.gensokyo_villager.farmer": "农民",
+  "entity.tvlgensokyo.gensokyo_villager.shepherd": "牧羊人",
+  "entity.tvlgensokyo.gensokyo_villager.fletcher": "制箭师",
   "entity.tvlgensokyo.gensokyo_villager.librarian": "图书管理员",
 
   "##": "===============================Spells===================================",
@@ -151,8 +153,10 @@
   "biome.tvlgensokyo.misty_lake": "雾之湖",
 
   "biome.tvlgensokyo.youkai_mountain": "妖怪之山",
+  "biome.tvlgensokyo.youkai_mountain_edge": "妖怪之山边缘",
+  "biome.tvlgensokyo.youkai_mountain_center": "妖怪之山中心",
   "biome.tvlgensokyo.genbu_ravine": "玄武之涧",
-  "biome.tvlgensokyo.genbu_ravine_edge": "玄武之涧（边缘）",
+  "biome.tvlgensokyo.genbu_ravine_edge": "玄武之涧边缘",
 
   "biome.tvlgensokyo.youkai_trail": "妖怪兽道",
   "biome.tvlgensokyo.youkai_trail_river": "河流（妖怪兽道）",

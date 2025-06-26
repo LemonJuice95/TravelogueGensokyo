@@ -30,8 +30,8 @@ public class TGEntityRegister {
 
 
     //Danmaku
-    public static final RegistryObject<EntityType<DanmakuEntity>> DANMAKU_SPOT = ENTITIES.register("danmaku_spot", () -> {
-        return EntityType.Builder.create((EntityType.IFactory<DanmakuEntity>) DanmakuEntity::new, EntityClassification.MISC).size(0.2F, 0.2F).build("danmaku_spot");
+    public static final RegistryObject<EntityType<DanmakuEntity>> DANMAKU_DOT = ENTITIES.register("danmaku_dot", () -> {
+        return EntityType.Builder.create((EntityType.IFactory<DanmakuEntity>) DanmakuEntity::new, EntityClassification.MISC).size(0.2F, 0.2F).build("danmaku_dot");
     });
     public static final RegistryObject<EntityType<DanmakuEntity>> DANMAKU_SMALL_JADE = ENTITIES.register("danmaku_small_jade", () -> {
         return EntityType.Builder.create((EntityType.IFactory<DanmakuEntity>) DanmakuEntity::new, EntityClassification.MISC).size(0.25F, 0.25F).build("danmaku_small_jade");

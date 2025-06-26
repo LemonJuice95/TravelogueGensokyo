@@ -64,7 +64,7 @@ public class TGItemRegister {
     public static final RegistryObject<Item> SPELL_BOOK_PAGE = ITEMS.register("spell_book_page", SpellBookPageItem::new);
 
     //Danmaku
-    public static final RegistryObject<DanmakuItem> DANMAKU_DOT = ITEMS.register("danmaku_spot", () -> new DanmakuItem(Danmaku.Type.DOT));
+    public static final RegistryObject<DanmakuItem> DANMAKU_DOT = ITEMS.register("danmaku_dot", () -> new DanmakuItem(Danmaku.Type.DOT));
     public static final RegistryObject<DanmakuItem> DANMAKU_SMALL_JADE = ITEMS.register("danmaku_small_jade", () -> new DanmakuItem(Danmaku.Type.SMALL_JADE));
 
     //Blocks

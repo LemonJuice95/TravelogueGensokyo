@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class TGDanmakuUtils {
     public static final Map<Danmaku.Type, EntityType<? extends DanmakuEntity>> DANMAKU_ENTITY_MAP = ImmutableMap.of(
-            Danmaku.Type.DOT, TGEntityRegister.DANMAKU_SPOT.get(),
+            Danmaku.Type.DOT, TGEntityRegister.DANMAKU_DOT.get(),
             Danmaku.Type.SMALL_JADE, TGEntityRegister.DANMAKU_SMALL_JADE.get()
     );
 

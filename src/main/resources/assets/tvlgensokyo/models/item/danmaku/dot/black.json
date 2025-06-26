@@ -1,0 +1,6 @@
+{
+  "parent": "tvlgensokyo:item/danmaku_dot",
+  "textures": {
+    "layer0": "tvlgensokyo:danmaku/dot/black"
+  }
+}

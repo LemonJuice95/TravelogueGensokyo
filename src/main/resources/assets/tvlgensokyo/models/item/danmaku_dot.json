@@ -5,55 +5,55 @@
       "predicate": {
         "tvlgensokyo:color": 0
       },
-      "model": "tvlgensokyo:item/danmaku/spot/white"
+      "model": "tvlgensokyo:item/danmaku/dot/white"
     },
     {
       "predicate": {
         "tvlgensokyo:color": 1
       },
-      "model": "tvlgensokyo:item/danmaku/spot/red"
+      "model": "tvlgensokyo:item/danmaku/dot/red"
     },
     {
       "predicate": {
         "tvlgensokyo:color": 2
       },
-      "model": "tvlgensokyo:item/danmaku/spot/orange"
+      "model": "tvlgensokyo:item/danmaku/dot/orange"
     },
     {
       "predicate": {
         "tvlgensokyo:color": 3
       },
-      "model": "tvlgensokyo:item/danmaku/spot/yellow"
+      "model": "tvlgensokyo:item/danmaku/dot/yellow"
     },
     {
       "predicate": {
         "tvlgensokyo:color": 4
       },
-      "model": "tvlgensokyo:item/danmaku/spot/green"
+      "model": "tvlgensokyo:item/danmaku/dot/green"
     },
     {
       "predicate": {
         "tvlgensokyo:color": 5
       },
-      "model": "tvlgensokyo:item/danmaku/spot/cyan"
+      "model": "tvlgensokyo:item/danmaku/dot/cyan"
     },
     {
       "predicate": {
         "tvlgensokyo:color": 6
       },
-      "model": "tvlgensokyo:item/danmaku/spot/blue"
+      "model": "tvlgensokyo:item/danmaku/dot/blue"
     },
     {
       "predicate": {
         "tvlgensokyo:color": 7
       },
-      "model": "tvlgensokyo:item/danmaku/spot/purple"
+      "model": "tvlgensokyo:item/danmaku/dot/purple"
     },
     {
       "predicate": {
         "tvlgensokyo:color": 8
       },
-      "model": "tvlgensokyo:item/danmaku/spot/black"
+      "model": "tvlgensokyo:item/danmaku/dot/black"
     }
   ],
   "display": {

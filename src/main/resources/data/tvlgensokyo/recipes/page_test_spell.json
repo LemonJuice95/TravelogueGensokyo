@@ -2,7 +2,7 @@
   "type": "tvlgensokyo:spell_writing",
   "ingredients": {
     "1": {
-      "item": "tvlgensokyo:danmaku_spot"
+      "item": "tvlgensokyo:danmaku_dot"
     },
     "3": {
       "item": "tvlgensokyo:power_point"
