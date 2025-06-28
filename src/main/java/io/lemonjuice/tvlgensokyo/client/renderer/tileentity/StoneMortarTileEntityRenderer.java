@@ -84,7 +84,7 @@ public class StoneMortarTileEntityRenderer extends TileEntityRenderer<StoneMorta
             Vector4f vp = vertexPos[j];
             vp.transform(matrix4f);
 //            fluidVertexBuilder.pos(vp.getX(), vp.getY(), vp.getZ()).color(red, green, blue, alpha).tex(u[(j>>1)&1], v[(j&1)^(j>>1)]).lightmap(combinedLight).normal(0.0F, 1.0F, 0.0F).endVertex();
-            fluidVertexBuilder.addVertex(vp.getX(), vp.getY(), vp.getZ(), red, green, blue, alpha, u[(j>>1) & 1], v[(j&1)^(j>>1)], combinedOverlay, combinedLight, normal.getX(), normal.getY(), normal.getZ());
+            fluidVertexBuilder.addVertex(vp.getX(), vp.getY(), vp.getZ(), red, green, blue, alpha, u[(j >> 1) & 1], v[j & 1], combinedOverlay, combinedLight, normal.getX(), normal.getY(), normal.getZ());
         }
         matrixStack.pop();
     }
