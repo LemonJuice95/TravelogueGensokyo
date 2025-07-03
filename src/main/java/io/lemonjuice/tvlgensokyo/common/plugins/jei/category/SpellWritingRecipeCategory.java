@@ -26,7 +26,6 @@ public class SpellWritingRecipeCategory implements IRecipeCategory<SpellWritingR
     private final IDrawable iconDraw;
 
     public SpellWritingRecipeCategory(IGuiHelper helper) {
-        IDrawable slotDraw = helper.getSlotDrawable();
         this.bgDraw = helper.createBlankDrawable(180, 130);
         this.bg2Draw = helper.drawableBuilder(BG_TEXTURE, 12, 15, 157, 105).build();
         this.iconDraw = helper.createDrawableIngredient(new ItemStack(TGBlockRegister.SPELL_WRITING_TABLE.get()));
