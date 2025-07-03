@@ -5,8 +5,10 @@ import io.lemonjuice.tvlgensokyo.client.gui.screen.container.SpellWritingTableCo
 import io.lemonjuice.tvlgensokyo.common.block.TGBlockRegister;
 import io.lemonjuice.tvlgensokyo.common.container.SpellWritingTableContainer;
 import io.lemonjuice.tvlgensokyo.common.item.TGItemRegister;
+import io.lemonjuice.tvlgensokyo.common.item.crafting.PoundingRecipe;
 import io.lemonjuice.tvlgensokyo.common.item.crafting.SpellWritingRecipe;
 import io.lemonjuice.tvlgensokyo.common.item.crafting.TGRecipeRegister;
+import io.lemonjuice.tvlgensokyo.common.plugins.jei.category.PoundingRecipeCategory;
 import io.lemonjuice.tvlgensokyo.common.plugins.jei.category.SpellWritingRecipeCategory;
 import io.lemonjuice.tvlgensokyo.common.plugins.jei.interpreter.SpellBookPageSubtypeInterpreter;
 import mezz.jei.api.IModPlugin;
@@ -26,16 +28,19 @@ public class TGJEIPlugin implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         registration.addRecipes(getRecipeManager().getRecipesForType(TGRecipeRegister.SPELL_WRITING_TYPE), SpellWritingRecipe.UID);
+        registration.addRecipes(getRecipeManager().getRecipesForType(TGRecipeRegister.POUNDING_TYPE), PoundingRecipe.UID);
     }
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new SpellWritingRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new PoundingRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(TGBlockRegister.SPELL_WRITING_TABLE.get().asItem().getDefaultInstance(), SpellWritingRecipe.UID);
+        registration.addRecipeCatalyst(TGBlockRegister.STONE_MORTAR.get().asItem().getDefaultInstance(), PoundingRecipe.UID);
     }
 
     @Override
