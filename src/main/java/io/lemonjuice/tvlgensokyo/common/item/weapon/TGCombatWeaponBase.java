@@ -20,13 +20,8 @@ public class TGCombatWeaponBase extends SwordItem {
     }
 
     @Override
-    public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        return true;
-    }
-
-    @Override
-    public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
-        return true;
+    public boolean isDamageable(ItemStack stack) {
+        return false;
     }
 
     @Override
