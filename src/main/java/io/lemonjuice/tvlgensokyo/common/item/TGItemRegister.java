@@ -49,6 +49,8 @@ public class TGItemRegister {
     public static final RegistryObject<Item> ROASTED_HAGFISH = ITEMS.register("roasted_hagfish", RoastedHagfishItem::new);
     public static final RegistryObject<Item> CUCUMBER = ITEMS.register("cucumber", () -> new TGFoodBase(2, 0.4F));
     public static final RegistryObject<Item> CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new BlockNamedItem(TGBlockRegister.CUCUMBER.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
+    public static final RegistryObject<Item> TURNIP = ITEMS.register("turnip", () -> new TGFoodBase(2, 0.4F));
+    public static final RegistryObject<Item> TURNIP_SEEDS = ITEMS.register("turnip_seeds", () -> new BlockNamedItem(TGBlockRegister.TURNIP.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
     public static final RegistryObject<Item> EAR_OF_RICE = ITEMS.register("ear_of_rice", () -> new Item(new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
     public static final RegistryObject<Item> RICE = ITEMS.register("rice", () -> new BlockNamedItem(TGBlockRegister.RICE.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
     public static final RegistryObject<Item> MAPLE_SAPLING = ITEMS.register("maple_sapling", () -> new BlockItem(TGBlockRegister.MAPLE_SAPLING.get(), new Item.Properties().group(TGItemGroups.FOOD_AND_AGRICULTURE)));
