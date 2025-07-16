@@ -171,5 +171,7 @@
   "dialogue.tvlgensokyo.debugger.dimensions": "维度相关",
 
   "##": "============================Others=====================================",
-  "key.category.tvlgensokyo": "东方幻想游记"
+  "key.category.tvlgensokyo": "东方幻想游记",
+  "curios.identifier.tg_wings": "翅膀",
+  "curios.identifier.tg_accessories": "饰品"
 }

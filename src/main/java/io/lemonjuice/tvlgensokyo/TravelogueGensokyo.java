@@ -16,12 +16,6 @@ import io.lemonjuice.tvlgensokyo.common.world.dimension.TGDimensionRegister;
 import io.lemonjuice.tvlgensokyo.common.world.feature.TGFeatureRegister;
 import io.lemonjuice.tvlgensokyo.common.world.feature.tree.decorator.TGTreeDecoratorTypes;
 import io.lemonjuice.tvlgensokyo.common.world.feature.tree.placer.TGTreePlacerRegister;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntitySpawnPlacementRegistry;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.passive.RabbitEntity;
-import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.minecraftforge.common.MinecraftForge;
@@ -29,6 +23,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
@@ -37,6 +32,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import top.theillusivec4.curios.api.SlotTypeMessage;
 
 @Mod("tvlgensokyo")
 public class TravelogueGensokyo {
@@ -73,7 +69,8 @@ public class TravelogueGensokyo {
     }
 
     public void enqueueIMC(final InterModEnqueueEvent event) {
-        // some example code to dispatch IMC to another mod
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("tg_wings").size(1).priority(1).build());
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("tg_accessories").priority(2).size(5).build());
     }
 
     public void processIMC(final InterModProcessEvent event) {
