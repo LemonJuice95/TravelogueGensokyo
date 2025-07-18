@@ -20,6 +20,9 @@
   "item.tvlgensokyo.cucumber_seeds": "黄瓜种子",
   "item.tvlgensokyo.ear_of_rice": "稻穗",
   "item.tvlgensokyo.rice": "稻米",
+  "item.tvlgensokyo.turnip": "白萝卜",
+  "item.tvlgensokyo.turnip_seeds": "白萝卜种子",
+
 
   "item.tvlgensokyo.pestle": "横杵",
 
@@ -132,6 +135,8 @@
   "block.tvlgensokyo.sakura_fence_gate": "樱花木栅栏门",
   "block.tvlgensokyo.sakura_button": "樱花木按钮",
   "block.tvlgensokyo.sakura_pressure_plate": "樱花木压力板",
+  "block.tvlgensokyo.sakura_door": "樱花木门",
+  "block.tvlgensokyo.sakura_trapdoor": "樱花木活板门",
 
   "block.tvlgensokyo.spell_book_binding_table": "魔导书装订台",
   "block.tvlgensokyo.spell_writing_table": "魔导书页刻录台",

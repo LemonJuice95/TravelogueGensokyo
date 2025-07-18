@@ -14,10 +14,7 @@ import io.lemonjuice.tvlgensokyo.common.item.weapon.LaevateinItem;
 import io.lemonjuice.tvlgensokyo.common.item.weapon.SpellBookItem;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.entity.EntityType;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.BlockNamedItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.SignItem;
+import net.minecraft.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -98,6 +95,8 @@ public class TGItemRegister {
     public static final RegistryObject<Item> SAKURA_BUTTON = ITEMS.register("sakura_button", () -> new TGBlockItem(TGBlockRegister.SAKURA_BUTTON.get()));
     public static final RegistryObject<Item> MAPLE_PRESSURE_PLATE = ITEMS.register("maple_pressure_plate", () -> new TGBlockItem(TGBlockRegister.MAPLE_PRESSURE_PLATE.get()));
     public static final RegistryObject<Item> SAKURA_PRESSURE_PLATE = ITEMS.register("sakura_pressure_plate", () -> new TGBlockItem(TGBlockRegister.SAKURA_PRESSURE_PLATE.get()));
+    public static final RegistryObject<Item> SAKURA_DOOR = ITEMS.register("sakura_door", () -> new TallBlockItem(TGBlockRegister.SAKURA_DOOR.get(), new Item.Properties().group(TGItemGroups.BLOCK)));
+    public static final RegistryObject<Item> SAKURA_TRAPDOOR = ITEMS.register("sakura_trapdoor", () -> new TGBlockItem(TGBlockRegister.SAKURA_TRAPDOOR.get()));
 
     public static final RegistryObject<Item> SPELL_BOOK_BINDING_TABLE = ITEMS.register("spell_book_binding_table", () -> new TGBlockItem(TGBlockRegister.SPELL_BOOK_BINDING_TABLE.get()));
     public static final RegistryObject<Item> SPELL_WRITING_TABLE = ITEMS.register("spell_writing_table", () -> new TGBlockItem(TGBlockRegister.SPELL_WRITING_TABLE.get()));
@@ -105,6 +104,10 @@ public class TGItemRegister {
     public static void registerCompostable() {
         ComposterBlock.CHANCES.put(CUCUMBER.get(), 0.65F);
         ComposterBlock.CHANCES.put(CUCUMBER_SEEDS.get(), 0.3F);
+        ComposterBlock.CHANCES.put(EAR_OF_RICE.get(), 0.65F);
+        ComposterBlock.CHANCES.put(RICE.get(), 0.3F);
+        ComposterBlock.CHANCES.put(TURNIP.get(), 0.65F);
+        ComposterBlock.CHANCES.put(TURNIP_SEEDS.get(), 0.3F);
 
         ComposterBlock.CHANCES.put(MAPLE_LEAVES.get(), 0.3F);
         ComposterBlock.CHANCES.put(FALLEN_MAPLE_LEAVES.get(), 0.3F);

@@ -73,6 +73,8 @@ public class TGBlockRegister {
     public static final RegistryObject<Block> SAKURA_FENCE_GATE = BLOCKS.register("sakura_fence_gate", () -> new FenceGateBlock(AbstractBlock.Properties.from(SAKURA_PLANKS.get())));
     public static final RegistryObject<Block> SAKURA_BUTTON = BLOCKS.register("sakura_button", () -> new WoodButtonBlock(AbstractBlock.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> SAKURA_PRESSURE_PLATE = BLOCKS.register("sakura_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> SAKURA_DOOR = BLOCKS.register("sakura_door", () -> new DoorBlock(AbstractBlock.Properties.create(Material.WOOD, SAKURA_PLANKS.get().getMaterialColor()).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()));
+    public static final RegistryObject<Block> SAKURA_TRAPDOOR = BLOCKS.register("sakura_trapdoor", () -> new TrapDoorBlock(AbstractBlock.Properties.create(Material.WOOD, SAKURA_PLANKS.get().getMaterialColor()).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid().setAllowsSpawn(TGBlockRegister::neverAllowSpawn)));
 
     //Sweet Bed
     public static final RegistryObject<SweetBedBlock> SWEET_BED_WHITE = BLOCKS.register("sweet_bed_white", () -> new SweetBedBlock((BedBlock)Blocks.WHITE_BED, DyeColor.WHITE));
